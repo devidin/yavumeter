@@ -1,4 +1,4 @@
-package soundmodel;
+package devidin.net.yavumeter.soundmodel;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Mixer.Info;
