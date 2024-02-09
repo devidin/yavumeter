@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 package devidin.net.yavumeter;
-
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-=======
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-package devidin.net.yavumeter;
-
-import devidin.net.yavumeter.soundmodel.SoundCardHelper;
->>>>>>> branch 'main' of https://github.com/devidin/yavumeter.git
-
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 public class DisplayWaveAsText {
+	
+	//private static final Logger logger = LoggerFactory.getLogger(DisplayWaveAsText.class);
+
+
     public static void main(String[] args) {
         SoundCardHelper.listMixers();
         SoundCardHelper.audioLevelMonitor(6, 0);
