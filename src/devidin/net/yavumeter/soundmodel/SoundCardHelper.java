@@ -1,4 +1,5 @@
 package devidin.net.yavumeter.soundmodel;
+<<<<<<< HEAD
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -9,6 +10,12 @@ import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Mixer.Info;
 import javax.sound.sampled.TargetDataLine;
 //import javax.sound.sampled.*;
+=======
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Mixer;
+import javax.sound.sampled.Mixer.Info;
+import javax.sound.sampled.*;
+>>>>>>> branch 'main' of https://github.com/devidin/yavumeter.git
 public class SoundCardHelper {
 
     public static Mixer.Info[] getMixersList() {
