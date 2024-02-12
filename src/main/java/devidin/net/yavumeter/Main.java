@@ -1,5 +1,6 @@
 package devidin.net.yavumeter;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
+
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 public class Main {
@@ -10,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
     	logger.debug("Vu meter started");
         SoundCardHelper.listMixers();
-        SoundCardHelper.audioLevelMonitor(6, 0);
+        VUmeterDisplayer.monitor();
     	logger.debug("Vu meter ended");
     }
 }
