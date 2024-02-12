@@ -21,6 +21,7 @@ public class VUmeterDisplayer {
     
 	public static void monitor() {
         //SoundCardHelper.audioLevelMonitor(6, 0);
+		logger.debug("Monitoring from VUmeterDisplayer");
 		int mixerId=6; // TODO: configurable
 		int lineId=0;  // TODO: configurable
 		
@@ -56,7 +57,7 @@ public class VUmeterDisplayer {
 			System.out.println("Target data Line: " + targetDataLine.getLineInfo());
 			System.out.println("Buffer size     : " + targetDataLine.getBufferSize());
 
-			byte[] buffer = new byte[1024]; // TODO: make configurable
+			byte[] buffer = new byte[64]; // TODO: make configurable
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 
 			System.out.println("Output Level:");
@@ -65,11 +66,11 @@ public class VUmeterDisplayer {
 			while (true) {
 
 				int b = ais.read(buffer);
-				amplitudeLR = SoundCardHelper.calculateAmplitudeRMSLR(buffer, b); // TODO: make configurable: RMS / average
+				amplitudeLR = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels()); // TODO: make configurable: RMS / average
 
 				displayer.displayLR(amplitudeLR);
-				displayer.displayLRasNumbers(amplitudeLR); // TODO: make configurable: visualization method
-				displayer.displayLRasNumber(amplitudeLR);
+				//displayer.displayLRasNumbers(amplitudeLR); // TODO: make configurable: visualization method
+				//displayer.displayLRasNumber(amplitudeLR);
 			}
 
 		} catch (Exception e) {

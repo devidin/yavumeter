@@ -11,7 +11,6 @@ public class ConsoleDisplayer extends Displayer {
 				  +" ".repeat(64-amplitudeLR[1]/2)
 				  +"<".repeat(amplitudeLR[1]/2)
 				  +"]\r");
-
 	}
 
 	public void displayLRasNumber(int[] amplitudeLR) {

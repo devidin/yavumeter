@@ -1,19 +1,13 @@
 package devidin.net.yavumeter.soundmodel;
 
 import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.Line;
-import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
-import javax.sound.sampled.TargetDataLine;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import devidin.net.yavumeter.display.Displayer;
-import devidin.net.yavumeter.display.console.ConsoleDisplayer;
 
 public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
@@ -78,72 +72,7 @@ public class SoundCardHelper {
 		return format;
 
 	}
-
-	public static void audioLevelMonitor(int mixerId, int lineId) {
-		TargetDataLine targetDataLine = null;
-		try {
-			// Get the selected audio mixer
-			Mixer.Info[] mixersInfos = getMixersList();
-			Mixer mixer = AudioSystem.getMixer(mixersInfos[mixerId]);
-			logger.info("Monitoring mixer: " + mixersInfos[mixerId]);
-
-			// Get the selected line from the mixer
-			Line.Info[] lineInfos = mixer.getSourceLineInfo();
-			Line.Info lineInfo = lineInfos[lineId];
-			Line line = mixer.getLine(lineInfo);
-			logger.info("Monitoring Line: " + lineInfos[lineId]);
-
-			AudioFormat format = getAudioFormat();
-			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format); // format is an AudioFormat object
-			logger.info("Selected Audio Format: " + format);
-
-			info = new DataLine.Info(TargetDataLine.class, format);
-			if (!AudioSystem.isLineSupported(info)) {
-				System.out.println("Unsupported format: " + format);
-			}
-			// Obtain and open the line.
-			try {
-				targetDataLine = (TargetDataLine) AudioSystem.getLine(info);
-				targetDataLine.open(format);
-			} catch (LineUnavailableException ex) {
-				System.out.println("Line unavailable: " + line.toString());
-			}
-			targetDataLine.start();
-			System.out.println("Target data Line: " + targetDataLine.getLineInfo());
-			System.out.println("Buffer size     : " + targetDataLine.getBufferSize());
-
-			byte[] buffer = new byte[1024]; // TODO: make configurable
-			AudioInputStream ais = new AudioInputStream(targetDataLine);
-
-			System.out.println("Output Level:");
-			int[] amplitudeLR;
-			Displayer displayer = new ConsoleDisplayer();
-			while (true) {
-
-				int b = ais.read(buffer);
-				amplitudeLR = calculateAmplitudeRMSLR(buffer, b); // TODO: make configurable: RMS / average
-
-				displayer.displayLR(amplitudeLR);
-				displayer.displayLRasNumbers(amplitudeLR); // TODO: make configurable: visualization method
-				displayer.displayLRasNumber(amplitudeLR);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error("Exception caused termination: " + e);
-		} finally {
-			logger.info("Closing line...");
-
-			if (targetDataLine != null) {
-				targetDataLine.stop();
-				targetDataLine.close();
-			}
-
-		}
-
-	}
-
-	private static int calculateAmplitudeAvg(byte[] buffer, int bytesRead) {
+	private static int calculateAmplitudeAvgAll(byte[] buffer, int bytesRead) {
 
 		int totAmplitude = 0;
 		for (int i = 0; i < bytesRead; i += 2) {
@@ -153,13 +82,16 @@ public class SoundCardHelper {
 		return totAmplitude / bytesRead;
 	}
 
-	private static int calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
+	private static int calculateAmplitudeRMSAll(byte[] buffer, int bytesRead) {
+		/*
 		double sumOfSquares = 0;
 		for (int i = 0; i < bytesRead; i += 2) {
 			int amplitude = Math.abs(buffer[i] & 0xFF);
 			sumOfSquares = sumOfSquares + amplitude * amplitude;
 		}
 		return (int) Math.sqrt(sumOfSquares) / bytesRead;
+		*/
+		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
 	}
 
 	private static int[] calculateAmplitudeAvgLR(byte[] buffer, int bytesRead) {
@@ -176,23 +108,30 @@ public class SoundCardHelper {
 		return leftRight;
 	}
 
-	public static int[] calculateAmplitudeRMSLR(byte[] buffer, int bytesRead) {
-		int[] leftRight = new int[2];
+	public static int[] calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
+/*		int[] leftRight = new int[2];
 		for (int channel = 0; channel < 2; channel++) {
 			double sumOfSquares = 0;
 			for (int i = 0; i < bytesRead; i += 2) {
 				int amplitude = buffer[i + channel] & 0xFF;// left channel is the first byte (+0), right the second (+1)
 				sumOfSquares = sumOfSquares + amplitude * amplitude;
 			}
-			leftRight[channel] = Math.max(0, Math.min(128, (int) Math.sqrt(sumOfSquares / bytesRead) - 30)); // never 0
-																												// (->
-																												// -30??)
-																												// //
-																												// TODO:
-																												// make
-																												// configurable
+			leftRight[channel] = Math.max(0, Math.min(128, (int) Math.sqrt(sumOfSquares / bytesRead) - 30)); 
 		}
-		return leftRight;
+		return leftRight;*/
+		return calculateAmplitudeRMS(buffer, bytesRead, 2);
+	}
+	public static int[] calculateAmplitudeRMS(byte[] buffer, int bytesRead, int channels) {
+		int[] amplitudes = new int[channels];
+		for (int channel = 0; channel < channels; channel++) {
+			double sumOfSquares = 0;
+			for (int i = channel; i < bytesRead; i += channels) {
+				int amplitude = buffer[i] & 0xFF;// left channel is the first byte (+0), right the second (+1)
+				sumOfSquares = sumOfSquares + amplitude * amplitude;
+			}
+			amplitudes[channel] = Math.max(0, Math.min(128, (int) Math.sqrt((channels * sumOfSquares) / bytesRead ) -80  )); 
+		}
+		return amplitudes;
 	}
 
 }
