@@ -1,5 +1,7 @@
 package devidin.net.yavumeter.soundmodel;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -113,21 +115,19 @@ public class SoundCardHelper {
 			System.out.println("Buffer size     : " + targetDataLine.getBufferSize());
 
 			// byte[] buffer = new byte[targetDataLine.getBufferSize() / 5];
-			byte[] buffer = new byte[targetDataLine.getBufferSize()];
-			// byte[] buffer = new byte[64];
+			//byte[] buffer = new byte[targetDataLine.getBufferSize()];
+			//byte[] buffer = new byte[1];
+			byte[] buffer = new byte[1024];
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 
 			System.out.println("Output Level:");
-			int counter = 0;
+			int[] amplitudeLR;
 			while (true) {
 
 				int b = ais.read(buffer);
-				for (byte bv : buffer) {
-					System.out.print("\r" + ++counter + ":" + bv + " read " + b + " bytes");
-					System.out.flush();
-//                    System.out.println("bv);
-				}
-
+				amplitudeLR=calculateAmplitudeRMSLR(buffer, b);
+				//displayLR(amplitudeLR);
+				displayLRasNumbers(amplitudeLR);
 			}
 
 		} catch (Exception e) {
@@ -143,19 +143,69 @@ public class SoundCardHelper {
 		}
 
 	}
-
-	private static int calculateAmplitude(byte[] buffer, int bytesRead) {
-		int maxAmplitude = 0;
-		for (int i = 0; i < bytesRead; i += 2) {
-			// Convert bytes to 16-bit signed PCM samples
-			int sample = (buffer[i + 1] << 8) | (buffer[i] & 0xFF);
-
-			// Calculate amplitude (absolute value of the sample)
-			int amplitude = Math.abs(sample);
-
-			// Update max amplitude if the current amplitude is greater
-			maxAmplitude = Math.max(maxAmplitude, amplitude);
-		}
-		return maxAmplitude;
+	private static void displayLR(int[] amplitudeLR) {
+		System.out.print("["+">".repeat(amplitudeLR[0]/2)
+				  +" ".repeat(64-amplitudeLR[0]/2)
+				  +"|"
+				  +" ".repeat(64-amplitudeLR[1]/2)
+				  +"<".repeat(amplitudeLR[1]/2)
+				  +"]\r");
 	}
+	
+	private static void displayLRasNumber(int[] amplitudeLR) {
+		//System.out.print("\r    ");
+		System.out.print(amplitudeLR[0]);
+		System.out.print('\r');
+	}
+	private static void displayLRasNumbers(int[] amplitudeLR) {
+		//System.out.print("\r    ");
+		System.out.print(amplitudeLR[0] + " - "+amplitudeLR[1]);
+		System.out.print('\r');
+	}
+
+	private static int calculateAmplitudeAvg(byte[] buffer, int bytesRead) {
+			
+		int totAmplitude = 0;
+		for (int i = 0; i < bytesRead; i += 2) {
+			int amplitude = Math.abs(buffer[i] & 0xFF);
+			totAmplitude = totAmplitude+ amplitude;
+		}
+		return totAmplitude/bytesRead;
+	}
+	private static int calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
+		double sumOfSquares = 0;
+		for (int i = 0; i < bytesRead; i += 2) {
+			int amplitude = Math.abs(buffer[i] & 0xFF);
+			sumOfSquares = sumOfSquares+ amplitude*amplitude;
+		}
+		return (int) Math.sqrt(sumOfSquares)/bytesRead;
+	}
+	
+	private static int[] calculateAmplitudeAvgLR(byte[] buffer, int bytesRead) {
+		int[] leftRight = new int[2];
+		int totAmplitude = 0;
+		for (int channel=0;channel<2;channel++) {
+			for (int i = 0; i < bytesRead; i += 2) {
+				int amplitude = Math.abs(buffer[i+channel] & 0xFF); // left channel  is the first byte (+0), right the second (+1)
+				totAmplitude = totAmplitude+ amplitude;
+			}
+			//leftRight[channel]=(int)totAmplitude/bytesRead;
+			leftRight[channel]=Math.min(128,(int)totAmplitude/bytesRead);
+		}
+		return leftRight;
+	}
+	private static int[] calculateAmplitudeRMSLR(byte[] buffer, int bytesRead) {
+		int[] leftRight = new int[2];
+		for (int channel=0;channel<2;channel++) {
+			double sumOfSquares = 0;
+			for (int i = 0; i < bytesRead; i += 2) {
+				int amplitude = buffer[i+channel] & 0xFF;// left channel  is the first byte (+0), right the second (+1)
+				sumOfSquares = sumOfSquares+ amplitude*amplitude;
+			}
+			//leftRight[channel]=(int) Math.sqrt(sumOfSquares)/bytesRead;
+			leftRight[channel]=Math.max(0,Math.min(128,(int) Math.sqrt(sumOfSquares/bytesRead)-30)); // never 0 (??)
+		}
+		return leftRight;
+	}
+	
 }
