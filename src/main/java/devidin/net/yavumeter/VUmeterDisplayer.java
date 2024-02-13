@@ -61,16 +61,16 @@ public class VUmeterDisplayer {
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 
 			System.out.println("Output Level:");
-			int[] amplitudeLR;
+			int[] amplitude;
 			Displayer displayer = new ConsoleDisplayer();
 			while (true) {
 
 				int b = ais.read(buffer);
-				amplitudeLR = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels()); // TODO: make configurable: RMS / average
+				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels()); // TODO: make configurable: RMS / average
 
-				displayer.displayLR(amplitudeLR);
-				//displayer.displayLRasNumbers(amplitudeLR); // TODO: make configurable: visualization method
-				//displayer.displayLRasNumber(amplitudeLR);
+				displayer.display(amplitude,format.getChannels());
+				//displayer.displayAsNumbers(amplitude,format.getChannels()); // TODO: make configurable: visualization method
+				//displayer.displayAsNumber(amplitude,format.getChannels());
 			}
 
 		} catch (Exception e) {

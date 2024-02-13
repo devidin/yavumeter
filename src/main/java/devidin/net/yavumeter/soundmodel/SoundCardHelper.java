@@ -72,54 +72,23 @@ public class SoundCardHelper {
 		return format;
 
 	}
-	private static int calculateAmplitudeAvgAll(byte[] buffer, int bytesRead) {
 
+	private static int[] calculateAmplitudeAvg(byte[] buffer, int bytesRead, int channels) {
+		int[] amplitudes = new int[channels];
 		int totAmplitude = 0;
-		for (int i = 0; i < bytesRead; i += 2) {
-			int amplitude = Math.abs(buffer[i] & 0xFF);
-			totAmplitude = totAmplitude + amplitude;
-		}
-		return totAmplitude / bytesRead;
-	}
-
-	private static int calculateAmplitudeRMSAll(byte[] buffer, int bytesRead) {
-		/*
-		double sumOfSquares = 0;
-		for (int i = 0; i < bytesRead; i += 2) {
-			int amplitude = Math.abs(buffer[i] & 0xFF);
-			sumOfSquares = sumOfSquares + amplitude * amplitude;
-		}
-		return (int) Math.sqrt(sumOfSquares) / bytesRead;
-		*/
-		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
-	}
-
-	private static int[] calculateAmplitudeAvgLR(byte[] buffer, int bytesRead) {
-		int[] leftRight = new int[2];
-		int totAmplitude = 0;
-		for (int channel = 0; channel < 2; channel++) {
+		for (int channel = 0; channel < channels; channel++) {
 			for (int i = 0; i < bytesRead; i += 2) {
-				int amplitude = Math.abs(buffer[i + channel] & 0xFF); // left channel is the first byte (+0), right the
-																		// second (+1)
+				int amplitude = Math.abs(buffer[i] & 0xFF);
 				totAmplitude = totAmplitude + amplitude;
 			}
-			leftRight[channel] = Math.min(128, (int) totAmplitude / bytesRead);
+			amplitudes[channel] = totAmplitude / bytesRead;
 		}
-		return leftRight;
+		return amplitudes;
 	}
 
-	public static int[] calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
-/*		int[] leftRight = new int[2];
-		for (int channel = 0; channel < 2; channel++) {
-			double sumOfSquares = 0;
-			for (int i = 0; i < bytesRead; i += 2) {
-				int amplitude = buffer[i + channel] & 0xFF;// left channel is the first byte (+0), right the second (+1)
-				sumOfSquares = sumOfSquares + amplitude * amplitude;
-			}
-			leftRight[channel] = Math.max(0, Math.min(128, (int) Math.sqrt(sumOfSquares / bytesRead) - 30)); 
-		}
-		return leftRight;*/
-		return calculateAmplitudeRMS(buffer, bytesRead, 2);
+	// same as above, but merge all channels as one
+	private static int calculateAmplitudeAvg(byte[] buffer, int bytesRead) {
+		return calculateAmplitudeAvg(buffer, bytesRead, 1) [0];
 	}
 	public static int[] calculateAmplitudeRMS(byte[] buffer, int bytesRead, int channels) {
 		int[] amplitudes = new int[channels];
@@ -129,9 +98,35 @@ public class SoundCardHelper {
 				int amplitude = buffer[i] & 0xFF;// left channel is the first byte (+0), right the second (+1)
 				sumOfSquares = sumOfSquares + amplitude * amplitude;
 			}
-			amplitudes[channel] = Math.max(0, Math.min(128, (int) Math.sqrt((channels * sumOfSquares) / bytesRead ) -80  )); 
+			amplitudes[channel] = Math.max(0,
+					Math.min(128, (int) Math.sqrt((channels * sumOfSquares) / bytesRead) - 80));
 		}
 		return amplitudes;
 	}
 
+	// same as above, but merge all channels as one
+	private static int calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
+		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
+	}
+
+
+	public static int logarithmicView(int amplitude, int max) {
+		// amplitude: 0..max - linear
+		// returns : 0..max - logarithmic
+		return (int) ((int) Math.log((1 + (double) amplitude) * (double) max) / Math.log((double) max));
+
+	}
+
+	public static int squareView(int amplitude, int max) {
+		// amplitude: 0..max - linear
+		// returns : 0..max - square
+		return (int) ((double) amplitude * (double) amplitude / (double) max);
+	}
+
+	public static int exponentialView(int amplitude, int max) {
+		// amplitude: 0..max - linear
+		// returns : 0..max - exponential
+		return (int) ((int) Math.exp(((double) amplitude)) * (double) max / Math.exp((double) max));
+
+	}
 }
