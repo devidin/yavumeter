@@ -2338,3 +2338,1100 @@
 11:52:43.347 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
 11:52:43.348 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
 11:52:43.350 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:26:07.650 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:26:07.657 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:26:07.662 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:26:07.662 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:26:07.663 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:26:07.663 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:26:07.663 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:26:07.663 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:26:07.664 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:26:07.664 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:26:07.664 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:26:07.664 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:26:07.664 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:26:07.666 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.673 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.674 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.675 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.676 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.677 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.678 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.679 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.679 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.679 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:26:07.679 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.679 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:26:07.684 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:26:07.685 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:26:07.686 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:26:07.904 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=ConsoleDisplayerConfiguration for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@6069db50
+ in 'reader', line 1, column 1:
+    ConsoleDisplayerConfiguration:
+    ^
+Unable to find property 'ConsoleDisplayerConfiguration' on class: devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration
+ in 'reader', line 2, column 5:
+        width: 132
+        ^
+
+15:26:07.904 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=ConsoleDisplayerConfiguration for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@6069db50
+ in 'reader', line 1, column 1:
+    ConsoleDisplayerConfiguration:
+    ^
+Unable to find property 'ConsoleDisplayerConfiguration' on class: devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration
+ in 'reader', line 2, column 5:
+        width: 132
+        ^
+
+15:26:07.904 [main] INFO  d.n.y.configuration.Configuration - Setting to defaults
+15:28:48.132 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:28:48.140 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:28:48.146 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:28:48.146 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:28:48.146 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:28:48.146 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:28:48.147 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:28:48.147 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:28:48.147 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:28:48.147 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:28:48.147 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:28:48.148 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:28:48.148 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:28:48.151 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.159 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.159 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.159 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.159 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.160 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:28:48.161 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:28:48.162 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.163 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.164 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.165 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.166 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:28:48.168 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:28:48.169 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:28:48.170 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:39:10.905 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:39:10.911 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:39:10.916 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:39:10.916 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:39:10.917 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:39:10.917 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:39:10.917 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:39:10.917 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:39:10.918 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:39:10.918 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:39:10.918 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:39:10.918 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:39:10.918 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:39:10.920 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.928 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.928 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.928 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.928 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.929 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.930 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.931 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.932 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.933 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.934 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:39:10.935 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:39:10.937 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:39:10.939 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:42:43.763 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:42:43.770 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:42:43.775 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:42:43.775 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:42:43.776 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:42:43.776 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:42:43.776 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:42:43.776 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:42:43.777 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:42:43.777 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:42:43.777 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:42:43.777 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:42:43.777 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:42:43.780 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.790 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.791 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:42:43.792 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.793 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.794 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.795 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.796 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:42:43.797 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.798 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:42:43.803 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:42:43.804 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:42:43.806 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:42:44.215 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=width for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@59662a0b
+ in 'reader', line 1, column 1:
+    width: 132
+    ^
+class org.yaml.snakeyaml.introspector.MethodProperty cannot access a member of class devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration with modifiers "public"
+ in 'reader', line 1, column 8:
+    width: 132
+           ^
+
+15:42:44.215 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=width for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@59662a0b
+ in 'reader', line 1, column 1:
+    width: 132
+    ^
+class org.yaml.snakeyaml.introspector.MethodProperty cannot access a member of class devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration with modifiers "public"
+ in 'reader', line 1, column 8:
+    width: 132
+           ^
+
+15:42:44.215 [main] INFO  d.n.y.configuration.Configuration - Setting to defaults
+15:47:08.448 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:47:08.454 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:47:08.459 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:47:08.459 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:47:08.459 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:47:08.460 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:47:08.460 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:47:08.460 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:47:08.460 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:47:08.460 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:47:08.461 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:47:08.461 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:47:08.461 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:47:08.463 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.471 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.472 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.474 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.475 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:47:08.476 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:47:08.477 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:47:08.479 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:47:08.896 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=displayMethod for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@59662a0b
+ in 'reader', line 1, column 1:
+    displayMethod: "display"
+    ^
+class org.yaml.snakeyaml.introspector.MethodProperty cannot access a member of class devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration with modifiers "public"
+ in 'reader', line 1, column 16:
+    displayMethod: "display"
+                   ^
+
+15:47:08.896 [main] ERROR d.n.y.configuration.Configuration - Cannot create property=displayMethod for JavaBean=devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration@59662a0b
+ in 'reader', line 1, column 1:
+    displayMethod: "display"
+    ^
+class org.yaml.snakeyaml.introspector.MethodProperty cannot access a member of class devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration with modifiers "public"
+ in 'reader', line 1, column 16:
+    displayMethod: "display"
+                   ^
+
+15:47:08.897 [main] INFO  d.n.y.configuration.Configuration - Setting to defaults
+15:49:50.457 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:49:50.463 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:49:50.468 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:49:50.468 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:49:50.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:49:50.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:49:50.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:49:50.469 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:49:50.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:49:50.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:49:50.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:49:50.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:49:50.470 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:49:50.473 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.480 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.480 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.481 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.482 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.483 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.484 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.485 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.486 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:49:50.487 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.487 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:49:50.492 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:49:50.493 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:49:50.495 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:54:22.864 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:54:22.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:54:22.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:54:22.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:54:22.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:54:22.878 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:54:22.878 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:54:22.878 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:54:22.880 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.887 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.888 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.889 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.890 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.891 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.892 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.893 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:54:22.894 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:54:22.895 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:54:22.896 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame
+15:57:35.849 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Available Audio Mixers...
+15:57:35.855 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 0 : Port VoiceMeeter Input (VB-Audio Voi, version 10.0
+15:57:35.860 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:57:35.860 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 1 : Port Virtual Audio Device (Dirac), version 10.0
+15:57:35.861 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:57:35.861 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 2 : Port SPDIF Interface (3- TEAC USB HS, version 10.0
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 3 : Port CABLE Input (VB-Audio Virtual C, version 10.0
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: SPEAKER target port
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 4 : Port CABLE Output (VB-Audio Virtual , version 10.0
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: LINE_IN source port
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: Volume principal target port
+15:57:35.862 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 5 : Périphérique audio principal, version Unknown Version
+15:57:35.865 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.871 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 6 : VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.872 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 7 : Virtual Audio Device (Dirac), version Unknown Version
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.873 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 8 : SPDIF Interface (3- TEAC USB HS ASYNC AUDIO DEVICE), version Unknown Version
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.874 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 9 : CABLE Input (VB-Audio Virtual Cable), version Unknown Version
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 0: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . source line 1: interface Clip supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.875 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 10 : Pilote de capture audio principal, version Unknown Version
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper - Mixer 11 : CABLE Output (VB-Audio Virtual Cable), version Unknown Version
+15:57:35.876 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       . target line 0: interface TargetDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_UNSIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 1 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 1 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_UNSIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 2 sampleSizeInBits: 8 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.877 [main] INFO  d.n.y.soundmodel.SoundCardHelper -       .    Supported Audio Format: channels: 2 encoding: PCM_SIGNED frameSize: 4 sampleSizeInBits: 16 sampleRate: -1.0 frameRate: -1.0
+15:57:35.878 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring mixer: VoiceMeeter Input (VB-Audio VoiceMeeter VAIO), version Unknown Version
+15:57:35.880 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Monitoring Line: interface SourceDataLine supporting 8 audio formats, and buffers of at least 32 bytes
+15:57:35.881 [main] INFO  d.net.yavumeter.VUmeterDisplayer - Selected Audio Format: PCM_SIGNED 16000.0 Hz, 8 bit, stereo, 2 bytes/frame

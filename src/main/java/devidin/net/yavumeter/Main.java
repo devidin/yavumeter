@@ -9,9 +9,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-    	logger.debug("Vu meter started");
+    	logger.debug("Started");
         SoundCardHelper.listMixers();
         VUmeterDisplayer.monitor();
-    	logger.debug("Vu meter ended");
+    	logger.debug("Ended");
     }
 }

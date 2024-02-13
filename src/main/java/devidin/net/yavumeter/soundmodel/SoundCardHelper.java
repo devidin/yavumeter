@@ -109,24 +109,34 @@ public class SoundCardHelper {
 		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
 	}
 
-
+	public static int linearView(int amplitude, int max) {
+		// amplitude: -inf .. +inf - linear
+		// returns : 0..max - linear
+		if (amplitude<0)
+			return 0;
+		else if (amplitude > max)
+			return max;
+		else
+			return (int) ((int) Math.exp(((double) amplitude)) * (double) max / Math.exp((double) max));
+	}
+	
 	public static int logarithmicView(int amplitude, int max) {
-		// amplitude: 0..max - linear
+		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - logarithmic
-		return (int) ((int) Math.log((1 + (double) amplitude) * (double) max) / Math.log((double) max));
-
+		return linearView( (int) (Math.log((1 + (double) amplitude) * (double) max) / Math.log((double) max)), max);
 	}
 
 	public static int squareView(int amplitude, int max) {
-		// amplitude: 0..max - linear
+		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - square
-		return (int) ((double) amplitude * (double) amplitude / (double) max);
+		return linearView((int) ((double) amplitude * (double) amplitude / (double) max), max);
 	}
 
 	public static int exponentialView(int amplitude, int max) {
-		// amplitude: 0..max - linear
+		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - exponential
-		return (int) ((int) Math.exp(((double) amplitude)) * (double) max / Math.exp((double) max));
-
+		return linearView((int) ((int) Math.exp(((double) amplitude)) * (double) max / Math.exp((double) max)), max);
 	}
+	
+
 }
