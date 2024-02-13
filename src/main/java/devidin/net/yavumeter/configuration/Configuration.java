@@ -8,7 +8,6 @@ import org.yaml.snakeyaml.Yaml;
 
 public abstract class Configuration {
 	private static Logger logger = null;
-	public abstract Configuration loadConfiguration();
 	public static Configuration loadConfiguration(Class configurationClass, String configFileName) throws Exception {
 		if (logger == null)
 			logger = LoggerFactory.getLogger(Configuration.class);

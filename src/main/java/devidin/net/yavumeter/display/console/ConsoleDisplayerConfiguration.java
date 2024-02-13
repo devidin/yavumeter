@@ -59,4 +59,8 @@ public class ConsoleDisplayerConfiguration extends Configuration {
 		}
 
 	}
+
+	public Configuration loadConfiguration() {
+		return LoadConfiguration();
+	}
 }

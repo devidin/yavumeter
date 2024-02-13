@@ -4,7 +4,6 @@ import devidin.net.yavumeter.display.Displayer;
 
 public class ConsoleDisplayer extends Displayer {
 	private static ConsoleDisplayerConfiguration configuration = null;
-	
 	public ConsoleDisplayerConfiguration getConfiguration() {
 		if (configuration==null) configuration=ConsoleDisplayerConfiguration.LoadConfiguration();
 		return configuration;

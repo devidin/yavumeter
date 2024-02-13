@@ -1,2 +1,1 @@
-AudioFormat : {sampleRate: 16000, sampleSizeInBits: 8, channels : 2, signed : true, bigEndian : true}
-channels: 2
+audioFormat : {sampleRate: 16000, sampleSizeInBits: 8, channels : 2, signed : true, bigEndian : true}

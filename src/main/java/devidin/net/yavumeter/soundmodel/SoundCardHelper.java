@@ -9,9 +9,11 @@ import javax.sound.sampled.Mixer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration;
+
 public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
-
+	private static final SoundCardHelperConfiguration configuration = SoundCardHelperConfiguration.LoadConfiguration();
 	public static Mixer.Info[] getMixersList() {
 		return AudioSystem.getMixerInfo();
 	}
@@ -60,14 +62,14 @@ public class SoundCardHelper {
 		}
 	}
 
-	public static AudioFormat getAudioFormat() {
-		float sampleRate = 16000;
-		int sampleSizeInBits = 8;
-		int channels = 2;
-		boolean signed = true;
-		boolean bigEndian = true;
+	public static javax.sound.sampled.AudioFormat getAudioFormat() {
+		float sampleRate = configuration.getAudioFormat().getSampleRate();
+		int sampleSizeInBits = 8; // TODO : (int) configuration.getAudioFormat().getSampleSizeInBits(); only 8 bits supported for now
+		int channels = (int) configuration.getAudioFormat().getChannels();
+		boolean signed = configuration.getAudioFormat().getSigned();
+		boolean bigEndian = configuration.getAudioFormat().getBigEndian();
 
-		AudioFormat format = new AudioFormat(sampleRate, sampleSizeInBits, channels, signed, bigEndian);
+		javax.sound.sampled.AudioFormat format = new javax.sound.sampled.AudioFormat(sampleRate, sampleSizeInBits, channels, signed, bigEndian);
 
 		return format;
 
