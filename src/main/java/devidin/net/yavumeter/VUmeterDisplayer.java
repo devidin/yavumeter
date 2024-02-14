@@ -34,8 +34,11 @@ public class VUmeterDisplayer {
 		int lineId = (int) getConfiguration().getLineID();
 
 		// TODO: if either of the above is -1, select default input
-		
+
 		TargetDataLine targetDataLine = null;
+		
+		Displayer displayer = null;
+		
 		try {
 			// Get the selected audio mixer
 			Mixer.Info[] mixersInfos = SoundCardHelper.getMixersList();
@@ -49,7 +52,7 @@ public class VUmeterDisplayer {
 			logger.info("Monitoring Line: " + lineInfos[lineId]);
 
 			AudioFormat format = SoundCardHelper.getAudioFormat();
-			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format); 
+			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
 			logger.info("Selected Audio Format: " + format);
 
 			info = new DataLine.Info(TargetDataLine.class, format);
@@ -71,16 +74,19 @@ public class VUmeterDisplayer {
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 
 			int[] amplitude;
-			String  displayerClassName = getConfiguration().getDisplayerClass();
-			logger.debug("Displayer class:"+displayerClassName);
-			Displayer displayer = (Displayer) Class.forName(displayerClassName).getDeclaredConstructor().newInstance();
+			String displayerClassName = getConfiguration().getDisplayerClass();
+			logger.debug("Displayer class:" + displayerClassName);
+			
+			displayer = (Displayer) Class.forName(displayerClassName).getDeclaredConstructor().newInstance();
+
+			displayer.init();
+
 			while (true) {
 
 				int b = ais.read(buffer);
 				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 				displayer.display(amplitude, format.getChannels());
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error("Exception caused termination: " + e);
@@ -91,7 +97,8 @@ public class VUmeterDisplayer {
 				targetDataLine.stop();
 				targetDataLine.close();
 			}
-
+			
+			if (displayer!=null) displayer.shutdown();
 		}
 
 	}
