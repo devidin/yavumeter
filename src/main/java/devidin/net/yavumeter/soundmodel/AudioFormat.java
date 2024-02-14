@@ -1,7 +1,5 @@
 package devidin.net.yavumeter.soundmodel;
 
-import devidin.net.yavumeter.configuration.Configuration;
-
 public class AudioFormat {
     private long sampleRate;
     private long sampleSizeInBits;

@@ -7,11 +7,11 @@ import devidin.net.yavumeter.display.Displayer;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 
 public class GraphicalDisplayer extends Displayer {
-	private static GraphicalDisplayerConfiguration configuration = null;
+	private static GraphicalDisplayerParameters configuration = null;
 	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayer.class);
 
-	public GraphicalDisplayerConfiguration getConfiguration() {
-		if (configuration==null) configuration=GraphicalDisplayerConfiguration.LoadConfiguration();
+	public GraphicalDisplayerParameters getConfiguration() {
+		if (configuration==null) configuration=GraphicalDisplayerParameters.LoadConfiguration();
 		return configuration;
 	}
 	

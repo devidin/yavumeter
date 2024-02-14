@@ -9,8 +9,6 @@ import javax.sound.sampled.Mixer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration;
-
 public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
 	private static final SoundCardHelperConfiguration configuration = SoundCardHelperConfiguration.LoadConfiguration();
@@ -66,8 +64,8 @@ public class SoundCardHelper {
 		float sampleRate = configuration.getAudioFormat().getSampleRate();
 		int sampleSizeInBits = 8; // TODO : (int) configuration.getAudioFormat().getSampleSizeInBits(); only 8 bits supported for now
 		int channels = (int) configuration.getAudioFormat().getChannels();
-		boolean signed = configuration.getAudioFormat().getSigned();
-		boolean bigEndian = configuration.getAudioFormat().getBigEndian();
+		boolean signed = true;// TODO : configuration.getAudioFormat().getSigned(); only signed supported for now
+		boolean bigEndian = true; // TODO : configuration.getAudioFormat().getBigEndian(); only bigEndian supported for now
 
 		javax.sound.sampled.AudioFormat format = new javax.sound.sampled.AudioFormat(sampleRate, sampleSizeInBits, channels, signed, bigEndian);
 
@@ -89,6 +87,7 @@ public class SoundCardHelper {
 	}
 
 	// same as above, but merge all channels as one
+	@SuppressWarnings("unused")
 	private static int calculateAmplitudeAvg(byte[] buffer, int bytesRead) {
 		return calculateAmplitudeAvg(buffer, bytesRead, 1) [0];
 	}
@@ -107,6 +106,7 @@ public class SoundCardHelper {
 	}
 
 	// same as above, but merge all channels as one
+	@SuppressWarnings("unused")
 	private static int calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
 		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
 	}

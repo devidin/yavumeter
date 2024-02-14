@@ -25,22 +25,22 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long needleLength;
 
 	public String toString() {
-		return "file:"+fileName
-				+", C("+xC+","+yC+")"
-				+", min("+xMin+","+yMin+")"
-				+", max("+xMax+",*)"
-				+", needleColorRGB("+needleRed+","+needleGreen+","+needleBlue+")"
-				+", needleLength :"+needleLength
-				+"["
-				+super.toString()
-				+"]";
+		
+		return "file:" + fileName + ", C(" + xC + "," + yC + ")" + ", min(" + xMin + "," + yMin + ")" + ", max(" + xMax
+				+ ",*)" + ", needleColorRGB(" + needleRed + "," + needleGreen + "," + needleBlue + ")"
+				+ ", needleLength :" + needleLength
+		;
 	}
-	
+
 	public String getBackground() {
 		return background;
 	}
 
-	public void setBackground(String value) {
+	public void setBackground(String value) { //TODO only one is needed
+		this.background = value;
+		setFileName();
+	}
+	public void setbackground(String value) {//TODO only one is needed
 		this.background = value;
 		setFileName();
 	}
@@ -136,21 +136,21 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	}
 
 	public void setNeedleLength() {
-		this.needleLength = (long) Math.sqrt((xC-xMin)*(xC-xMin)+(yC-yMin)*(yC-yMin));
+		this.needleLength = (long) Math.sqrt((xC - xMin) * (xC - xMin) + (yC - yMin) * (yC - yMin));
 	}
-
 
 	public String getFileName() {
 
-		if (fileName != null) return fileName;
+		if (fileName != null)
+			return fileName;
 		setFileName();
 
 		return fileName;
 	}
 
 	private void setFileName() {
-		
-		if (background==null || fileType== null)
+
+		if (background == null || fileType == null)
 			this.fileName = null;
 		else if (color == null)
 			this.fileName = background + "." + fileType;
@@ -182,7 +182,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setyMin(-1);
 
 		setxMax(-1);
-		
+
 	}
 
 	public static GraphicalDisplayerConfiguration LoadConfiguration() {
@@ -203,7 +203,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 		if (configuration.getBackground() == null || configuration.getFileType() == null) {
 			logger.error("Background or type are not specified for background file. Using default :"
-					+ configuration.getFileName() );
+					+ configuration.getFileName());
 		}
 		return configuration;
 

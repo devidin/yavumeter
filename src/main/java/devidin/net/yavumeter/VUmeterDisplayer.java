@@ -13,8 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.display.Displayer;
-import devidin.net.yavumeter.display.console.ConsoleDisplayer;
-import devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 
 public class VUmeterDisplayer {
