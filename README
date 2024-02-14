@@ -1,0 +1,35 @@
+
+Yet Another VU meter
+====================
+
+The objectives of this project is :
+
+For me get back on track with development after years of disconnection with the in-depth technological aspect of Java development. I intended to get some (limited) hand-on experience with various topics like:
+- common IDE like IntelliJ, Eclipse
+- software distribution
+- open source development (git)
+- common frameworks for logging, configuration,...
+- full stack development (stand alone application to web and mobile distant)
+- DEVOPS: continuous integration, source quality control, ... (?)
+... and as much as time will allow me to revisit
+
+NOTE: Selection of frameworks, tools and solution will be defined as development progress, so it's rather an "agile" architecture approach than a predefined full waterfall
+
+Instead of a simple "Hello world" project, I'd rather aim to create multiple versionshi of a VU meter application with increasing level of technical foundations :
+- simple console display of the level of left and right channels of one input device
+- extend to a stand alone application using JavaFX or Swing
+- extend to a client server version using HTML and frameworks like Angular, spring boot
+- extend to mobile integration to replace the HTML client
+
+I will briefly document the exercise along with the project (cf. /doc directory) to summary:
+
+- the major steps of the project
+- the pitfalls I encountered
+- the more complex programing and functionality
+
+Special thanks to Dave Kirkwood davekirkwood@hotmail.com who kindly published his source code to helps me starting with integration of Java audio framework and standalone application graphics after I saw his video (https://www.youtube.com/watch?v=T52l6ss3SFs) and ask him to provide me with his source code:
+
+https://github.com/davekirkwood/VUMeter.git
+
+
+I also like would to thank my company (DXC.com) for allowing me to spend time on this self-study project.
