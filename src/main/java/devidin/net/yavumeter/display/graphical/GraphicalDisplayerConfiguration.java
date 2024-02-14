@@ -24,6 +24,18 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private String fileName;
 	private long needleLength;
 
+	public String toString() {
+		return "file:"+fileName
+				+", C("+xC+","+yC+")"
+				+", min("+xMin+","+yMin+")"
+				+", max("+xMax+",*)"
+				+", needleColorRGB("+needleRed+","+needleGreen+","+needleBlue+")"
+				+", needleLength :"+needleLength
+				+"["
+				+super.toString()
+				+"]";
+	}
+	
 	public String getBackground() {
 		return background;
 	}
@@ -51,55 +63,47 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setFileName();
 	}
 
-	public long getXC() {
+	public long getxC() {
 		return xC;
 	}
 
-	public void setXC(long value) {
+	public void setxC(long value) {
 		this.xC = value;
 		setNeedleLength();
 	}
 
-	public long getYC() {
+	public long getyC() {
 		return yC;
 	}
 
-	public void setYC(long value) {
+	public void setyC(long value) {
 		this.yC = value;
 		setNeedleLength();
 	}
 
-	public long getXMin() {
+	public long getxMin() {
 		return xMin;
 	}
 
-	public void setXMin(long value) {
+	public void setxMin(long value) {
 		this.xMin = value;
 		setNeedleLength();
 	}
 
-	public long getYMin() {
+	public long getyMin() {
 		return yMin;
 	}
 
-	public void setYMin(long value) {
+	public void setyMin(long value) {
 		this.yMin = value;
 		setNeedleLength();
 	}
 
-	public void setYMax(long value) {
-		this.yMax = value;
-	}
-
-	public long getYMax() {
-		return yMax;
-	}
-
-	public long getXMax() {
+	public long getxMax() {
 		return xMax;
 	}
 
-	public void setXMax(long value) {
+	public void setxMax(long value) {
 		this.xMax = value;
 	}
 
@@ -171,13 +175,13 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setNeedleGreen(128);
 		setNeedleRed(128);
 
-		setXC(-1);
-		setYC(-1);
+		setxC(-1);
+		setyC(-1);
 
-		setXMin(-1);
-		setYMin(-1);
+		setxMin(-1);
+		setyMin(-1);
 
-		setXMax(-1);
+		setxMax(-1);
 		
 	}
 

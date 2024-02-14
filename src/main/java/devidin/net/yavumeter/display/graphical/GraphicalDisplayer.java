@@ -8,7 +8,7 @@ import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 
 public class GraphicalDisplayer extends Displayer {
 	private static GraphicalDisplayerConfiguration configuration = null;
-	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
+	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayer.class);
 
 	public GraphicalDisplayerConfiguration getConfiguration() {
 		if (configuration==null) configuration=GraphicalDisplayerConfiguration.LoadConfiguration();
@@ -17,7 +17,7 @@ public class GraphicalDisplayer extends Displayer {
 	
 	public void init() {
 		getConfiguration();
-		logger.debug("Configuration loaded");
+		logger.info("Configuration loaded:"+getConfiguration());
 	}
 	
 	public void shutdown() {
