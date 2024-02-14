@@ -1,0 +1,4 @@
+displayerClass: "devidin.net.yavumeter.display.console.ConsoleDisplayer"
+bufferSize: 64
+mixerID: 6
+lineID: 0

@@ -14,16 +14,26 @@ import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.display.Displayer;
 import devidin.net.yavumeter.display.console.ConsoleDisplayer;
+import devidin.net.yavumeter.display.console.ConsoleDisplayerConfiguration;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 
 public class VUmeterDisplayer {
-    private static final Logger logger = LoggerFactory.getLogger(VUmeterDisplayer.class);
-    
-	public static void monitor() {
-        //SoundCardHelper.audioLevelMonitor(6, 0);
+	private static final Logger logger = LoggerFactory.getLogger(VUmeterDisplayer.class);
+	private static VUmeterDisplayerConfiguration configuration = null;
+
+	public VUmeterDisplayerConfiguration getConfiguration() {
+		if (configuration == null)
+			configuration = VUmeterDisplayerConfiguration.loadConfiguration();
+		return configuration;
+	}
+
+	public void monitor() {
 		logger.debug("Monitoring from VUmeterDisplayer");
-		int mixerId=6; // TODO: configurable
-		int lineId=0;  // TODO: configurable
+
+		int mixerId = (int) getConfiguration().getMixerID();
+		int lineId = (int) getConfiguration().getLineID();
+
+		// TODO: if either of the above is -1, select default input
 		
 		TargetDataLine targetDataLine = null;
 		try {
@@ -39,7 +49,7 @@ public class VUmeterDisplayer {
 			logger.info("Monitoring Line: " + lineInfos[lineId]);
 
 			AudioFormat format = SoundCardHelper.getAudioFormat();
-			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format); // format is an AudioFormat object
+			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format); 
 			logger.info("Selected Audio Format: " + format);
 
 			info = new DataLine.Info(TargetDataLine.class, format);
@@ -57,20 +67,18 @@ public class VUmeterDisplayer {
 			System.out.println("Target data Line: " + targetDataLine.getLineInfo());
 			System.out.println("Buffer size     : " + targetDataLine.getBufferSize());
 
-			byte[] buffer = new byte[64]; // TODO: make configurable
+			byte[] buffer = new byte[(int) getConfiguration().getBufferSize()];
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 
-			System.out.println("Output Level:");
 			int[] amplitude;
-			Displayer displayer = new ConsoleDisplayer();
+			String  displayerClassName = getConfiguration().getDisplayerClass();
+			logger.debug("Displayer class:"+displayerClassName);
+			Displayer displayer = (Displayer) Class.forName(displayerClassName).getDeclaredConstructor().newInstance();
 			while (true) {
 
 				int b = ais.read(buffer);
-				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels()); // TODO: make configurable: RMS / average
-
-				displayer.display(amplitude,format.getChannels());
-				//displayer.displayAsNumbers(amplitude,format.getChannels()); // TODO: make configurable: visualization method
-				//displayer.displayAsNumber(amplitude,format.getChannels());
+				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
+				displayer.display(amplitude, format.getChannels());
 			}
 
 		} catch (Exception e) {
@@ -86,7 +94,6 @@ public class VUmeterDisplayer {
 
 		}
 
-		
 	}
 
 }
