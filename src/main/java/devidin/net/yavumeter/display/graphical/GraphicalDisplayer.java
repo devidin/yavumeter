@@ -2,7 +2,11 @@ package devidin.net.yavumeter.display.graphical;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.lang.System;
+
+import devidin.net.yavumeter.YAvumeterFX;
 import devidin.net.yavumeter.display.Displayer;
 import javafx.stage.Stage;
 
@@ -10,6 +14,7 @@ public class GraphicalDisplayer extends Displayer {
 	private static GraphicalDisplayerParameters configuration = null;
 	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayer.class);
 	private static Stage stage = null;
+	private static YAvumeterFX root=new YAvumeterFX(); // just to access static methods
 	
 	public GraphicalDisplayerParameters getConfiguration() {
 		if (configuration == null)
@@ -25,7 +30,16 @@ public class GraphicalDisplayer extends Displayer {
 		 * logger.debug("Starting displayer..."); 
 		 * app = new GraphicalDisplayer();
 		 * logger.info("Strating app:"+getConfiguration());
+		 * 
 		 */
+		try {
+			Thread.sleep(1000);
+			root.changeScene("GraphicalDisplayer.fxml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void shutdown() {

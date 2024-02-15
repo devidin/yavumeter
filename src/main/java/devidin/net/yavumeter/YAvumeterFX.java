@@ -1,5 +1,7 @@
 package devidin.net.yavumeter;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +17,7 @@ public class YAvumeterFX extends Application {
 	private static final Logger logger = LoggerFactory.getLogger(YAvumeterFX.class);
 	private static VUmeterDisplayer vumeterDisplayer = new VUmeterDisplayer();
 	private static Thread monitoringThread = new Thread(vumeterDisplayer);
+	private static Stage stage;
 	public YAvumeterFX() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,11 +54,14 @@ public class YAvumeterFX extends Application {
 		try {
 			//BorderPane root = new BorderPane();
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage=primaryStage;
+			primaryStage.setResizable(false);
 			Parent root = FXMLLoader.load(getClass().getResource("YAvumeter.fxml"));
-			Scene scene = new Scene(root, 400, 300);
 			primaryStage.setTitle("YA VUmeter");
-			primaryStage.setScene(scene);
+			//Scene scene = new Scene(root, 600, 302);
+			primaryStage.setScene(new Scene(root, 600, 302));
 			primaryStage.show();
+			//changeScene("YAvumeter.fxml");
 			
 
 			primaryStage.setOnCloseRequest(event -> {
@@ -65,5 +71,10 @@ public class YAvumeterFX extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void changeScene(String fxml) throws IOException {
+		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+		stage.getScene().setRoot(pane);
 	}
 }
