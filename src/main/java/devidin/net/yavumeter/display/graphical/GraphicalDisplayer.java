@@ -4,20 +4,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.display.Displayer;
-import devidin.net.yavumeter.soundmodel.SoundCardHelper;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class GraphicalDisplayer extends Displayer {
 	private static GraphicalDisplayerParameters configuration = null;
 	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayer.class);
-
+	private GraphicalDisplayer app = null;
+	
 	public GraphicalDisplayerParameters getConfiguration() {
 		if (configuration==null) configuration=GraphicalDisplayerParameters.LoadConfiguration();
 		return configuration;
 	}
 	
 	public void init() {
+		logger.debug("Loading configuration...");
 		getConfiguration();
 		logger.info("Configuration loaded:"+getConfiguration());
+		logger.debug("Starting displayer...");
+		app = new GraphicalDisplayer();
+		logger.info("Strating app:"+getConfiguration());
 	}
 	
 	public void shutdown() {
@@ -49,6 +56,7 @@ public class GraphicalDisplayer extends Displayer {
 	@Override
 	public void display(int[] amplitudeLR, int channels) {
 		// TODO Auto-generated method stub
+		System.out.println("display() invoked, not yet implemented");
 
 	}
 

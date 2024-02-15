@@ -12,7 +12,8 @@ import org.yaml.snakeyaml.Yaml;
 public abstract class Configuration {
 	private static Logger logger = null;
 
-	public static Configuration loadConfiguration(Class configurationClass, String configFileName) throws Exception {
+	@SuppressWarnings("unchecked")
+	public static Configuration loadConfiguration(@SuppressWarnings("rawtypes") Class configurationClass, String configFileName) throws Exception {
 		if (logger == null)
 			logger = LoggerFactory.getLogger(Configuration.class);
 
@@ -32,29 +33,29 @@ public abstract class Configuration {
 	}
 
 	public static File readFileFromClassPath(String fileName) throws Exception {
+		File firstFoundFile = null;
 		try {
 			// Get the class loader
 			ClassLoader classLoader = Configuration.class.getClassLoader();
 			URL resourceUrl = null;
-
 			// Use getResources to obtain all URLs for the given resource name
 			Enumeration<URL> resources = classLoader.getResources(fileName);
+			int instances=0;
 			while (resources.hasMoreElements()) {
 				resourceUrl = resources.nextElement();
-				logger.info("File found in classpath: " + resourceUrl.getFile());
-				return new File(resourceUrl.getFile());
-				// If you need to convert the URL to a File object (works if the resource is on
-				// the file system)
-				// File file = new File(resourceUrl.getFile());
+				instances++;
+				logger.info(instances + ": File found in classpath: " + resourceUrl.getFile());
+				if (firstFoundFile==null) firstFoundFile = new File(resourceUrl.getFile());
 			}
 
-			if (!resources.hasMoreElements()) {
-				logger.error("File found in classpath: " + resourceUrl.getFile());
-			}
+			if (instances>1) 
+				logger.error("File found "+instances+" times in classpath. First found used : "+firstFoundFile.getCanonicalPath() );
+			else if (instances<1)
+				logger.error("File not found in classpath." );
 		} catch (Exception e) {
-			logger.error("Error while looking for file found in classpath: " + fileName);
+			logger.error("Error while looking for file in classpath: " + fileName);
 			throw e;
 		}
-		return null;
+		return firstFoundFile;
 	}
 }

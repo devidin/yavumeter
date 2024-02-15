@@ -15,9 +15,14 @@ import org.slf4j.LoggerFactory;
 import devidin.net.yavumeter.display.Displayer;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 
-public class VUmeterDisplayer {
+public class VUmeterDisplayer implements Runnable {
 	private static final Logger logger = LoggerFactory.getLogger(VUmeterDisplayer.class);
 	private static VUmeterDisplayerConfiguration configuration = null;
+
+	@Override
+	public void run() {
+		monitor();
+	}
 
 	public VUmeterDisplayerConfiguration getConfiguration() {
 		if (configuration == null)
@@ -100,5 +105,6 @@ public class VUmeterDisplayer {
 		}
 
 	}
+
 
 }

@@ -1,9 +1,15 @@
 package devidin.net.yavumeter.display.console;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import devidin.net.yavumeter.display.Displayer;
+import javafx.stage.Stage;
 
 public class ConsoleDisplayer extends Displayer {
 	private static ConsoleDisplayerConfiguration configuration = null;
+	private static final Logger logger = LoggerFactory.getLogger(ConsoleDisplayer.class);
+
 	public ConsoleDisplayerConfiguration getConfiguration() {
 		if (configuration==null) configuration=ConsoleDisplayerConfiguration.LoadConfiguration();
 		return configuration;
@@ -54,6 +60,5 @@ public class ConsoleDisplayer extends Displayer {
 		}
 		System.out.print(totAmplitude+ "\r    ");	
 	}
-
 
 }

@@ -11,7 +11,9 @@ public class YAvumeter {
     public static void main(String[] args) {
     	logger.debug("Started");
         SoundCardHelper.listMixers();
+        //VUmeterDisplayer vumeterDisplayer=new VUmeterDisplayer();
+        //new Thread(vumeterDisplayer).start();
         new VUmeterDisplayer().monitor();
-    	logger.debug("Ended");
+    	logger.debug("Launched");
     }
 }
