@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
+import javafx.fxml.FXMLLoader;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -28,6 +30,7 @@ public class YAvumeterFX extends Application {
 			 * logger.debug("Monotoring started.");
 			 */
 			logger.debug("Starting monotoring...");
+			// vumeterDisplayer.setScenes(Scene[] scenes);
 			monitoringThread.start();
 			logger.debug("Monotoring started.");
 			
@@ -46,12 +49,14 @@ public class YAvumeterFX extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
+			//BorderPane root = new BorderPane();
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Parent root = FXMLLoader.load(getClass().getResource("YAvumeter.fxml"));
 			Scene scene = new Scene(root, 400, 300);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("YA VUmeter");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
 
 			primaryStage.setOnCloseRequest(event -> {
 				logger.info("Shutdown event. Exiting.");
