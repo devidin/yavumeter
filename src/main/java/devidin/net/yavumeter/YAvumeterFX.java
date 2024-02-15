@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 
 public class YAvumeterFX extends Application {
 	private static final Logger logger = LoggerFactory.getLogger(YAvumeterFX.class);
-
+	private static VUmeterDisplayer vumeterDisplayer = new VUmeterDisplayer();
+	private static Thread monitoringThread = new Thread(vumeterDisplayer);
 	public YAvumeterFX() {
 		// TODO Auto-generated constructor stub
 	}
@@ -20,34 +21,42 @@ public class YAvumeterFX extends Application {
 		try {
 			logger.debug("Started");
 			SoundCardHelper.listMixers();
-
+			/*
+			 * logger.debug("Starting monotoring..."); VUmeterDisplayer vumeterDisplayer =
+			 * new VUmeterDisplayer(); Thread monitoringThread = new
+			 * Thread(vumeterDisplayer); monitoringThread.start();
+			 * logger.debug("Monotoring started.");
+			 */
 			logger.debug("Starting monotoring...");
-			VUmeterDisplayer vumeterDisplayer = new VUmeterDisplayer();
-			Thread monitoringThread = new Thread(vumeterDisplayer);
 			monitoringThread.start();
 			logger.debug("Monotoring started.");
-
+			
 			logger.debug("Starting displaying...");
 			launch(args);
 			logger.debug("Displaying ended.");
 			
-			monitoringThread.interrupt();
-			logger.debug("Monotoring stopped.");
+			System.exit(0); // force all threads to terminate
 		} catch (Exception e) {
-			logger.error("Executation failed with error "+e.getMessage());
+			logger.error("Executation failed with error " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root, 400, 400);
+			Scene scene = new Scene(root, 400, 300);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("YA VUmeter");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+
+			primaryStage.setOnCloseRequest(event -> {
+				logger.info("Shutdown event. Exiting.");
+				System.exit(0);
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

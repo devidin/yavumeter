@@ -39,9 +39,9 @@ public class VUmeterDisplayer implements Runnable {
 		// TODO: if either of the above is -1, select default input
 
 		TargetDataLine targetDataLine = null;
-		
+
 		Displayer displayer = null;
-		
+
 		try {
 			// Get the selected audio mixer
 			Mixer.Info[] mixersInfos = SoundCardHelper.getMixersList();
@@ -79,17 +79,24 @@ public class VUmeterDisplayer implements Runnable {
 			int[] amplitude;
 			String displayerClassName = getConfiguration().getDisplayerClass();
 			logger.debug("Displayer class:" + displayerClassName);
-			
+
 			displayer = (Displayer) Class.forName(displayerClassName).getDeclaredConstructor().newInstance();
 
 			displayer.init();
 
+			
+			/*
+			 * Main monitoring loop here
+			 */
 			while (true) {
-
+				if (Thread.interrupted()) {
+					break;
+				}
 				int b = ais.read(buffer);
 				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 				displayer.display(amplitude, format.getChannels());
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error("Exception caused termination: " + e);
@@ -100,11 +107,11 @@ public class VUmeterDisplayer implements Runnable {
 				targetDataLine.stop();
 				targetDataLine.close();
 			}
-			
-			if (displayer!=null) displayer.shutdown();
+
+			if (displayer != null)
+				displayer.shutdown();
 		}
 
 	}
-
 
 }
