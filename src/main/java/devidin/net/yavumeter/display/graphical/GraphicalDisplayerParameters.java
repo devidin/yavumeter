@@ -17,10 +17,7 @@ import devidin.net.yavumeter.configuration.Configuration;
 public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguration {
 	private double minAngle;
 	private double maxAngle;
-	private int yMax=-1;
 	private static Logger logger = null;
-	//private InputStream backgroundImageStream = null;
-	//private File imageFile = null;
 	private BufferedImage bufferedImage = null;
 
 	public static GraphicalDisplayerParameters LoadConfiguration() {
@@ -66,7 +63,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		minAngle = Math.acos((getxMin() - getxC()) / getNeedleLength());
 	}
 
-	double getMaxAnbgle() {
+	double getMaxAngle() {
 		return maxAngle;
 	}
 
@@ -74,18 +71,13 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		maxAngle = Math.acos((getxMax() - getxC()) / getNeedleLength());
 	}
 
-	int getyMax() {
-		return yMax;
-	}
-
-	void setyMax() {
-		this.yMax = (int) (getyC() + getNeedleLength() * Math.sin(maxAngle));
+	long getyMax() {
+		return (long) (getyC() + getNeedleLength() * Math.sin(maxAngle));
 	}
 
 	void setCalculatedParameters() {
 		setMinAngle();
 		setMaxAngle();
-		setyMax();
 		//setBackgroundImageStream();
 		setBufferedImage();
 	}
@@ -108,9 +100,6 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 
 	private void setBufferedImage() {
 		try {
-			//File imageFile = new File(getFileName());
-			//File imageFile = Configuration.readFileFromClassPath(getFileName());
-			//bufferedImage = ImageIO.read(imageFile);
 			URL resourceUrl = getClass().getClassLoader().getResource(getFileName());
 			logger.info( "Image ressource file URL:"+resourceUrl);
 			bufferedImage = ImageIO.read(resourceUrl);

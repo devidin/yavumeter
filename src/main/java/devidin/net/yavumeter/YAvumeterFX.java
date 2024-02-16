@@ -15,30 +15,29 @@ import javafx.stage.Stage;
 
 public class YAvumeterFX extends Application {
 	private static final Logger logger = LoggerFactory.getLogger(YAvumeterFX.class);
-	private static VUmeterDisplayer vumeterDisplayer = new VUmeterDisplayer();
-	private static Thread monitoringThread = new Thread(vumeterDisplayer);
-	private static Stage stage;
+	private static VUmeterDisplayer vumeterDisplayer = null;
+	private static Thread monitoringThread = null;
+	private static Stage stage=null;
+
 	public YAvumeterFX() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
 		try {
-			logger.debug("Started");
+			logger.debug("Starting soundcard helper");
 			SoundCardHelper.listMixers();
-			/*
-			 * logger.debug("Starting monotoring..."); VUmeterDisplayer vumeterDisplayer =
-			 * new VUmeterDisplayer(); Thread monitoringThread = new
-			 * Thread(vumeterDisplayer); monitoringThread.start();
-			 * logger.debug("Monotoring started.");
-			 */
+			logger.debug("soundcard helper started.");
+
 			logger.debug("Starting monitoring...");
-			// vumeterDisplayer.setScenes(Scene[] scenes);
+			vumeterDisplayer = new VUmeterDisplayer();
+			monitoringThread = new Thread(vumeterDisplayer);
 			monitoringThread.start();
 			logger.debug("Monitoring started.");
 			
 			logger.debug("Starting displaying...");
-			launch(args);
+			launch(args); // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< start with YAvumeter.fxml
+			
 			logger.debug("Displaying ended.");
 			
 			System.exit(0); // force all threads to terminate
@@ -48,20 +47,14 @@ public class YAvumeterFX extends Application {
 		}
 
 	}
-
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//BorderPane root = new BorderPane();
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage=primaryStage;
-			primaryStage.setResizable(false);
+			setStage(primaryStage);
 			Parent root = FXMLLoader.load(getClass().getResource("/YAvumeter.fxml"));
-			primaryStage.setTitle("YA VUmeter");
-			//Scene scene = new Scene(root, 600, 302);
-			primaryStage.setScene(new Scene(root, 600, 302));
+			primaryStage.setTitle("Yet Another VU meter");
+			primaryStage.setScene(new Scene(root, 600, 300));
 			primaryStage.show();
-			//changeScene("YAvumeter.fxml");
 			
 
 			primaryStage.setOnCloseRequest(event -> {
@@ -72,9 +65,24 @@ public class YAvumeterFX extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void changeScene(String fxml) throws IOException {
 		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-		stage.getScene().setRoot(pane);
+		getStage().getScene().setRoot(pane);
 	}
+	/**
+	 * @return the stage
+	 */
+	public Stage getStage() {
+		return stage;
+	}
+
+	/**
+	 * @param stage the stage to set
+	 */
+	void setStage(Stage value) {
+		YAvumeterFX.stage = value;
+	}
+	
+
 }

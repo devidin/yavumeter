@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import devidin.net.yavumeter.display.Displayer;
 import javafx.stage.Stage;
 
-public class ConsoleDisplayer extends Displayer {
+public class ConsoleDisplayer implements Displayer {
 	private static ConsoleDisplayerConfiguration configuration = null;
 	private static final Logger logger = LoggerFactory.getLogger(ConsoleDisplayer.class);
 
@@ -59,6 +59,16 @@ public class ConsoleDisplayer extends Displayer {
 			totAmplitude+=amplitude[channel];
 		}
 		System.out.print(totAmplitude+ "\r    ");	
+	}
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void shutdown() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

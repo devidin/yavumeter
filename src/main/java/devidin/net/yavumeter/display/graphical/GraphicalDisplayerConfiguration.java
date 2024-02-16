@@ -19,8 +19,10 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long yC;
 	private long xMin; // needle end for minimum amplitude
 	private long yMin;
-	private long xMax; // needle end for maximum amplitude (Y calculated from needle length, max angle
-						// & origin)
+	private long xMax; // needle end for maximum amplitude 
+	//private long yMax; (Y calculated from needle length, max angle & origin)
+	
+	private long stuff;
 	// colors
 	private long needleRed;
 	private long needleGreen;
@@ -275,6 +277,5 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	public void setReferenceWidth(long value) {
 		this.referenceWidth = value;
 	}
-
 
 }

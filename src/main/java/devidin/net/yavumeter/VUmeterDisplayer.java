@@ -95,6 +95,8 @@ public class VUmeterDisplayer implements Runnable {
 				int b = ais.read(buffer);
 				amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 				displayer.display(amplitude, format.getChannels());
+				Thread.sleep(50);
+				
 			}
 			
 		} catch (Exception e) {
