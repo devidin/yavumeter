@@ -7,40 +7,49 @@ import org.slf4j.LoggerFactory;
 
 public class GraphicalDisplayerConfiguration extends Configuration {
 	private static Logger logger = null;
-
+	// base image
 	private String background;
 	private String color;
 	private String fileType;
-	private long xC;
+	// dimensions
+	private long referenceWidth;// = 1000; // width of the reference image, not necessarily the actual one
+	private long referenceHeight = 1000; // eight of the reference image, not necessarily the actual one
+	private double referenceDiag = Math.sqrt(referenceWidth * referenceWidth + referenceHeight * referenceHeight);
+	private long xC; // needle origin center
 	private long yC;
-	private long xMin;
+	private long xMin; // needle end for minimum amplitude
 	private long yMin;
-	private long xMax;
+	private long xMax; // needle end for maximum amplitude (Y calculated from needle length, max angle
+						// & origin)
+	// colors
 	private long needleRed;
 	private long needleGreen;
 	private long needleBlue;
 
 	// following parameters are not configurable (calculated with setters)
 	private String fileName;
-	private long needleLength;
+	private long needleLength=1; // avoid div / 0
 
 	public String toString() {
-		
+
 		return "file:" + fileName + ", C(" + xC + "," + yC + ")" + ", min(" + xMin + "," + yMin + ")" + ", max(" + xMax
 				+ ",*)" + ", needleColorRGB(" + needleRed + "," + needleGreen + "," + needleBlue + ")"
 				+ ", needleLength :" + needleLength
-		;
+				+ ", references (width="+getReferenceWidth()+", height="+getReferenceHeight()+", Diag="+getReferenceDiag()+", )"
+				+ ", normalized: C(" + getxC01() + "," + getyC01() + ")" + ", min("
+				+ getxMin01() + "," + getyMin01() + ")" + ", max(" + getxMax01() + ",*)";
 	}
 
 	public String getBackground() {
 		return background;
 	}
 
-	public void setBackground(String value) { //TODO only one is needed
+	public void setBackground(String value) { // TODO only one is needed
 		this.background = value;
 		setFileName();
 	}
-	public void setbackground(String value) {//TODO only one is needed
+
+	public void setbackground(String value) {// TODO only one is needed
 		this.background = value;
 		setFileName();
 	}
@@ -107,6 +116,15 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		this.xMax = value;
 	}
 
+	public long getReferenceHeight() {
+		return referenceHeight;
+	}
+
+	public void setReferenceHeight(long value) {
+		this.referenceHeight = value;
+		//setReferenceDiag();
+	}
+
 	public long getNeedleRed() {
 		return needleRed;
 	}
@@ -171,17 +189,20 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setColor(null);
 		setFileType("jpg");
 
+		setReferenceWidth(1000);
+		setReferenceHeight(1000);
+
+		setxC(500);
+		setyC(1000);
+
+		setxMin(100);
+		setyMin(700);
+
+		setxMax(900);
+
 		setNeedleBlue(128);
 		setNeedleGreen(128);
 		setNeedleRed(128);
-
-		setxC(-1);
-		setyC(-1);
-
-		setxMin(-1);
-		setyMin(-1);
-
-		setxMax(-1);
 
 	}
 
@@ -212,5 +233,48 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	public Configuration loadConfiguration() {
 		return LoadConfiguration();
 	}
+
+	public double getReferenceDiag() {
+		return referenceDiag;
+	}
+
+	public void setReferenceDiag() {
+		//this.referenceDiag = Math.sqrt(referenceWidth * referenceWidth + referenceHeight * referenceHeight);
+		;
+	}
+
+	public double getxC01() {
+		return ((double) getxC()) / getReferenceWidth();
+	}
+
+	public double getyC01() {
+		return ((double) getyC()) / getReferenceHeight();
+	}
+
+	public double getxMin01() {
+		return ((double) getxMin()) / getReferenceWidth();
+	}
+
+	public double getyMin01() {
+		return ((double) getyMin()) / getReferenceHeight();
+	}
+
+	public double getxMax01() {
+		return ((double) getxMax()) / getReferenceWidth();
+	}
+
+
+	public double getNeedleLength01() {
+		return needleLength / getReferenceDiag();
+	}
+
+	public long getReferenceWidth() {
+		return referenceWidth;
+	}
+
+	public void setReferenceWidth(long value) {
+		this.referenceWidth = value;
+	}
+
 
 }

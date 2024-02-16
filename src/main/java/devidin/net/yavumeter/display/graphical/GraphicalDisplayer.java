@@ -26,15 +26,10 @@ public class GraphicalDisplayer extends Displayer {
 		logger.debug("Loading configuration...");
 		getConfiguration();
 		logger.info("Configuration loaded:" + getConfiguration());
-		/*
-		 * logger.debug("Starting displayer..."); 
-		 * app = new GraphicalDisplayer();
-		 * logger.info("Strating app:"+getConfiguration());
-		 * 
-		 */
+
 		try {
-			Thread.sleep(1000);
-			root.changeScene("GraphicalDisplayer.fxml");
+			Thread.sleep(2000);
+			root.changeScene("/GraphicalDisplayer.fxml");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

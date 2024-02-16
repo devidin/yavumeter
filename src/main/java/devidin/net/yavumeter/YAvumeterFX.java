@@ -56,7 +56,7 @@ public class YAvumeterFX extends Application {
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage=primaryStage;
 			primaryStage.setResizable(false);
-			Parent root = FXMLLoader.load(getClass().getResource("YAvumeter.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/YAvumeter.fxml"));
 			primaryStage.setTitle("YA VUmeter");
 			//Scene scene = new Scene(root, 600, 302);
 			primaryStage.setScene(new Scene(root, 600, 302));

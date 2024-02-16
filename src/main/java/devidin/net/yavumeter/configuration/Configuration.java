@@ -23,7 +23,6 @@ public abstract class Configuration {
 			newConfiguration = (Configuration) yaml.loadAs(in, configurationClass);
 		} catch (Exception ex) {
 
-			ex.getCause().printStackTrace();
 			ex.printStackTrace();
 
 			logger.error(ex.toString());

@@ -17,7 +17,6 @@ import devidin.net.yavumeter.configuration.Configuration;
 public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguration {
 	private double minAngle;
 	private double maxAngle;
-	private double needleAngle;
 	private int yMax=-1;
 	private static Logger logger = null;
 	//private InputStream backgroundImageStream = null;
@@ -31,10 +30,10 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 			parameters = (GraphicalDisplayerParameters) Configuration
 					.loadConfiguration(GraphicalDisplayerParameters.class, "GraphicalDisplayerConfiguration.yml");
 		} catch (Exception e) {
-		    Throwable cause = e.getCause();
-		    cause.printStackTrace();
+		    
+		    e.printStackTrace();
 			logger.error(e.toString());
-		    logger.error(cause.getStackTrace().toString());
+		    logger.error(e.getStackTrace().toString());
 			logger.info("Setting to defaults");
 
 			parameters = new GraphicalDisplayerParameters();
@@ -44,14 +43,19 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	}
 
 	public String toString() {
-		return super.toString() + "min angle:" + minAngle + ", max angle:" + maxAngle + ", width:"+getWidth()+", height:"+getHeight() ;
+		return super.toString() + ", min angle:" + minAngle + ", max angle:" + maxAngle + ", width:"+getWidth()+", height:"+getHeight() ;
 	}
 
 	public GraphicalDisplayerParameters() {
 		super();
-		if (logger == null)
-			logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);
-		//setCalculatedParameters();
+		try {
+			if (logger == null)
+				logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);
+			//setCalculatedParameters();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	double getMinAngle() {
@@ -85,20 +89,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		//setBackgroundImageStream();
 		setBufferedImage();
 	}
-/*
-	private InputStream getBackgroundImageStream() {
-		return backgroundImageStream;
-	}
 
-	private void setBackgroundImageStream() {
-		try {
-			this.backgroundImageStream = new FileInputStream(getFileName());
-		} catch (FileNotFoundException e) {
-			this.backgroundImageStream = null;
-			logger.error("Background image file not found:" + getFileName() + ":"+e.getMessage());
-		}
-	}
-*/
 	@SuppressWarnings("unused")
 	private int getWidth() {
 		return getBufferedImage().getWidth();
