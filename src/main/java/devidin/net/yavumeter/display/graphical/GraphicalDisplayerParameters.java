@@ -60,7 +60,9 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	}
 
 	void setMinAngle() {
-		minAngle = Math.acos((getxMin() - getxC()) / getNeedleLength());
+		//minAngle = Math.acos((getxMin() - getxC()) / getNeedleLength());
+		minAngle = Math.acos((double)(getxMin()-getxC() ) / (double)getNeedleLength());
+		System.out.println("setMinAngle:" +getxMin()+"," +getxC()+","+ getNeedleLength()+"-->"+minAngle);
 	}
 
 	double getMaxAngle() {
@@ -68,7 +70,9 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	}
 
 	void setMaxAngle() {
-		maxAngle = Math.acos((getxMax() - getxC()) / getNeedleLength());
+		//maxAngle = Math.acos((getxMax() - getxC()) / getNeedleLength());
+		maxAngle = Math.acos((double)(getxMax() - getxC()) / (double)getNeedleLength());
+		System.out.println("setMaxAngle:" +getxMax()+"," +getxC()+","+ getNeedleLength()+"-->"+maxAngle);
 	}
 
 	long getyMax() {
@@ -78,7 +82,6 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	void setCalculatedParameters() {
 		setMinAngle();
 		setMaxAngle();
-		//setBackgroundImageStream();
 		setBufferedImage();
 	}
 
@@ -110,7 +113,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	}
 
 	@SuppressWarnings("unused")
-	private double getNeedleAngle() {
+	private double getAngleRange() {
 		return maxAngle - minAngle;
 	}
 

@@ -13,8 +13,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private String fileType;
 	// dimensions
 	private long referenceWidth;// = 1000; // width of the reference image, not necessarily the actual one
-	private long referenceHeight = 1000; // eight of the reference image, not necessarily the actual one
-	private double referenceDiag = Math.sqrt(referenceWidth * referenceWidth + referenceHeight * referenceHeight);
+	private long referenceHeight;// = 1000; // eight of the reference image, not necessarily the actual one
 	private long xC; // needle origin center
 	private long yC;
 	private long xMin; // needle end for minimum amplitude
@@ -22,7 +21,6 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long xMax; // needle end for maximum amplitude 
 	//private long yMax; (Y calculated from needle length, max angle & origin)
 	
-	private long stuff;
 	// colors
 	private long needleRed;
 	private long needleGreen;
@@ -37,9 +35,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		return "file:" + fileName + ", C(" + xC + "," + yC + ")" + ", min(" + xMin + "," + yMin + ")" + ", max(" + xMax
 				+ ",*)" + ", needleColorRGB(" + needleRed + "," + needleGreen + "," + needleBlue + ")"
 				+ ", needleLength :" + needleLength
-				+ ", references (width="+getReferenceWidth()+", height="+getReferenceHeight()+", Diag="+getReferenceDiag()+", )"
-				+ ", normalized: C(" + getxC01() + "," + getyC01() + ")" + ", min("
-				+ getxMin01() + "," + getyMin01() + ")" + ", max(" + getxMax01() + ",*)";
+				+ ", references (width="+getReferenceWidth()+", height="+getReferenceHeight();
 	}
 
 	public String getBackground() {
@@ -124,7 +120,6 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setReferenceHeight(long value) {
 		this.referenceHeight = value;
-		//setReferenceDiag();
 	}
 
 	public long getNeedleRed() {
@@ -180,13 +175,6 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public GraphicalDisplayerConfiguration() {
 
-		/*
-		 * xC (default = width/2) yC (default = -height / 5) xMin (default = witdh/10)
-		 * yMin (default = height/3) xMax (default = 9*width/10) yMax : not configurable
-		 * needleRed = 0..255 (default = 0) needleGreen = 0..255 (default = 0)
-		 * needleBlue = 0..255 (default = 0)
-		 */
-
 		setBackground("default");
 		setColor(null);
 		setFileType("jpg");
@@ -234,40 +222,6 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public Configuration loadConfiguration() {
 		return LoadConfiguration();
-	}
-
-	public double getReferenceDiag() {
-		return referenceDiag;
-	}
-
-	public void setReferenceDiag() {
-		//this.referenceDiag = Math.sqrt(referenceWidth * referenceWidth + referenceHeight * referenceHeight);
-		;
-	}
-
-	public double getxC01() {
-		return ((double) getxC()) / getReferenceWidth();
-	}
-
-	public double getyC01() {
-		return ((double) getyC()) / getReferenceHeight();
-	}
-
-	public double getxMin01() {
-		return ((double) getxMin()) / getReferenceWidth();
-	}
-
-	public double getyMin01() {
-		return ((double) getyMin()) / getReferenceHeight();
-	}
-
-	public double getxMax01() {
-		return ((double) getxMax()) / getReferenceWidth();
-	}
-
-
-	public double getNeedleLength01() {
-		return needleLength / getReferenceDiag();
 	}
 
 	public long getReferenceWidth() {

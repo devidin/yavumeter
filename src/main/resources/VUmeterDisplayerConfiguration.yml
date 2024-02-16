@@ -1,5 +1,5 @@
 #displayerClass: "devidin.net.yavumeter.display.console.ConsoleDisplayer"
 displayerClass: "devidin.net.yavumeter.display.graphical.GraphicalDisplayer"
-bufferSize: 64
+bufferSize: 3000
 mixerID: 6
 lineID: 0

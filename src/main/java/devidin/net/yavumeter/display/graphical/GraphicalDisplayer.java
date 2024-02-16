@@ -115,14 +115,14 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< change to
-															// GraphicalDisplayer
+			// GraphicalDisplayer
 		root.getStage().sizeToScene();
 
 		for (int i = 0; i < 2; i++) {
 			try {
 
-				String needleLabel="#needle" + i;
-				String imageLabel="#image" + i;
+				String needleLabel = "#needle" + i;
+				String imageLabel = "#image" + i;
 				Line needle = (Line) rootScene.lookup(needleLabel);
 				ImageView image = (ImageView) rootScene.lookup(imageLabel);
 
@@ -132,8 +132,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setStartY(0);
 				needle.setEndX(image.getFitWidth() / 2);
 				needle.setEndY(image.getFitHeight());
-				
-				System.out.println("Needle draw ok "+i);
+
+				System.out.println("Needle draw ok " + i);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -167,29 +167,25 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		// TODO Auto-generated method stub
 
 	}
-/*
-	public void display2(int[] amplitudeLR, int channels) {
-		// TODO Auto-generated method stub
-		long startTime = System.currentTimeMillis();
-		logger.info("display " + amplitudeLR.length + " bytes of " + channels + " channels.");
-		if (root.getStage() == null)
-			System.out.println("display() invoked, stage not set yet. Go to sleep.");
-		else
-			System.out.println("display() invoked, not yet implemented. Go to sleep.");
 
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			logger.info("Interrupted: " + e);
-		}
-		long endTime = System.currentTimeMillis();
-
-		System.out.println("Awaken. Execution time: " + (endTime - startTime));
-	}
-*/
+	/*
+	 * public void display2(int[] amplitudeLR, int channels) { // TODO
+	 * Auto-generated method stub long startTime = System.currentTimeMillis();
+	 * logger.info("display " + amplitudeLR.length + " bytes of " + channels +
+	 * " channels."); if (root.getStage() == null)
+	 * System.out.println("display() invoked, stage not set yet. Go to sleep.");
+	 * else
+	 * System.out.println("display() invoked, not yet implemented. Go to sleep.");
+	 * 
+	 * try { Thread.sleep(500); } catch (InterruptedException e) {
+	 * logger.info("Interrupted: " + e); } long endTime =
+	 * System.currentTimeMillis();
+	 * 
+	 * System.out.println("Awaken. Execution time: " + (endTime - startTime)); }
+	 */
 	public void display(int[] amplitudeLR, int channels) {
-		
-		if (rootScene==null)  {
+
+		if (rootScene == null) {
 			System.out.println("not yet ready to display...");
 			return;
 		}
@@ -197,29 +193,28 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		for (int i = 0; i < amplitudeLR.length; i++) {
 
-			String needleLabel="#needle" + i;
-			String imageLabel="#image" + i;
+			String needleLabel = "#needle" + i;
+			String imageLabel = "#image" + i;
 			Line needle = (Line) rootScene.lookup(needleLabel);
 			ImageView image = (ImageView) rootScene.lookup(imageLabel);
 
-			if (needle==null) {
-				System.out.println("Missing:"+needleLabel);
-				return;				
+			if (needle == null) {
+				System.out.println("Missing:" + needleLabel);
+				return;
 			}
-			if (image==null) {
-				System.out.println("Missing:"+imageLabel);
-				return;				
+			if (image == null) {
+				System.out.println("Missing:" + imageLabel);
+				return;
 			}
-			
+
 			long[] segment = resizeSegement(calculateSegment(amplitudeLR[i], 128), image);
 
-			
 			needle.setStartX(segment[0]);
 			needle.setStartY(segment[1]);
 			needle.setEndX(segment[2]);
 			needle.setEndY(segment[3]);
 		}
-		
+
 		long endTime = System.currentTimeMillis();
 
 		System.out.println("Execution time: " + (endTime - startTime));
@@ -238,42 +233,45 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	}
 
 	public static double[] calculateSegment(int amplitude, int maxAmplitude) {
-		double [] coordinates = new double[4];
+		double[] coordinates = new double[4];
 
-		double mu = getParamaters().getMaxAngle();
-		double alpha = getParamaters().getMinAngle()+amplitude*mu/maxAmplitude;
-		
-		double X = getParamaters().getxC() + Math.cos(alpha)*getParamaters().getNeedleLength();
-		double Y = getParamaters().getyC() + Math.sin(alpha)*getParamaters().getNeedleLength();
-		
-		//double intersection[]=calculateIntersection()
-		
+		double mu = getParamaters().getMaxAngle() - getParamaters().getMinAngle();
+		double alpha = getParamaters().getMinAngle() + (double) amplitude * mu / (double) maxAmplitude;
+
+		double X = getParamaters().getxC() + Math.cos(alpha) * getParamaters().getNeedleLength();
+		double Y = getParamaters().getyC() - Math.sin(alpha) * getParamaters().getNeedleLength();
+
+		// double intersection[]=calculateIntersection()
+
 		double xI = getParamaters().getxC();
 		double yI = getParamaters().getyC();
-		
-		coordinates[0]=xI;
-		coordinates[1]=yI;
-		
-		coordinates[2]=X;
-		coordinates[3]=Y;
-		
-		System.out.println("mu="+mu+",alpha="+alpha+",X="+X+",Y="+Y+",xI="+xI+",yI="+yI);
-		
+
+		coordinates[0] = xI;
+		coordinates[1] = yI;
+
+		coordinates[2] = X;
+		coordinates[3] = Y;
+
+		System.out.println("amplitude=" + amplitude + ",maxAmplitude=" + maxAmplitude
+				+ ",minAngle="+getParamaters().getMinAngle()
+				+ ",maxAngle="+getParamaters().getMaxAngle()
+				+ ",mu=" + mu + ",alpha=" + alpha + ",X=" + X + ",Y=" + Y + ",xI=" + xI + ",yI=" + yI);
+
 		return coordinates;
 	}
-	
+
 	public static long[] resizeSegement(double coordinates[], ImageView image) {
-		
+
 		long[] segment = new long[4];
 		// X's
-		segment[0]=(long) (coordinates[0]*image.getFitWidth()/getParamaters().getReferenceWidth());
-		segment[2]=(long) (coordinates[2]*image.getFitWidth()/getParamaters().getReferenceWidth());
+		segment[0] = (long) (coordinates[0] * image.getFitWidth() / getParamaters().getReferenceWidth());
+		segment[2] = (long) (coordinates[2] * image.getFitWidth() / getParamaters().getReferenceWidth());
 		// Ys
-		segment[1]=(long) (coordinates[1]*image.getFitHeight()/getParamaters().getReferenceHeight());
-		segment[3]=(long) (coordinates[3]*image.getFitHeight()/getParamaters().getReferenceHeight());
-				
+		segment[1] = (long) (coordinates[1] * image.getFitHeight() / getParamaters().getReferenceHeight());
+		segment[3] = (long) (coordinates[3] * image.getFitHeight() / getParamaters().getReferenceHeight());
+
 		return segment;
-		
+
 	}
 
 	// Calculate the intersection point of two line segments
