@@ -108,5 +108,29 @@ public class GraphicalDisplayer extends Displayer {
 		GraphicalDisplayer.stage = stage;
 		logger.info("Stage set.");
 	}
+    // Calculate the intersection point of two line segments
+    public static double[] calculateIntersection(double x1, double y1, double x2, double y2,
+                                                 double x3, double y3, double x4, double y4) {
+        double[] intersection = new double[2];
+
+        double denominator = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+
+        // Check if the lines are parallel (denominator is zero)
+        if (denominator == 0) {
+            return null; // No intersection
+        }
+
+        double t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denominator;
+        double u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / denominator;
+
+        // Check if the intersection point is within the line segments
+        if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
+            intersection[0] = x1 + t * (x2 - x1);
+            intersection[1] = y1 + t * (y2 - y1);
+            return intersection;
+        } else {
+            return null; // Intersection is outside the line segments
+        }
+    }
 
 }

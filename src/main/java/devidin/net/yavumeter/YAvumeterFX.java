@@ -32,10 +32,10 @@ public class YAvumeterFX extends Application {
 			 * Thread(vumeterDisplayer); monitoringThread.start();
 			 * logger.debug("Monotoring started.");
 			 */
-			logger.debug("Starting monotoring...");
+			logger.debug("Starting monitoring...");
 			// vumeterDisplayer.setScenes(Scene[] scenes);
 			monitoringThread.start();
-			logger.debug("Monotoring started.");
+			logger.debug("Monitoring started.");
 			
 			logger.debug("Starting displaying...");
 			launch(args);
