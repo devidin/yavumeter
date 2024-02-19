@@ -116,10 +116,11 @@ public class VUmeterDisplayer implements Runnable {
 						amplitude1 = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 						break;
 					}
+					System.out.println("1 -->"+amplitude1[0]+","+amplitude1[1]);
 
 					switch (configuration.getViewMode()) {
-					case VUmeterDisplayerConfiguration.EXP_VIEW:
-						amplitude2 = SoundCardHelper.exponentialView(amplitude1, 128);
+					case VUmeterDisplayerConfiguration.SQUAREROOT_VIEW:
+						amplitude2 = SoundCardHelper.squareRootView(amplitude1, 128);
 						break;
 					case VUmeterDisplayerConfiguration.LOG_VIEW:
 						amplitude2 = SoundCardHelper.logarithmicView(amplitude1, 128);
@@ -132,11 +133,13 @@ public class VUmeterDisplayer implements Runnable {
 						break;
 					default:
 						logger.error("Invalid view mode in configuration file: " + configuration.getLoudnessMode()
-								+ "(expected : LOG,LINEAR,EXP,SQUARE)");
+								+ "(expected : LOG,LINEAR,SQUAREROOT,SQUARE)");
 						amplitude2 = SoundCardHelper.squareView(amplitude1, 128);
 						break;
 					}
 
+					System.out.println("2 -->"+amplitude2[0]+","+amplitude2[1]);
+					
 					displayer.display(amplitude2, format.getChannels());
 				}
 			}

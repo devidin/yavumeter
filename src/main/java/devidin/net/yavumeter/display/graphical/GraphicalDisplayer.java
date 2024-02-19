@@ -33,10 +33,10 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	private static Stage stage = null;
 	private static Scene rootScene = null;
 
-	private static double[] previousAmplitude = new double[] { 128, 128 };
+	private static double[] previousAmplitude = new double[] { 0, 0 };
 	private static long previousCallTimeMillis = System.currentTimeMillis();
 	private static int maxDownSpeed = 1; // TODO make configurable
-	private static int maxUpSpeed = 2; // "
+	private static int maxUpSpeed = 16; // "
 
 	public static GraphicalDisplayerParameters getParamaters() {
 		if (parameters == null)
@@ -256,7 +256,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double alpha = getParamaters().getMinAngle() + amplitude * mu / (double) maxAmplitude;
 
 		double X = getParamaters().getxC() + Math.cos(alpha) * getParamaters().getNeedleLength();
-		double Y = getParamaters().getyC() - Math.sin(alpha) * getParamaters().getNeedleLength();
+		double Y = getParamaters().getyC() + Math.sin(alpha) * getParamaters().getNeedleLength();
 
 		// double intersection[]=calculateIntersection()
 

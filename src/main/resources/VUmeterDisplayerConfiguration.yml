@@ -6,5 +6,5 @@ mixerID: 6
 lineID: 0
  # rms/avg
  # log/linear/exp/square
-loudnessMode: "AVG"
-viewMode: "SQUARE"
+loudnessMode: "RMS"
+viewMode: "SQUAREROOT"

@@ -17,8 +17,8 @@ public class VUmeterDisplayerConfiguration extends Configuration {
     
 	public static final String LOG_VIEW="LOG"; 
 	public static final String LINEAR_VIEW="LINEAR"; 
-	public static final String EXP_VIEW="EXP"; 
 	public static final String SQUARE_VIEW="SQUARE"; 
+	public static final String SQUAREROOT_VIEW="SQUAREROOT"; 
 	
 	public static final String RMS_LOUDNESS="RMS"; 
 	public static final String AVG_LOUDNESS="AVG"; 

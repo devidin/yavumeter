@@ -19,8 +19,8 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long xMin;       // needle end for minimum amplitude
 	private long yMin;
 	// only one of the 2 below should be configured - the other will be calculated
-	private long xMax;      // needle end for maximum amplitude 
-	private long yMax;      // needle end for maximum amplitude 
+	private long xMax;      
+	private long yMax;      
 	//private long yMax; (Y calculated from needle length, max angle & origin)
 	
 	// colors
@@ -114,7 +114,20 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setxMax(long value) {
 		this.xMax = value;
+		setNeedleLength();
 	}
+
+
+	public long getyMax() {
+		return yMax;
+	}
+
+
+	public void setyMax(long value) {
+		this.yMax = value;
+		setNeedleLength();
+	}
+
 
 	public long getReferenceHeight() {
 		return referenceHeight;
@@ -153,7 +166,9 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	}
 
 	public void setNeedleLength() {
-		this.needleLength = (long) Math.sqrt((xC - xMin) * (xC - xMin) + (yC - yMin) * (yC - yMin));
+		long minNeedleLength=(long) Math.sqrt((xC - xMin) * (xC - xMin) + (yC - yMin) * (yC - yMin));
+		long maxNeedleLength=(long) Math.sqrt((xC - xMax) * (xC - xMax) + (yC - yMax) * (yC - yMax));
+		this.needleLength=(minNeedleLength+maxNeedleLength)/2; // approximate = average length
 	}
 
 	public String getFileName() {
@@ -188,12 +203,12 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setyC(800);
 
 		setxMin(100);
-		setyMin(400);
+		setyMin(100);
 
-		setxMax(-1);
-		setyMax(-1);
+		setxMax(700);
+		setyMax(100);
 
-		setNeedleBlue(0);
+		setNeedleBlue(255);
 		setNeedleGreen(0);
 		setNeedleRed(255);
 
@@ -234,15 +249,4 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	public void setReferenceWidth(long value) {
 		this.referenceWidth = value;
 	}
-
-
-	public long getyMax() {
-		return yMax;
-	}
-
-
-	public void setyMax(long value) {
-		this.yMax = value;
-	}
-
 }

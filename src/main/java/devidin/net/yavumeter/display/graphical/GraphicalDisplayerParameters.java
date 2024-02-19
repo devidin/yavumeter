@@ -58,18 +58,9 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 
 	void setMinAngle() {
 		//minAngle = Math.acos((getxMin() - getxC()) / getNeedleLength());
-		minAngle = Math.acos((double)(getxMin()-getxC() ) / (double)getNeedleLength());
-		
-		if (getyC()<getyMin()) {
-			minAngle=-minAngle; // rotate opposite direction
-		} else if (getxMin()<getxC()) {
-			//minAngle=Math.PI-minAngle;
-		}
-			
-		/*
-		if (getxC()<getxMin()) {
-			minAngle=-minAngle; // rotate opposite direction
-		}*/
+		minAngle = Math.atan2(getyMin()-getyC(),getxMin()-getxC() );
+
+		//if (minAngle<0) minAngle+=Math.PI*2;
 		System.out.println("setMinAngle: xC="+getxC()+",yC=" +getyC()+",xMin=" +getxMin()+",yMin=" +getyMin(
 				)+",needleLength="+ getNeedleLength()+"-->"+minAngle);
 	}
@@ -79,23 +70,9 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	}
 
 	void setMaxAngle() {
-		//maxAngle = Math.acos((getxMax() - getxC()) / getNeedleLength());
-		if (getxMax() != -1) {
-			maxAngle = Math.acos((double)(getxMax() - getxC()) / (double)getNeedleLength());
+		maxAngle = Math.atan2(getyMax()-getyC(),getxMax()-getxC());
+		//if (maxAngle<0) maxAngle+=Math.PI*2;
 
-			logger.warn("Both xMax and yMax were configured. yMax ignored.");
-		} else {
-			if (getyMax()==-1) {
-				logger.warn("None of xMax nor yMax were configured. yMax set to yMin:"+getyMin());
-				setyMax(getyMin());
-			}
-			maxAngle = Math.asin((double)(getyC()-getyMax() ) / (double)getNeedleLength());
-		}
-		if (getyC()<getyMin()) {
-			maxAngle=-maxAngle; // rotate opposite direction
-		} else if (getxMin()<getxC()) {
-			maxAngle=Math.PI-maxAngle;
-		}
 		System.out.println("setMaxAngle: xC="+getxC()+",yC=" +getyC()+",xMax=" +getxMax()+",yMax=" +getyMax()
 		+",needleLength="+ getNeedleLength()+"-->"+maxAngle);
 	}
@@ -103,10 +80,6 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	public double getMaxAmplitudeAngle() {
 		double result = maxAngle-minAngle;
 		
-//		if (result<0) result+= 2*Math.PI;
-/*		if (result<0) result= -result;
- * 
- */
 		return result;
 	}
 
@@ -115,15 +88,11 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		setMaxAngle();
 		setBufferedImage();
 	}
-
 	
-	
-	@SuppressWarnings("unused")
 	private int getWidth() {
 		return getBufferedImage().getWidth();
 	}
 
-	@SuppressWarnings("unused")
 	private int getHeight() {
 		return getBufferedImage().getHeight();
 	}
