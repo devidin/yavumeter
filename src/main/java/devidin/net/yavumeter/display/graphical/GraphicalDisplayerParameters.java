@@ -1,9 +1,6 @@
 package devidin.net.yavumeter.display.graphical;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -55,28 +52,62 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		}
 	}
 
-	double getMinAngle() {
+	public double getMinAngle() {
 		return minAngle;
 	}
 
 	void setMinAngle() {
 		//minAngle = Math.acos((getxMin() - getxC()) / getNeedleLength());
 		minAngle = Math.acos((double)(getxMin()-getxC() ) / (double)getNeedleLength());
-		System.out.println("setMinAngle:" +getxMin()+"," +getxC()+","+ getNeedleLength()+"-->"+minAngle);
+		
+		if (getyC()<getyMin()) {
+			minAngle=-minAngle; // rotate opposite direction
+		} else if (getxMin()<getxC()) {
+			//minAngle=Math.PI-minAngle;
+		}
+			
+		/*
+		if (getxC()<getxMin()) {
+			minAngle=-minAngle; // rotate opposite direction
+		}*/
+		System.out.println("setMinAngle: xC="+getxC()+",yC=" +getyC()+",xMin=" +getxMin()+",yMin=" +getyMin(
+				)+",needleLength="+ getNeedleLength()+"-->"+minAngle);
 	}
 
-	double getMaxAngle() {
+	public double getMaxAngle() {
 		return maxAngle;
 	}
 
 	void setMaxAngle() {
 		//maxAngle = Math.acos((getxMax() - getxC()) / getNeedleLength());
-		maxAngle = Math.acos((double)(getxMax() - getxC()) / (double)getNeedleLength());
-		System.out.println("setMaxAngle:" +getxMax()+"," +getxC()+","+ getNeedleLength()+"-->"+maxAngle);
+		if (getxMax() != -1) {
+			maxAngle = Math.acos((double)(getxMax() - getxC()) / (double)getNeedleLength());
+
+			logger.warn("Both xMax and yMax were configured. yMax ignored.");
+		} else {
+			if (getyMax()==-1) {
+				logger.warn("None of xMax nor yMax were configured. yMax set to yMin:"+getyMin());
+				setyMax(getyMin());
+			}
+			maxAngle = Math.asin((double)(getyC()-getyMax() ) / (double)getNeedleLength());
+		}
+		if (getyC()<getyMin()) {
+			maxAngle=-maxAngle; // rotate opposite direction
+		} else if (getxMin()<getxC()) {
+			maxAngle=Math.PI-maxAngle;
+		}
+		System.out.println("setMaxAngle: xC="+getxC()+",yC=" +getyC()+",xMax=" +getxMax()+",yMax=" +getyMax()
+		+",needleLength="+ getNeedleLength()+"-->"+maxAngle);
 	}
 
-	long getyMax() {
-		return (long) (getyC() + getNeedleLength() * Math.sin(maxAngle));
+	public double getMaxAmplitudeAngle() {
+		double result = maxAngle-minAngle;
+		
+//		if (result<0) result+= 2*Math.PI;
+/*		if (result<0) result= -result;
+ * 
+ */
+		return result;
 	}
 
 	void setCalculatedParameters() {
@@ -85,6 +116,8 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		setBufferedImage();
 	}
 
+	
+	
 	@SuppressWarnings("unused")
 	private int getWidth() {
 		return getBufferedImage().getWidth();
@@ -110,11 +143,6 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 			e.printStackTrace();
 			logger.error("Failed to read image file: " + getFileName() + ":" + e.getMessage());
 		}
-	}
-
-	@SuppressWarnings("unused")
-	private double getAngleRange() {
-		return maxAngle - minAngle;
 	}
 
 }

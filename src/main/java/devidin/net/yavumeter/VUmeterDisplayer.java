@@ -78,7 +78,8 @@ public class VUmeterDisplayer implements Runnable {
 			AudioInputStream ais = new AudioInputStream(targetDataLine);
 			logger.info("Buffer size     : " + buffer.length);
 
-			int[] amplitude; // 1 per channel
+			double[] amplitude1; // 1 per channel
+			double[] amplitude2=new double[format.getChannels()]; // 1 per channel
 			String displayerClassName = getConfiguration().getDisplayerClass();
 
 			logger.debug("Displayer class:" + displayerClassName);
@@ -87,49 +88,57 @@ public class VUmeterDisplayer implements Runnable {
 			displayer.init();
 
 			/*
-			 * Main monitoring loop here
+			 * Main monitoring loop here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 			 */
 			while (true) {
 				if (Thread.interrupted()) {
 					break;
 				}
-				int b = ais.read(buffer);
-				switch (configuration.getLoudnessMode()) {
-				case VUmeterDisplayerConfiguration.AVG_LOUDNESS:
-					amplitude = SoundCardHelper.calculateAmplitudeAVG(buffer, b, format.getChannels());
-					break;
-				case VUmeterDisplayerConfiguration.RMS_LOUDNESS:
-					amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
-					break;
 
-				default:
-					logger.error("Invalid loudness mode in configuration file: " + configuration.getLoudnessMode()
-							+ "(expected : RMS, AVG)");
-					amplitude = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
-					break;
+				if (ais.available() < buffer.length) {
+					Thread.sleep(20); // TODO make configurable
+					displayer.display(amplitude2, format.getChannels());
+
+				} else {
+
+					int b = ais.read(buffer);
+					switch (configuration.getLoudnessMode()) {
+					case VUmeterDisplayerConfiguration.AVG_LOUDNESS:
+						amplitude1 = SoundCardHelper.calculateAmplitudeAVG(buffer, b, format.getChannels());
+						break;
+					case VUmeterDisplayerConfiguration.RMS_LOUDNESS:
+						amplitude1 = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
+						break;
+
+					default:
+						logger.error("Invalid loudness mode in configuration file: " + configuration.getLoudnessMode()
+								+ "(expected : RMS, AVG)");
+						amplitude1 = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
+						break;
+					}
+
+					switch (configuration.getViewMode()) {
+					case VUmeterDisplayerConfiguration.EXP_VIEW:
+						amplitude2 = SoundCardHelper.exponentialView(amplitude1, 128);
+						break;
+					case VUmeterDisplayerConfiguration.LOG_VIEW:
+						amplitude2 = SoundCardHelper.logarithmicView(amplitude1, 128);
+						break;
+					case VUmeterDisplayerConfiguration.SQUARE_VIEW:
+						amplitude2 = SoundCardHelper.squareView(amplitude1, 128);
+						break;
+					case VUmeterDisplayerConfiguration.LINEAR_VIEW:
+						amplitude2 = SoundCardHelper.linearView(amplitude1, 128);
+						break;
+					default:
+						logger.error("Invalid view mode in configuration file: " + configuration.getLoudnessMode()
+								+ "(expected : LOG,LINEAR,EXP,SQUARE)");
+						amplitude2 = SoundCardHelper.squareView(amplitude1, 128);
+						break;
+					}
+
+					displayer.display(amplitude2, format.getChannels());
 				}
-
-				switch (configuration.getViewMode()) {
-				case VUmeterDisplayerConfiguration.EXP_VIEW:
-					amplitude = SoundCardHelper.exponentialView(amplitude, 128);
-					break;
-				case VUmeterDisplayerConfiguration.LOG_VIEW:
-					amplitude = SoundCardHelper.logarithmicView(amplitude, 128);
-					break;
-				case VUmeterDisplayerConfiguration.SQUARE_VIEW:
-					amplitude = SoundCardHelper.squareView(amplitude, 128);
-					break;
-				case VUmeterDisplayerConfiguration.LINEAR_VIEW:
-					amplitude = SoundCardHelper.linearView(amplitude, 128);
-					break;
-				default:
-					logger.error("Invalid view mode in configuration file: " + configuration.getLoudnessMode()
-							+ "(expected : LOG,LINEAR,EXP,SQUARE)");
-					amplitude = SoundCardHelper.squareView(amplitude, 128);
-					break;
-				}
-
-				displayer.display(amplitude, format.getChannels());
 			}
 
 		} catch (Exception e) {

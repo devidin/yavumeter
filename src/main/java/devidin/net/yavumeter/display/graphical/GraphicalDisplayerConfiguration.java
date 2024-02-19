@@ -16,9 +16,11 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long referenceHeight;// = 1000; // eight of the reference image, not necessarily the actual one
 	private long xC; // needle origin center
 	private long yC;
-	private long xMin; // needle end for minimum amplitude
+	private long xMin;       // needle end for minimum amplitude
 	private long yMin;
-	private long xMax; // needle end for maximum amplitude 
+	// only one of the 2 below should be configured - the other will be calculated
+	private long xMax;      // needle end for maximum amplitude 
+	private long yMax;      // needle end for maximum amplitude 
 	//private long yMax; (Y calculated from needle length, max angle & origin)
 	
 	// colors
@@ -179,20 +181,21 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setColor(null);
 		setFileType("jpg");
 
-		setReferenceWidth(1000);
-		setReferenceHeight(1000);
+		setReferenceWidth(800);
+		setReferenceHeight(600);
 
-		setxC(500);
-		setyC(1000);
+		setxC(400);
+		setyC(800);
 
 		setxMin(100);
-		setyMin(700);
+		setyMin(400);
 
-		setxMax(900);
+		setxMax(-1);
+		setyMax(-1);
 
-		setNeedleBlue(128);
-		setNeedleGreen(128);
-		setNeedleRed(128);
+		setNeedleBlue(0);
+		setNeedleGreen(0);
+		setNeedleRed(255);
 
 	}
 
@@ -230,6 +233,16 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setReferenceWidth(long value) {
 		this.referenceWidth = value;
+	}
+
+
+	public long getyMax() {
+		return yMax;
+	}
+
+
+	public void setyMax(long value) {
+		this.yMax = value;
 	}
 
 }

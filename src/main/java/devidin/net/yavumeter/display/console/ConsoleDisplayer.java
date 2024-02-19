@@ -14,25 +14,25 @@ public class ConsoleDisplayer implements Displayer {
 		if (configuration==null) configuration=ConsoleDisplayerConfiguration.LoadConfiguration();
 		return configuration;
 	}
-	public void displayLR(int[] amplitudeLR) {
+	public void displayLR(double[] amplitudeLR) {
 		
-		System.out.print("[" + ">".repeat(amplitudeLR[0] / 2) + " ".repeat(64 - amplitudeLR[0] / 2) + "|"
-				+ " ".repeat(64 - amplitudeLR[1] / 2) + "<".repeat(amplitudeLR[1] / 2) + "]\r");
+		System.out.print("[" + ">".repeat((int) (amplitudeLR[0] / 2)) + " ".repeat((int) (64 - amplitudeLR[0] / 2)) + "|"
+				+ " ".repeat((int) (64 - amplitudeLR[1] / 2)) + "<".repeat((int) (amplitudeLR[1] / 2)) + "]\r");
 				
 		//display(amplitudeLR, 2);
 	}
 
-	public void displayLRasNumber(int[] amplitudeLR) {
+	public void displayLRasNumber(double[] amplitudeLR) {
 		System.out.print((amplitudeLR[0] + amplitudeLR[1]) / 2);
 		System.out.print('\r');
 	}
 
-	public void displayLRasNumbers(int[] amplitudeLR) {
+	public void displayLRasNumbers(double[] amplitudeLR) {
 		System.out.print(amplitudeLR[0] + " - " + amplitudeLR[1]);
 		System.out.print('\r');
 	}
 
-	public void display(int[] amplitude, int channels) {
+	public void display(double[] amplitude, int channels) {
 		int channelWidth = (int) getConfiguration().getWidth() / channels;
 		double ratio = (double) channelWidth / (double) getConfiguration().getMaxAmplitude();
 		int width;
@@ -46,14 +46,14 @@ public class ConsoleDisplayer implements Displayer {
 		System.out.print('\r');
 	}
 
-	public void displayAsNumbers(int[] amplitude, int channels) {
+	public void displayAsNumbers(double[] amplitude, int channels) {
 		for (int channel = 0; channel < channels; channel++) {
 			System.out.print(amplitude[channel] + " ");
 		}
 		System.out.print('\r');
 	}
 
-	public void displayAsNumber(int[] amplitude, int channels) {
+	public void displayAsNumber(double[] amplitude, int channels) {
 		int totAmplitude = 0;
 		for (int channel = 0; channel < channels; channel++) {
 			totAmplitude+=amplitude[channel];

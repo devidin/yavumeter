@@ -1,6 +1,7 @@
 #displayerClass: "devidin.net.yavumeter.display.console.ConsoleDisplayer"
 displayerClass: "devidin.net.yavumeter.display.graphical.GraphicalDisplayer"
 bufferSize: 1600
+
 mixerID: 6
 lineID: 0
  # rms/avg
