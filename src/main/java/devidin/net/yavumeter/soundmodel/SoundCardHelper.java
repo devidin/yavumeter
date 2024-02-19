@@ -12,6 +12,9 @@ import org.slf4j.LoggerFactory;
 public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
 	private static final SoundCardHelperConfiguration configuration = SoundCardHelperConfiguration.LoadConfiguration();
+
+
+	
 	public static Mixer.Info[] getMixersList() {
 		return AudioSystem.getMixerInfo();
 	}
@@ -73,11 +76,11 @@ public class SoundCardHelper {
 
 	}
 
-	private static int[] calculateAmplitudeAvg(byte[] buffer, int bytesRead, int channels) {
+	public static int[] calculateAmplitudeAVG(byte[] buffer, int bytesRead, int channels) {
 		int[] amplitudes = new int[channels];
 		int totAmplitude = 0;
 		for (int channel = 0; channel < channels; channel++) {
-			for (int i = 0; i < bytesRead; i += 2) {
+			for (int i = channel; i < bytesRead; i += 2) {
 				int amplitude = Math.abs(buffer[i] & 0xFF);
 				totAmplitude = totAmplitude + amplitude;
 			}
@@ -87,9 +90,8 @@ public class SoundCardHelper {
 	}
 
 	// same as above, but merge all channels as one
-	@SuppressWarnings("unused")
-	private static int calculateAmplitudeAvg(byte[] buffer, int bytesRead) {
-		return calculateAmplitudeAvg(buffer, bytesRead, 1) [0];
+	public static int calculateAmplitudeAVG(byte[] buffer, int bytesRead) {
+		return calculateAmplitudeAVG(buffer, bytesRead, 1) [0];
 	}
 	public static int[] calculateAmplitudeRMS(byte[] buffer, int bytesRead, int channels) {
 		int[] amplitudes = new int[channels];
@@ -106,7 +108,6 @@ public class SoundCardHelper {
 	}
 
 	// same as above, but merge all channels as one
-	@SuppressWarnings("unused")
 	private static int calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
 		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
 	}
@@ -140,5 +141,35 @@ public class SoundCardHelper {
 		return linearView((int) ((int) Math.exp(((double) amplitude)) * (double) max / Math.exp((double) max)), max);
 	}
 	
+//-*-------------------
+	
+	public static int[] linearView(int amplitude[], int max) {
+		int[] result = new int[amplitude.length];
+		for (int i=0;i<amplitude.length;i++) 
+			result[i]=linearView(amplitude[i], max);
+		return result;
+	}
+	
+	public static int[] logarithmicView(int amplitude[], int max) {
+		int[] result = new int[amplitude.length];
+		for (int i=0;i<amplitude.length;i++) 
+			result[i]=linearView(amplitude[i], max);
+		return result;
+	}
 
+	public static int[] squareView(int amplitude[], int max) {
+		int[] result = new int[amplitude.length];
+		for (int i=0;i<amplitude.length;i++) 
+			result[i]=linearView(amplitude[i], max);
+		return result;
+	}
+
+	public static int[] exponentialView(int amplitude[], int max) {
+		int[] result = new int[amplitude.length];
+		for (int i=0;i<amplitude.length;i++) 
+			result[i]=linearView(amplitude[i], max);
+		return result;
+	}
+	
+	
 }

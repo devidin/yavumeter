@@ -1,5 +1,9 @@
 #displayerClass: "devidin.net.yavumeter.display.console.ConsoleDisplayer"
 displayerClass: "devidin.net.yavumeter.display.graphical.GraphicalDisplayer"
-bufferSize: 3000
+bufferSize: 1600
 mixerID: 6
 lineID: 0
+ # rms/avg
+ # log/linear/exp/square
+loudnessMode: "AVG"
+viewMode: "SQUARE"

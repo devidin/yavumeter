@@ -251,12 +251,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		coordinates[2] = X;
 		coordinates[3] = Y;
-
+/*
 		System.out.println("amplitude=" + amplitude + ",maxAmplitude=" + maxAmplitude
 				+ ",minAngle="+getParamaters().getMinAngle()
 				+ ",maxAngle="+getParamaters().getMaxAngle()
 				+ ",mu=" + mu + ",alpha=" + alpha + ",X=" + X + ",Y=" + Y + ",xI=" + xI + ",yI=" + yI);
-
+*/
 		return coordinates;
 	}
 

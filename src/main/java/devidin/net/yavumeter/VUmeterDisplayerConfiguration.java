@@ -12,6 +12,16 @@ public class VUmeterDisplayerConfiguration extends Configuration {
     private long bufferSize;
     private long mixerID;
     private long lineID;
+    private String viewMode;
+    private String loudnessMode;
+    
+	public static final String LOG_VIEW="LOG"; 
+	public static final String LINEAR_VIEW="LINEAR"; 
+	public static final String EXP_VIEW="EXP"; 
+	public static final String SQUARE_VIEW="SQUARE"; 
+	
+	public static final String RMS_LOUDNESS="RMS"; 
+	public static final String AVG_LOUDNESS="AVG"; 
 
     public String getDisplayerClass() { return displayerClass; }
     public void setDisplayerClass(String value) { this.displayerClass = value; }
@@ -31,7 +41,8 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 		setBufferSize(64);
 		setLineID(0);
 		setMixerID(4);
-		
+		setLoudnessMode(RMS_LOUDNESS);
+		setViewMode(LOG_VIEW);
 	}
 	
 	public static VUmeterDisplayerConfiguration loadConfiguration() {
@@ -48,6 +59,22 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 			return new VUmeterDisplayerConfiguration();
 		}
 
+	}
+
+	public String getViewMode() {
+		return viewMode;
+	}
+
+	public void setViewMode(String value) {
+		this.viewMode = value;
+	}
+
+	public String getLoudnessMode() {
+		return loudnessMode;
+	}
+
+	public void setLoudnessMode(String value) {
+		this.loudnessMode = value;
 	}
 }
 

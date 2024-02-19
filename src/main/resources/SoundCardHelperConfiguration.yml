@@ -1,1 +1,2 @@
 audioFormat : {sampleRate: 16000, sampleSizeInBits: 8, channels : 2, signed : true, bigEndian : true}
+# audioFormat : {sampleRate: 44100, sampleSizeInBits: 8, channels : 2, signed : true, bigEndian : true}
