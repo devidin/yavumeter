@@ -79,7 +79,7 @@ public class SoundCardHelper {
 	private static void testAmplitude( double amplitude) {
 		if(amplitude>maxAmplitude) {
 			maxAmplitude=amplitude;
-			System.out.println("maxAmplitude="+maxAmplitude);
+			logger.debug("maxAmplitude="+maxAmplitude);
 		}
 	}
 

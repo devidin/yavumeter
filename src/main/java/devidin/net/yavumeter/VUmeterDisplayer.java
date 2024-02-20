@@ -116,7 +116,7 @@ public class VUmeterDisplayer implements Runnable {
 						amplitude1 = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 						break;
 					}
-					System.out.println("1 -->"+amplitude1[0]+","+amplitude1[1]);
+					//logger.debug("1 -->"+amplitude1[0]+","+amplitude1[1]);
 
 					switch (configuration.getViewMode()) {
 					case VUmeterDisplayerConfiguration.SQUAREROOT_VIEW:
@@ -138,7 +138,7 @@ public class VUmeterDisplayer implements Runnable {
 						break;
 					}
 
-					System.out.println("2 -->"+amplitude2[0]+","+amplitude2[1]);
+					//logger.debug("2 -->"+amplitude2[0]+","+amplitude2[1]);
 					
 					displayer.display(amplitude2, format.getChannels());
 				}

@@ -6,7 +6,7 @@ import devidin.net.yavumeter.configuration.Configuration;
 import org.slf4j.LoggerFactory;
 
 public class GraphicalDisplayerConfiguration extends Configuration {
-	private static Logger logger = null;
+	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerConfiguration.class);
 	// base image
 	private String background;
 	private String color;
@@ -37,7 +37,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	public String toString() {
 
 		return "file:" + fileName + ", C(" + xC + "," + yC + ")" + ", min(" + xMin + "," + yMin + ")" + ", max(" + xMax
-				+ ",*)" + ", needleColorRGB(" + needleRed + "," + needleGreen + "," + needleBlue + ")"
+				+ ","+yMax+")" + ", needleColorRGB(" + needleRed + "," + needleGreen + "," + needleBlue + ")"
 				+ ", needleLength :" + needleLength
 				+ ", references (width="+getReferenceWidth()+", height="+getReferenceHeight();
 	}

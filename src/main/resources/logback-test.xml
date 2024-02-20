@@ -1,0 +1,34 @@
+<configuration>
+	<root level="DEBUG">
+		<appender-ref ref="LOGFILE" />
+	</root>
+	
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender"
+	>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="LOGFILE"
+		class="ch.qos.logback.core.FileAppender"
+	>
+		<encoder>
+			<!-- <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern> -->
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+		<file>logs/vumeter.log</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="LOGFILE" />
+	</root>
+	<root level="info">
+		<appender-ref ref="LOGFILE" />
+	</root>
+</configuration>

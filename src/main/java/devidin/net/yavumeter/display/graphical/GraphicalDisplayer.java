@@ -69,8 +69,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 			System.exit(0); // force all threads to terminate
 		} catch (Exception e) {
-			logger.error("Executation failed with error " + e.getMessage());
-			e.printStackTrace();
+			logger.error("Executation failed with error ", e);
 		}
 
 	}
@@ -125,10 +124,9 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		try {
 			root.changeScene("/GraphicalDisplayerBasic.fxml");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< change to
-			// GraphicalDisplayer
+			logger.error("Initialization failed.", e);
+		} 
+		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< change to GraphicalDisplayer
 		root.getStage().sizeToScene();
 
 		for (int i = 0; i < 2; i++) {
@@ -169,10 +167,9 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				 */
 				needle.setVisible(false);
 
-				System.out.println("Needle draw ok " + i);
+				logger.debug("Needle draw ok " + i);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error("Failed to initialize needle "+i, e);
 			}
 		}
 
@@ -207,7 +204,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	public synchronized void display(double[] amplitude, int channels) {
 
 		if (rootScene == null) {
-			System.out.println("not yet ready to display...");
+			logger.debug("not yet ready to display...");
 			return;
 		}
 		long startTime = System.currentTimeMillis();
@@ -278,21 +275,24 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	public static double[] calculateSegment(double amplitude, int maxAmplitude) {
 		double[] coordinates = new double[4];
-		double[] intersection = new double[2];
 
-		double mu = getParamaters().getMaxAmplitudeAngle();// getParamaters().getMaxAngle() -
-															// getParamaters().getMinAngle();
+		double mu = getParamaters().getMaxAmplitudeAngle();
 		double alpha = getParamaters().getMinAngle() + amplitude * mu / (double) maxAmplitude;
 
 		double X = getParamaters().getxC() + Math.cos(alpha) * getParamaters().getNeedleLength();
 		double Y = getParamaters().getyC() + Math.sin(alpha) * getParamaters().getNeedleLength();
 
-		// double intersection[]=calculateIntersection();
-		// if (intersection==null) return null;
-		// coordinates[0] = intersection[0];
-		// coordinates[0] = intersection[1];
-		coordinates[0] = getParamaters().getxC();
-		coordinates[1] = getParamaters().getyC();
+		double[] segment=new double[] {getParamaters().getxC(),getParamaters().getyC(),X,Y};
+		double[] rectangle=new double[] {0,0,getParamaters().getReferenceWidth(), getParamaters().getReferenceHeight()};
+		
+		double[] intersection=calculateIntersection(segment, rectangle);
+		if (intersection!=null) {
+			coordinates[0] = intersection[0];
+			coordinates[1] = intersection[1];
+		} else {
+			coordinates[0] = getParamaters().getxC();
+			coordinates[1] = getParamaters().getyC();
+		}
 		coordinates[2] = X;
 		coordinates[3] = Y;
 
@@ -359,8 +359,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double rLeft = rectangle[0]; // upper left corner
 		double rTop = rectangle[1];
 
-		double rRight = rectangle[0]; // lower right corner
-		double rBottom = rectangle[1];
+		double rRight = rectangle[2]; // lower right corner
+		double rBottom = rectangle[3];
 
 		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rBottom, rRight, rBottom); // base
 		if (result != null)
