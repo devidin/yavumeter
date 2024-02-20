@@ -2,6 +2,17 @@
 referenceWidth: 1235
 referenceHeight: 630
 #############################################
+color: "blue"
+background: "mcintosh"
+fileType: "jpg"
+
+needleRed: 200
+needleGreen: 0
+needleBlue: 0
+needleWidth: 2
+needleShadow: true
+
+#############################################
 # bottom Veritcal 
 xC: 618
 yC: +1000000
@@ -70,13 +81,6 @@ yMin: 237
 xMax: 1188
 yMax: 237
 
-#############################################
-color: "blue"
-background: "mcintosh"
-fileType: "jpg"
 
-needleRed: 0
-needleGreen: 0
-needleBlue: 0
 
 

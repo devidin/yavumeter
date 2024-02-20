@@ -7,4 +7,4 @@ lineID: 0
  # rms/avg
  # log/linear/exp/square
 loudnessMode: "RMS"
-viewMode: "SQUAREROOT"
+viewMode: "LOG"

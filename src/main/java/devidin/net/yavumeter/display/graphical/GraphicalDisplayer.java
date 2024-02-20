@@ -17,9 +17,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Shadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.StrokeLineCap;
 import javafx.stage.Stage;
 
 public class GraphicalDisplayer extends Application implements Displayer {
@@ -133,12 +139,35 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				Line needle = (Line) rootScene.lookup(needleLabel);
 				ImageView image = (ImageView) rootScene.lookup(imageLabel);
 
+				needle.setVisible(true);
+				needle.setSmooth(true);
+				Color needleColor = Color.rgb((int) getParamaters().getNeedleRed(),
+						(int) getParamaters().getNeedleGreen(), (int) getParamaters().getNeedleBlue());
+				needle.setStroke(needleColor);
+				needle.setStrokeWidth((int) getParamaters().getNeedleWidth());
+				needle.setStrokeLineCap(StrokeLineCap.ROUND);
+
+				if (getParamaters().isNeedleShadow()) {
+					DropShadow shadow = new DropShadow();
+					shadow.setBlurType(BlurType.GAUSSIAN);
+					shadow.setColor(Color.rgb(64, 64, 64));
+					shadow.setHeight(5);
+					shadow.setWidth(getParamaters().getNeedleWidth());
+					shadow.setRadius(5);
+					shadow.setOffsetX(-6);
+					shadow.setOffsetY(6);
+
+					needle.setEffect(shadow);
+				}
 				needle.setLayoutX(image.getLayoutX());
 				needle.setLayoutY(image.getLayoutY());
-				needle.setStartX(0);
-				needle.setStartY(0);
-				needle.setEndX(image.getFitWidth() / 2);
-				needle.setEndY(image.getFitHeight());
+				/*
+				 * needle.setStartX(0); 
+				 * needle.setStartY(0); 
+				 * needle.setEndX(image.getFitWidth() / 2); 
+				 * needle.setEndY(image.getFitHeight());
+				 */
+				needle.setVisible(false);
 
 				System.out.println("Needle draw ok " + i);
 			} catch (Exception e) {
@@ -184,7 +213,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		long startTime = System.currentTimeMillis();
 
 		double[] intertialAmplitude = makeInertial(amplitude);
-		// double[] intertialAmplitude=amplitude;
 
 		for (int i = 0; i < intertialAmplitude.length; i++) {
 
@@ -192,24 +220,24 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			String imageLabel = "#image" + i;
 			Line needle = (Line) rootScene.lookup(needleLabel);
 			ImageView image = (ImageView) rootScene.lookup(imageLabel);
-/*
-			if (needle == null) {
-				System.out.println("Missing:" + needleLabel);
+			/*
+			 * if (needle == null) { System.out.println("Missing:" + needleLabel); return; }
+			 * if (image == null) { System.out.println("Missing:" + imageLabel); return; }
+			 */
+			if (needle == null || image == null)
 				return;
-			}
-			if (image == null) {
-				System.out.println("Missing:" + imageLabel);
-				return;
-			}
-*/
-			if (needle == null || image == null) return;
-			
+
 			double[] segment = resizeSegement(calculateSegment(intertialAmplitude[i], 128), image);
 
-			needle.setStartX(segment[0]);
-			needle.setStartY(segment[1]);
-			needle.setEndX(segment[2]);
-			needle.setEndY(segment[3]);
+			if (segment != null) {
+				needle.setStartX(segment[0]);
+				needle.setStartY(segment[1]);
+				needle.setEndX(segment[2]);
+				needle.setEndY(segment[3]);
+				needle.setVisible(true);
+			} else {
+				needle.setVisible(false);
+			}
 		}
 
 		long endTime = System.currentTimeMillis();
@@ -252,33 +280,25 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double[] coordinates = new double[4];
 		double[] intersection = new double[2];
 
-		double mu = getParamaters().getMaxAmplitudeAngle();//getParamaters().getMaxAngle() - getParamaters().getMinAngle();
+		double mu = getParamaters().getMaxAmplitudeAngle();// getParamaters().getMaxAngle() -
+															// getParamaters().getMinAngle();
 		double alpha = getParamaters().getMinAngle() + amplitude * mu / (double) maxAmplitude;
 
 		double X = getParamaters().getxC() + Math.cos(alpha) * getParamaters().getNeedleLength();
 		double Y = getParamaters().getyC() + Math.sin(alpha) * getParamaters().getNeedleLength();
 
-		// double intersection[]=calculateIntersection()
-
-		//double xI = getParamaters().getxC();
-		//double yI = getParamaters().getxC();
-
+		// double intersection[]=calculateIntersection();
+		// if (intersection==null) return null;
+		// coordinates[0] = intersection[0];
+		// coordinates[0] = intersection[1];
 		coordinates[0] = getParamaters().getxC();
 		coordinates[1] = getParamaters().getyC();
 		coordinates[2] = X;
 		coordinates[3] = Y;
-/*
-		intersection = calculateIntersection(coordinates, new double[] {0,0,getParamaters().getReferenceWidth(),getParamaters().getReferenceHeight()});
-		if (intersection!=null) {
-			// center is outside borders, needle crosses one border
-			coordinates[0] = intersection[0];
-			coordinates[1] = intersection[1];
-		}
-		*/
-		
+
 		/*
-		 * System.out.println("amplitude=" + amplitude + ",maxAmplitude=" + maxAmplitude;
-		 * + ",minAngle="+getParamaters().getMinAngle() +
+		 * System.out.println("amplitude=" + amplitude + ",maxAmplitude=" +
+		 * maxAmplitude; + ",minAngle="+getParamaters().getMinAngle() +
 		 * ",maxAngle="+getParamaters().getMaxAngle() + ",mu=" + mu + ",alpha=" + alpha
 		 * + ",X=" + X + ",Y=" + Y + ",xI=" + xI + ",yI=" + yI);
 		 */
@@ -287,6 +307,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	public static double[] resizeSegement(double coordinates[], ImageView image) {
 
+		if (coordinates == null)
+			return null;
 		double[] segment = new double[4];
 		// X's
 		segment[0] = (coordinates[0] * (double) image.getFitWidth() / (double) getParamaters().getReferenceWidth());
@@ -324,36 +346,40 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 			intersection[0] = x1 + t * (x2 - x1);
 			intersection[1] = y1 + t * (y2 - y1);
-			
+
 			return intersection;
 		} else {
 			return null; // Intersection is outside the line segments
 		}
 	}
 
-	public static double[] calculateIntersection(double[] segment, double [] rectangle) {
+	public static double[] calculateIntersection(double[] segment, double[] rectangle) {
 		double[] result;
-		
-		double rectULx=rectangle[0]; // upper left corner
-		double rectULY=rectangle[1];
-		double rectLRx=rectangle[0]; // lower right corner
-		double rectLRY=rectangle[1]; 
-		
-		result = calculateIntersection(segment[0], segment[1],segment[2],segment[3],      0,rectLRY, rectLRx, rectLRY); // base
-		if (result!=null) return result;
 
-		result = calculateIntersection(segment[0], segment[1],segment[2],segment[3],      0,      0, rectLRx,       0); // top
-		if (result!=null) return result;
+		double rLeft = rectangle[0]; // upper left corner
+		double rTop = rectangle[1];
 
-		result = calculateIntersection(segment[0], segment[1],segment[2],segment[3],      0,      0,       0, rectLRY); // left
-		if (result!=null) return result;
+		double rRight = rectangle[0]; // lower right corner
+		double rBottom = rectangle[1];
 
-		result = calculateIntersection(segment[0], segment[1],segment[2],segment[3],rectLRx,      0, rectLRx, rectLRY); // right
-		if (result!=null) return result;
+		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rBottom, rRight, rBottom); // base
+		if (result != null)
+			return result;
 
-		
-		return null;
-			
+		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rRight, rTop); // top
+		if (result != null)
+			return result;
+
+		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rLeft, rBottom); // left
+		if (result != null)
+			return result;
+
+		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rRight, rTop, rRight, rBottom); // right
+		if (result != null)
+			return result;
+
+		return null; // no intersection with image
+
 	}
 
 	public static Stage getStage() {

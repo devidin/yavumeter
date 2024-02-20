@@ -27,6 +27,8 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long needleRed;
 	private long needleGreen;
 	private long needleBlue;
+	private long needleWidth;
+	private boolean needleShadow;
 
 	// following parameters are not configurable (calculated with setters)
 	private String fileName;
@@ -208,9 +210,11 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setxMax(700);
 		setyMax(100);
 
-		setNeedleBlue(255);
-		setNeedleGreen(0);
-		setNeedleRed(255);
+		setNeedleBlue(0);
+		setNeedleGreen(255);
+		setNeedleRed(0);
+		setNeedleWidth(2);
+		setNeedleShadow(true);
 
 	}
 
@@ -248,5 +252,21 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setReferenceWidth(long value) {
 		this.referenceWidth = value;
+	}
+
+	public long getNeedleWidth() {
+		return needleWidth;
+	}
+
+	public void setNeedleWidth(long value) {
+		this.needleWidth = value;
+	}
+
+	public boolean isNeedleShadow() {
+		return needleShadow;
+	}
+
+	public void setNeedleShadow(boolean value) {
+		this.needleShadow = value;
 	}
 }
