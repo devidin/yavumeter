@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="153.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="image0" fitHeight="153.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@default.JPG" />
+         </image>
+      </ImageView>
+      <Line fx:id="needle0" endX="150.0" endY="153.0364227294922" startX="150.0" startY="16.402923583984375" stroke="RED" strokeWidth="1.5" />
+      <ImageView fx:id="image1" fitHeight="153.0" fitWidth="300.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@default.JPG" />
+         </image>
+      </ImageView>
+      <Line fx:id="needle1" endX="146.5" endY="46.9393310546875" layoutX="303.0" layoutY="106.0" startX="146.5" startY="-90.5606689453125" stroke="RED" strokeWidth="1.5" />
+   </children>
+</Pane>
