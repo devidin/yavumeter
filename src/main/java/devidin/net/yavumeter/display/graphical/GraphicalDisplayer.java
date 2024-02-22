@@ -8,40 +8,42 @@ import org.slf4j.LoggerFactory;
 import devidin.net.yavumeter.VUmeterDisplayer;
 import devidin.net.yavumeter.display.Displayer;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import javafx.scene.Parent;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GraphicalDisplayer extends Application implements Displayer {
 	private static GraphicalDisplayerParameters parameters = null;
 
 	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayer.class);
-	private static GraphicalDisplayer root = new GraphicalDisplayer(); // just to access static methods
+	private static final String TITLE_BAR = "Yet Another VU meter";
+	private static final String FXML_FILE = "/GraphicalDisplayerBasic.fxml";
+	private static GraphicalDisplayer application = new GraphicalDisplayer(); // just to access static methods
+
+	// monitoring thread
 	private static VUmeterDisplayer vumeterDisplayer = null;
 	private static Thread monitoringThread = null;
-
-	private static Stage stage = null;
-	private static Scene rootScene = null;
-	private static boolean topBarVisible = true;
-
+	// decoration variables
+	private static Stage decoratedStage = null;
+	private static Stage undecoratedStage = null;
+	private static Stage activeStage = null; // one of the above
+	private static boolean topBarVisible = true; // decorated
+	// smoothing variables
 	private static double[] previousAmplitude = new double[] { 0, 0 };
-	private static long previousCallTimeMillis = System.currentTimeMillis();
 	private static int maxDownSpeed = 1; // TODO make configurable
 	private static int maxUpSpeed = 16; // "
 
@@ -64,8 +66,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			logger.debug("Monitoring started.");
 
 			logger.debug("Starting displaying...");
-			launch(args); // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< start with Splash.fxml
-
+			launch(args); 
 			logger.debug("Displaying ended.");
 
 			System.exit(0); // force all threads to terminate
@@ -75,63 +76,71 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	}
 
-	public void start(Stage primaryStage) {
-		try {
-			stage = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("/Splash.fxml"));
-			stage.setTitle("Yet Another VU meter");
-			stage.initStyle(StageStyle.DECORATED); // show title and complete bar for now
-			topBarVisible = true;
-			rootScene = new Scene(root);
-			stage.setScene(rootScene);
-			stage.show();
-
-			Thread.sleep(500);
-			init2();
-
-			stage.setOnCloseRequest(event -> {
-				logger.info("Shutdown event. Exiting.");
-				System.exit(0);
-			});
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		logger.debug("Start complete");
-	}
-
-	public void changeScene(String fxml) throws IOException {
-		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-		stage.getScene().setRoot(pane);
-	}
-
-	public void init() {
-
-	}
-
-	public void init2() {
+	public void start(Stage startUpStage) {
 		logger.debug("Loading configuration...");
 		getParamaters();
 		logger.info("Configuration loaded:" + getParamaters());
 
-		logger.debug("changing view to GraphicalDisplayer...");
+		logger.debug("Building stages...");
+		undecoratedStage = buildStage(StageStyle.UNDECORATED, FXML_FILE);
+		decoratedStage = buildStage(StageStyle.DECORATED, FXML_FILE);
+		logger.debug("Stages built.");
+
+		logger.debug("Initializing stages items...");
+		initializeItems(undecoratedStage);
+		initializeItems(decoratedStage);
+		logger.debug("Stages items initialized.");
+
+		activeStage = decoratedStage;
+		activeStage.show();
+		centerStage(activeStage);
+
+		resizeItems(); // make sure content is properly aligned
+	}
+    private void centerStage(Stage stage) {
+        // Get the primary screen
+        Screen screen = Screen.getPrimary();
+
+        // Get the bounds of the screen
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        // Calculate the center coordinates
+        double centerX = bounds.getMinX() + (bounds.getWidth() - stage.getWidth()) / 2;
+        double centerY = bounds.getMinY() + (bounds.getHeight() - stage.getHeight()) / 2;
+
+        // Set the stage position
+        stage.setX(centerX);
+        stage.setY(centerY);
+        
+        logger.debug("centerStage("+stage.getWidth()+","+stage.getHeight()+"): bounds="+bounds+", center=("+centerX+","+centerY +")");
+    }
+	public Stage buildStage(StageStyle style, String fxmlFilePath) {
+
+		Pane newPane = null;
 		try {
-			root.changeScene("/GraphicalDisplayerBasic.fxml");
+			newPane = application.loadPane(fxmlFilePath);
 		} catch (IOException e) {
 			logger.error("Initialization failed.", e);
 		}
-		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< change to GraphicalDisplayer
-		root.getStage().sizeToScene();
 
+		Scene newScene = new Scene(newPane);
+		Stage newStage = new Stage();
+		newStage.setTitle(TITLE_BAR);
+		newStage.initStyle(style);
+		newStage.setScene(newScene);
+		newStage.sizeToScene();
+		setListeners(newStage);
+
+		return newStage;
+	}
+	public void initializeItems(Stage stage) {
 		for (int i = 0; i < 2; i++) {
 			try {
 
-				resizeItemsWidth(); // make sure content is properly aligned
-				resizeItemsHeight();
-
 				String needleLabel = "#needle" + i;
 				String imageLabel = "#image" + i;
-				Line needle = (Line) rootScene.lookup(needleLabel);
-				ImageView image = (ImageView) rootScene.lookup(imageLabel);
+				Line needle = (Line) stage.getScene().lookup(needleLabel);
+				ImageView image = (ImageView) stage.getScene().lookup(imageLabel);
 
 				needle.setVisible(true);
 				needle.setSmooth(true);
@@ -155,13 +164,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				}
 				needle.setLayoutX(image.getLayoutX());
 				needle.setLayoutY(image.getLayoutY());
-				/*
-				 * needle.setStartX(0); needle.setStartY(0); needle.setEndX(image.getFitWidth()
-				 * / 2); needle.setEndY(image.getFitHeight());
-				 */
-				needle.setVisible(false);
 
-				setListeners();
+				needle.setVisible(true);
 
 				logger.debug("Needle draw ok " + i);
 			} catch (Exception e) {
@@ -170,40 +174,26 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		}
 
 	}
+	public Pane loadPane(String fxml) throws IOException {
+		Pane pane = FXMLLoader.load(getClass().getResource(fxml));
+		return pane;
+	}
+	public void init() { // do nothing
 
-	public void shutdown() {
+	}
+	public void shutdown() {// do nothing
 		logger.debug("Shutdown complete");
 	}
 
-	public GraphicalDisplayer() {
-		// TODO Auto-generated constructor stub
-	}
 
-	@Override
-	public void displayLR(double[] amplitudeLR) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void displayLRasNumber(double[] amplitudeLR) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void displayLRasNumbers(double[] amplitudeLR) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public synchronized void display(double[] amplitude, int channels) {
 
-		if (rootScene == null) {
-			logger.debug("not yet ready to display...");
+		if (activeStage == null || activeStage.getScene() == null) {
+			logger.debug("not yet ready to display..., rootStage=" + activeStage + ", scene is not accessible.");
 			return;
 		}
-		long startTime = System.currentTimeMillis();
+		// long startTime = System.currentTimeMillis();
 
 		double[] intertialAmplitude = makeInertial(amplitude);
 
@@ -211,21 +201,18 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 			String needleLabel = "#needle" + i;
 			String imageLabel = "#image" + i;
-			Line needle = (Line) rootScene.lookup(needleLabel);
-			ImageView image = (ImageView) rootScene.lookup(imageLabel);
+			Line needle = (Line) activeStage.getScene().lookup(needleLabel);
+			ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
 
 			if (needle == null) {
-				logger.error("Missing:" + needleLabel);
+				logger.debug("Missing:" + needleLabel);
 				return;
 			}
 			if (image == null) {
-				logger.error("Missing:" + imageLabel);
+				logger.debug("Missing:" + imageLabel);
 				return;
 			}
 
-			/*
-			 * if (needle == null || image == null) return;
-			 */
 			double[] segment = resizeSegementToImage(calculateSegment(intertialAmplitude[i], 128), image);
 
 			if (segment != null) {
@@ -239,22 +226,16 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			}
 		}
 
-		long endTime = System.currentTimeMillis();
-		// System.out.println("Last call was " +(startTime-previousCallTimeMillis)+ "ms
-		// ago. Execution time: " + (endTime - startTime)+"ms");
-		previousCallTimeMillis = startTime;
+		// previousCallTimeMillis = startTime;
 	}
-
 	double[] makeInertial(double[] amplitude) {
 		double[] intertialAmplitude = new double[amplitude.length];
 
 		for (int i = 0; i < intertialAmplitude.length; i++) {
 			if (amplitude[i] > previousAmplitude[i] + maxUpSpeed) {
 				intertialAmplitude[i] = previousAmplitude[i] + maxUpSpeed;
-				// System.out.println("Up too fast");
 			} else if (amplitude[i] < previousAmplitude[i] - maxDownSpeed) {
 				intertialAmplitude[i] = previousAmplitude[i] - maxDownSpeed;
-				// System.out.println("Down too fast");
 			} else {
 				intertialAmplitude[i] = amplitude[i];
 			}
@@ -263,17 +244,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		return intertialAmplitude;
 	}
 
-	@Override
-	public void displayAsNumber(double[] amplitudeLR, int channels) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void displayAsNumbers(double[] amplitudeLR, int channels) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public static double[] calculateSegment(double amplitude, int maxAmplitude) {
 		double[] coordinates = new double[4];
@@ -385,11 +355,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	}
 
-	public static Stage getStage() {
-		return stage;
-	}
-
-	public void setListeners() {
+	public synchronized void setListeners(Stage stage) {
 		stage.widthProperty().addListener(observable -> {
 			resizeItemsWidth();
 		});
@@ -397,19 +363,27 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			resizeItemsHeight();
 		});
 
-		rootScene.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+		stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouseEvent) {
-				swapStageStyle(mouseEvent);
+				handleMouseEvent(mouseEvent);
 			}
 		});
-	}
 
-	public void resizeItemsHeight() {
-		int m = 2; // matrix mxn
+		stage.setOnCloseRequest(event -> {
+			logger.info("Shutdown event. Exiting.");
+			System.exit(0);
+		});
+	}
+	public void resizeItems() {
+		resizeItemsHeight();
+		resizeItemsWidth();
+	}
+	public synchronized void resizeItemsHeight() {
+		int m = 2; // matrix mxn (future use)
 		int n = 1;
 
-		double itemHeight = stage.getHeight() / n;
+		double itemHeight = activeStage.getHeight() / n;
 
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
@@ -417,13 +391,13 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				try {
 
 					String imageLabel = "#image" + index;
-					logger.debug("Resizing " + imageLabel);
-					ImageView image = (ImageView) rootScene.lookup(imageLabel);
+					logger.debug("Resizing height " + imageLabel);
+					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
 					image.setFitHeight(itemHeight);
 
 					String paneLabel = "#pane" + index;
-					logger.debug("Repositioning " + paneLabel);
-					Pane pane = (Pane) rootScene.lookup(paneLabel);
+					logger.debug("Repositioning vertically " + paneLabel);
+					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
 					pane.setLayoutY(j * itemHeight);
 
 				} catch (Exception e) {
@@ -432,12 +406,11 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			}
 		}
 	}
-
-	public void resizeItemsWidth() {
-		int m = 2; // matrix mxn
+	public synchronized void resizeItemsWidth() {
+		int m = 2; // matrix mxn (future use)
 		int n = 1;
 
-		double itemWidth = stage.getWidth() / m;
+		double itemWidth = activeStage.getWidth() / m;
 
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
@@ -445,13 +418,13 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				try {
 
 					String imageLabel = "#image" + index;
-					logger.debug("Resizing " + imageLabel);
-					ImageView image = (ImageView) rootScene.lookup(imageLabel);
+					logger.debug("Resizing width " + imageLabel);
+					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
 					image.setFitWidth(itemWidth);
 
 					String paneLabel = "#pane" + index;
-					logger.debug("Repositioning " + paneLabel);
-					Pane pane = (Pane) rootScene.lookup(paneLabel);
+					logger.debug("Repositioning horizontally" + paneLabel);
+					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
 					pane.setLayoutX(i * itemWidth);
 
 				} catch (Exception e) {
@@ -460,45 +433,80 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			}
 		}
 	}
+	public void logPositions(String message) {
+		logPositions(decoratedStage, "  decorated "+message);
+		logPositions(undecoratedStage, "undecorated "+message);
+	}
+	public void logPositions(Stage stage, String stageString) {
+		logger.debug("Postion of stage " + stageString + ": height=" + stage.getHeight() + ",width=" + stage.getWidth()
+				+ ",X=" + stage.getX() + ",Y=" + stage.getY());
+	}
 
-	public void swapStageStyle(MouseEvent event) {
+	public synchronized void  handleMouseEvent(MouseEvent event) {
 		logger.debug("mouse click detected! " + event.getSource());
 
 		switch (event.getButton()) {
 		case MouseButton.PRIMARY:
-			logger.debug(" primary mouse click detected! " + event.getSource());
-			//cf. https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
-			Stage newAppStage = new Stage();
-			newAppStage.setScene(rootScene);
+			logger.debug(" PRIMARY mouse click detected! " + event.getSource());
+			// also cf. https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
 
-			PauseTransition delay = new PauseTransition(Duration.seconds(1));
-			delay.setOnFinished(e -> {
-				logger.debug(" on finished started :" + e);
-				stage.hide();
-				stage.close();
-				topBarVisible = !topBarVisible;
-				if (topBarVisible)
-					newAppStage.initStyle(StageStyle.DECORATED);
-				else
-					newAppStage.initStyle(StageStyle.UNDECORATED);
-				newAppStage.show();
-				logger.debug(" on finished completed :" + e);
-			});
-			delay.play();
-			stage.show();
+			activeStage.hide();
+			topBarVisible = !topBarVisible;
+			if (topBarVisible) {
+				logPositions("before");
+				decoratedStage.setHeight(undecoratedStage.getHeight());
+				decoratedStage.setWidth(undecoratedStage.getWidth());
+				decoratedStage.setX(undecoratedStage.getX());
+				decoratedStage.setY(undecoratedStage.getY());
+				logPositions("after ");
+
+				activeStage = decoratedStage;
+			} else {
+				logPositions("before");
+				undecoratedStage.setHeight(decoratedStage.getHeight());
+				undecoratedStage.setWidth(decoratedStage.getWidth());
+				undecoratedStage.setX(decoratedStage.getX());
+				undecoratedStage.setY(decoratedStage.getY());
+				activeStage = undecoratedStage;
+				logPositions("after ");
+			}
+
+			activeStage.show();
+			resizeItems();
 			logger.debug("mouse clicked completed " + event.getSource());
-			
+
 			break;
 		case MouseButton.SECONDARY:
-			logger.debug("secondary mouse click detected! " + event.getSource());
+			logger.debug("SECONDARY mouse click detected! " + event.getSource());
 			break;
 		case MouseButton.MIDDLE:
-			logger.debug("middle mouse click detected! " + event.getSource());
+			logger.debug("MIDDLE mouse click detected! " + event.getSource());
 			break;
 
 		case MouseButton.NONE:
 		default:
 			logger.error("Unexpected button type:" + event.getButton());
 		}
+	}
+	//following methods unused
+	public void displayLR(double[] amplitudeLR) {
+		// TODO Auto-generated method stub
+
+	}
+	public void displayLRasNumber(double[] amplitudeLR) {
+		// TODO Auto-generated method stub
+
+	}
+	public void displayLRasNumbers(double[] amplitudeLR) {
+		// TODO Auto-generated method stub
+
+	}
+	public void displayAsNumber(double[] amplitudeLR, int channels) {
+		// TODO Auto-generated method stub
+
+	}
+	public void displayAsNumbers(double[] amplitudeLR, int channels) {
+		// TODO Auto-generated method stub
+
 	}
 }
