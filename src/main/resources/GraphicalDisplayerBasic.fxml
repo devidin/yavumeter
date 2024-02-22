@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<Pane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPane" prefHeight="146.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="pane0">
          <children>
-            <ImageView fx:id="image0" fitHeight="193.0" fitWidth="228.0" pickOnBounds="true">
+            <ImageView fx:id="image0" fitHeight="148.0" fitWidth="243.0" pickOnBounds="true">
                <image>
                   <Image url="@default.JPG" />
                </image>
@@ -23,7 +23,7 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </opaqueInsets>
          <children>
-            <ImageView fx:id="image1" fitHeight="173.0" fitWidth="251.0" pickOnBounds="true">
+            <ImageView fx:id="image1" fitHeight="148.0" fitWidth="251.0" pickOnBounds="true">
                <image>
                   <Image url="@mcintosh.green.JPG" />
                </image>

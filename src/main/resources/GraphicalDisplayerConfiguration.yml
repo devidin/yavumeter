@@ -2,8 +2,17 @@
 referenceWidth: 1235
 referenceHeight: 630
 #############################################
-color: "blue"
 background: "mcintosh"
+color: "blue"
+color: "white"
+color: "yellow"
+color: "green"
+
+
+background: "nad"
+color: "white"
+color: "blue"
+
 fileType: "jpg"
 
 needleRed: 255

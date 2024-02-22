@@ -9,6 +9,7 @@ import devidin.net.yavumeter.VUmeterDisplayer;
 import devidin.net.yavumeter.display.Displayer;
 import devidin.net.yavumeter.soundmodel.SoundCardHelper;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -25,6 +26,7 @@ import javafx.scene.shape.StrokeLineCap;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
 
 public class GraphicalDisplayer extends Application implements Displayer {
 	private static GraphicalDisplayerParameters parameters = null;
@@ -66,7 +68,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			logger.debug("Monitoring started.");
 
 			logger.debug("Starting displaying...");
-			launch(args); 
+			launch(args);
 			logger.debug("Displaying ended.");
 
 			System.exit(0); // force all threads to terminate
@@ -97,23 +99,26 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		resizeItems(); // make sure content is properly aligned
 	}
-    private void centerStage(Stage stage) {
-        // Get the primary screen
-        Screen screen = Screen.getPrimary();
 
-        // Get the bounds of the screen
-        Rectangle2D bounds = screen.getVisualBounds();
+	private void centerStage(Stage stage) {
+		// Get the primary screen
+		Screen screen = Screen.getPrimary();
 
-        // Calculate the center coordinates
-        double centerX = bounds.getMinX() + (bounds.getWidth() - stage.getWidth()) / 2;
-        double centerY = bounds.getMinY() + (bounds.getHeight() - stage.getHeight()) / 2;
+		// Get the bounds of the screen
+		Rectangle2D bounds = screen.getVisualBounds();
 
-        // Set the stage position
-        stage.setX(centerX);
-        stage.setY(centerY);
-        
-        logger.debug("centerStage("+stage.getWidth()+","+stage.getHeight()+"): bounds="+bounds+", center=("+centerX+","+centerY +")");
-    }
+		// Calculate the center coordinates
+		double centerX = bounds.getMinX() + (bounds.getWidth() - stage.getWidth()) / 2;
+		double centerY = bounds.getMinY() + (bounds.getHeight() - stage.getHeight()) / 2;
+
+		// Set the stage position
+		stage.setX(centerX);
+		stage.setY(centerY);
+
+		logger.debug("centerStage(" + stage.getWidth() + "," + stage.getHeight() + "): bounds=" + bounds + ", center=("
+				+ centerX + "," + centerY + ")");
+	}
+
 	public Stage buildStage(StageStyle style, String fxmlFilePath) {
 
 		Pane newPane = null;
@@ -133,15 +138,18 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		return newStage;
 	}
+
 	public void initializeItems(Stage stage) {
 		for (int i = 0; i < 2; i++) {
 			try {
 
 				String needleLabel = "#needle" + i;
 				String imageLabel = "#image" + i;
+				
+				ImageView imageView = (ImageView) stage.getScene().lookup(imageLabel);
+				imageView.setImage(getParamaters().getImage());
+			
 				Line needle = (Line) stage.getScene().lookup(needleLabel);
-				ImageView image = (ImageView) stage.getScene().lookup(imageLabel);
-
 				needle.setVisible(true);
 				needle.setSmooth(true);
 				Color needleColor = Color.rgb((int) getParamaters().getNeedleRed(),
@@ -162,8 +170,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 					needle.setEffect(shadow);
 				}
-				needle.setLayoutX(image.getLayoutX());
-				needle.setLayoutY(image.getLayoutY());
+				needle.setLayoutX(imageView.getLayoutX());
+				needle.setLayoutY(imageView.getLayoutY());
 
 				needle.setVisible(true);
 
@@ -174,18 +182,19 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		}
 
 	}
+
 	public Pane loadPane(String fxml) throws IOException {
 		Pane pane = FXMLLoader.load(getClass().getResource(fxml));
 		return pane;
 	}
+
 	public void init() { // do nothing
 
 	}
+
 	public void shutdown() {// do nothing
 		logger.debug("Shutdown complete");
 	}
-
-
 
 	public synchronized void display(double[] amplitude, int channels) {
 
@@ -216,11 +225,14 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			double[] segment = resizeSegementToImage(calculateSegment(intertialAmplitude[i], 128), image);
 
 			if (segment != null) {
-				needle.setStartX(segment[0]);
-				needle.setStartY(segment[1]);
-				needle.setEndX(segment[2]);
-				needle.setEndY(segment[3]);
-				needle.setVisible(true);
+
+				Platform.runLater(() -> {
+					needle.setStartX(segment[0]);
+					needle.setStartY(segment[1]);
+					needle.setEndX(segment[2]);
+					needle.setEndY(segment[3]);
+					needle.setVisible(true);
+				});
 			} else {
 				needle.setVisible(false);
 			}
@@ -228,6 +240,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		// previousCallTimeMillis = startTime;
 	}
+
 	double[] makeInertial(double[] amplitude) {
 		double[] intertialAmplitude = new double[amplitude.length];
 
@@ -243,7 +256,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		previousAmplitude = intertialAmplitude;
 		return intertialAmplitude;
 	}
-
 
 	public static double[] calculateSegment(double amplitude, int maxAmplitude) {
 		double[] coordinates = new double[4];
@@ -375,10 +387,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			System.exit(0);
 		});
 	}
+
 	public void resizeItems() {
 		resizeItemsHeight();
 		resizeItemsWidth();
 	}
+
 	public synchronized void resizeItemsHeight() {
 		int m = 2; // matrix mxn (future use)
 		int n = 1;
@@ -406,6 +420,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			}
 		}
 	}
+
 	public synchronized void resizeItemsWidth() {
 		int m = 2; // matrix mxn (future use)
 		int n = 1;
@@ -433,22 +448,25 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			}
 		}
 	}
+
 	public void logPositions(String message) {
-		logPositions(decoratedStage, "  decorated "+message);
-		logPositions(undecoratedStage, "undecorated "+message);
+		logPositions(decoratedStage, "  decorated " + message);
+		logPositions(undecoratedStage, "undecorated " + message);
 	}
+
 	public void logPositions(Stage stage, String stageString) {
 		logger.debug("Postion of stage " + stageString + ": height=" + stage.getHeight() + ",width=" + stage.getWidth()
 				+ ",X=" + stage.getX() + ",Y=" + stage.getY());
 	}
 
-	public synchronized void  handleMouseEvent(MouseEvent event) {
+	public synchronized void handleMouseEvent(MouseEvent event) {
 		logger.debug("mouse click detected! " + event.getSource());
 
 		switch (event.getButton()) {
 		case MouseButton.PRIMARY:
 			logger.debug(" PRIMARY mouse click detected! " + event.getSource());
-			// also cf. https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
+			// also cf.
+			// https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
 
 			activeStage.hide();
 			topBarVisible = !topBarVisible;
@@ -488,23 +506,28 @@ public class GraphicalDisplayer extends Application implements Displayer {
 			logger.error("Unexpected button type:" + event.getButton());
 		}
 	}
-	//following methods unused
+
+	// following methods unused
 	public void displayLR(double[] amplitudeLR) {
 		// TODO Auto-generated method stub
 
 	}
+
 	public void displayLRasNumber(double[] amplitudeLR) {
 		// TODO Auto-generated method stub
 
 	}
+
 	public void displayLRasNumbers(double[] amplitudeLR) {
 		// TODO Auto-generated method stub
 
 	}
+
 	public void displayAsNumber(double[] amplitudeLR, int channels) {
 		// TODO Auto-generated method stub
 
 	}
+
 	public void displayAsNumbers(double[] amplitudeLR, int channels) {
 		// TODO Auto-generated method stub
 

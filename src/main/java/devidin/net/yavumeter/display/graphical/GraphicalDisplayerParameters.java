@@ -1,6 +1,7 @@
 package devidin.net.yavumeter.display.graphical;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -9,14 +10,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.configuration.Configuration;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 
 //import javafx.scene.image.Image;
 public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguration {
 	private double minAngle;
 	private double maxAngle;
 	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
-	private BufferedImage bufferedImage = null;
-
+//	private BufferedImage bufferedImage = null;
+	private Image image = null;
+	
 	public static GraphicalDisplayerParameters LoadConfiguration() {
 		GraphicalDisplayerParameters parameters = null;
 
@@ -115,31 +119,31 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		/*
 		 * if (Math.abs(getMaxAmplitudeAngle()) > Math.PI) { swapAngles(); }
 		 */
-		setBufferedImage();
+		setImage();
 	}
 
-	private int getWidth() {
-		return getBufferedImage().getWidth();
+	private double getWidth() {
+		return getImage().getWidth();
 	}
 
-	private int getHeight() {
-		return getBufferedImage().getHeight();
+	private double getHeight() {
+		return getImage().getHeight();
+	}
+	public Image getImage() {
+		setImage();
+		return image;
 	}
 
-	private BufferedImage getBufferedImage() {
-		if (bufferedImage == null)
-			setBufferedImage();
-		return bufferedImage;
-	}
-
-	private void setBufferedImage() {
+	public void setImage() {
+		if (image!=null) return;
+		URL resourceUrl = getClass().getClassLoader().getResource(getFileName());
+		logger.info("Image ressource file URL:" + resourceUrl);
 		try {
-			URL resourceUrl = getClass().getClassLoader().getResource(getFileName());
-			logger.info("Image ressource file URL:" + resourceUrl);
-			bufferedImage = ImageIO.read(resourceUrl);
-		} catch (Exception e) {
-			logger.error("Failed to read image file: " + getFileName(), e);
+			image=SwingFXUtils.toFXImage(ImageIO.read(resourceUrl), null);
+		} catch (IOException e) {
+			logger.error("Failed to load image "+getFileName(), e);
 		}
+		
 	}
 
 }
