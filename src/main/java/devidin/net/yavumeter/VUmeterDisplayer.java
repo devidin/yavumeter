@@ -96,7 +96,7 @@ public class VUmeterDisplayer implements Runnable {
 				}
 
 				if (ais.available() < buffer.length) {
-					Thread.sleep(20); // TODO make configurable
+					Thread.sleep(15); // TODO make configurable
 					displayer.display(amplitude2, format.getChannels());
 
 				} else {

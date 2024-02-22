@@ -46,8 +46,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	private static boolean topBarVisible = true; // decorated
 	// smoothing variables
 	private static double[] previousAmplitude = new double[] { 0, 0 };
-	private static int maxDownSpeed = 1; // TODO make configurable
-	private static int maxUpSpeed = 16; // "
+	private static double maxDownSpeed = 0.5; // TODO make configurable
+	private static double maxUpSpeed = 5; // "
 
 	public static GraphicalDisplayerParameters getParamaters() {
 		if (parameters == null)
@@ -145,10 +145,21 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 				String needleLabel = "#needle" + i;
 				String imageLabel = "#image" + i;
-				
+				String foregroundLabel = "#foreground" + i;
+
 				ImageView imageView = (ImageView) stage.getScene().lookup(imageLabel);
 				imageView.setImage(getParamaters().getImage());
-			
+				ImageView foregroungImageView = (ImageView) stage.getScene().lookup(foregroundLabel);
+				try {
+					foregroungImageView.setImage(getParamaters().getForegroundImage());
+					//foregroungImageView.setVisible(true);
+					;
+				} catch (Exception e) {
+					logger.warn("Foreground not found.");
+					foregroungImageView.setVisible(false);
+					;
+				}
+
 				Line needle = (Line) stage.getScene().lookup(needleLabel);
 				needle.setVisible(true);
 				needle.setSmooth(true);
@@ -173,7 +184,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setLayoutX(imageView.getLayoutX());
 				needle.setLayoutY(imageView.getLayoutY());
 
-				needle.setVisible(true);
+				//needle.setVisible(true);
 
 				logger.debug("Needle draw ok " + i);
 			} catch (Exception e) {
@@ -409,6 +420,11 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
 					image.setFitHeight(itemHeight);
 
+					imageLabel = "#foreground" + index;
+					image = (ImageView) activeStage.getScene().lookup(imageLabel);
+					if (image != null)
+						image.setFitHeight(itemHeight);
+
 					String paneLabel = "#pane" + index;
 					logger.debug("Repositioning vertically " + paneLabel);
 					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
@@ -437,10 +453,24 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
 					image.setFitWidth(itemWidth);
 
+					String foregroundImageLabel = "#foreground" + index;
+					ImageView foregroundImage = (ImageView) activeStage.getScene().lookup(foregroundImageLabel);
+					if (foregroundImage != null)
+						foregroundImage.setFitWidth(itemWidth);
+
+					String needleLabel = "#needle" + index;
+					Line needle = (Line) activeStage.getScene().lookup(needleLabel);
+
 					String paneLabel = "#pane" + index;
 					logger.debug("Repositioning horizontally" + paneLabel);
 					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
 					pane.setLayoutX(i * itemWidth);
+					
+					pane.getChildren().clear();
+					if (foregroundImage != null)
+						pane.getChildren().addAll(image, needle, foregroundImage);
+					else
+						pane.getChildren().addAll(image, needle);
 
 				} catch (Exception e) {
 					logger.error("Failed to resizeItemsWidth " + i, e);

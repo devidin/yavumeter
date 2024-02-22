@@ -16,6 +16,11 @@
                </image>
             </ImageView>
             <Line fx:id="needle0" endX="132.0" endY="182.58578491210938" startX="17.0" startY="84.58578491210938" stroke="RED" strokeWidth="2.0" />
+            <ImageView fx:id="foreground0" fitHeight="138.0" fitWidth="237.0" layoutX="3.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@foreground.gif" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane fx:id="pane1" layoutX="259.0" layoutY="-2.0">
@@ -29,6 +34,11 @@
                </image>
             </ImageView>
             <Line fx:id="needle1" endX="152.0" endY="187.0" layoutX="-8.0" layoutY="-14.0" startX="23.0" startY="92.5" stroke="#ff8000" strokeWidth="2.0" />
+            <ImageView fx:id="foreground1" fitHeight="138.0" fitWidth="237.0" layoutX="7.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@foreground.gif" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

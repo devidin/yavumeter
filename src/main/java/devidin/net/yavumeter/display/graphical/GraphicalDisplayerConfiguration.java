@@ -32,6 +32,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	// following parameters are not configurable (calculated with setters)
 	private String fileName;
+	private String foregroundFileName;
 	private long needleLength=1; // avoid div / 0
 
 	public String toString() {
@@ -268,5 +269,13 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setNeedleShadow(boolean value) {
 		this.needleShadow = value;
+	}
+
+	public String getForegroundFileName() {
+		return foregroundFileName;
+	}
+
+	public void setForegroundFileName(String value) {
+		this.foregroundFileName = value;
 	}
 }

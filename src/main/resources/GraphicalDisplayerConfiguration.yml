@@ -8,12 +8,13 @@ color: "white"
 color: "yellow"
 color: "green"
 
-
 background: "nad"
 color: "white"
 color: "blue"
 
 fileType: "jpg"
+
+foregroundFileName: "foreground.png"
 
 needleRed: 255
 needleGreen: 0
