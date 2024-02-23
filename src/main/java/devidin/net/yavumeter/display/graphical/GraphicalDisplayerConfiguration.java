@@ -11,6 +11,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private String background;
 	private String color;
 	private String fileType;
+	private boolean preserveAspectRatio;
 	// dimensions
 	private long referenceWidth;// = 1000; // width of the reference image, not necessarily the actual one
 	private long referenceHeight;// = 1000; // eight of the reference image, not necessarily the actual one
@@ -29,6 +30,12 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private long needleBlue;
 	private long needleWidth;
 	private boolean needleShadow;
+	private long needleShadowOffsetX;
+	private long needleShadowOffsetY;
+		
+	private long backgroundRed;
+	private long backgroundGreen;
+	private long backgroundBlue;
 
 	// following parameters are not configurable (calculated with setters)
 	private String fileName;
@@ -202,6 +209,8 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setReferenceWidth(800);
 		setReferenceHeight(600);
 
+		setPreserveAspectRatio(true);
+		
 		setxC(400);
 		setyC(800);
 
@@ -216,6 +225,13 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setNeedleRed(0);
 		setNeedleWidth(2);
 		setNeedleShadow(true);
+
+		setBackgroundBlue(128);
+		setBackgroundGreen(128);
+		setBackgroundRed(128);
+		
+		setNeedleShadowOffsetX(-6);
+		setNeedleShadowOffsetY(-6);
 
 	}
 
@@ -277,5 +293,53 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setForegroundFileName(String value) {
 		this.foregroundFileName = value;
+	}
+
+	public long getBackgroundRed() {
+		return backgroundRed;
+	}
+
+	public void setBackgroundRed(long value) {
+		this.backgroundRed = value;
+	}
+
+	public long getBackgroundGreen() {
+		return backgroundGreen;
+	}
+
+	public void setBackgroundGreen(long value) {
+		this.backgroundGreen = value;
+	}
+
+	public long getBackgroundBlue() {
+		return backgroundBlue;
+	}
+
+	public void setBackgroundBlue(long value) {
+		this.backgroundBlue = value;
+	}
+
+	public long getNeedleShadowOffsetX() {
+		return needleShadowOffsetX;
+	}
+
+	public void setNeedleShadowOffsetX(long needleShadowOffsetX) {
+		this.needleShadowOffsetX = needleShadowOffsetX;
+	}
+
+	public long getNeedleShadowOffsetY() {
+		return needleShadowOffsetY;
+	}
+
+	public void setNeedleShadowOffsetY(long needleShadowOffsetY) {
+		this.needleShadowOffsetY = needleShadowOffsetY;
+	}
+
+	public boolean isPreserveAspectRatio() {
+		return preserveAspectRatio;
+	}
+
+	public void setPreserveAspectRatio(boolean preserveAspectRatio) {
+		this.preserveAspectRatio = preserveAspectRatio;
 	}
 }

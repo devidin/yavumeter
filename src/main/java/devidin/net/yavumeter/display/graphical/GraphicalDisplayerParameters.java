@@ -20,7 +20,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
 //	private BufferedImage bufferedImage = null;
 	private Image image = null;
-	private Image foregroundImage = null;
+//	private Image foregroundImage = null;
 	
 	public static GraphicalDisplayerParameters LoadConfiguration() {
 		GraphicalDisplayerParameters parameters = null;
@@ -146,7 +146,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		}
 		
 	}
-
+/*
 	public void setForegroundImage() {
 		if (foregroundImage!=null) return;
 		URL resourceUrl = getClass().getClassLoader().getResource(getForegroundFileName());
@@ -162,5 +162,5 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		setForegroundImage();
 		return foregroundImage;
 	}
-
+*/
 }

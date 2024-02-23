@@ -13,14 +13,23 @@ color: "white"
 color: "blue"
 
 fileType: "jpg"
-
 foregroundFileName: "foreground.png"
 
+preserveAspectRatio: true
+
 needleRed: 255
-needleGreen: 0
-needleBlue: 0
+needleGreen: 255
+needleBlue: 255
 needleWidth: 2
 needleShadow: true
+
+backgroundRed: 0
+backgroundGreen: 0
+backgroundBlue: 0
+
+needleShadow: true
+needleShadowOffsetX: 6
+needleShadowOffsetY: -6
 
 #############################################
 # test cases
@@ -91,7 +100,7 @@ yMax: 600
 #############################################
 # bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 xC: 618
-yC: 1000
+yC: 800
 xMin: 60
 yMin: 237
 xMax: 1188

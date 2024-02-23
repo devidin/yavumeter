@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -47,7 +48,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	// smoothing variables
 	private static double[] previousAmplitude = new double[] { 0, 0 };
 	private static double maxDownSpeed = 0.5; // TODO make configurable
-	private static double maxUpSpeed = 5; // "
+	private static double maxUpSpeed = 5; //
 
 	public static GraphicalDisplayerParameters getParamaters() {
 		if (parameters == null)
@@ -100,6 +101,10 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		resizeItems(); // make sure content is properly aligned
 	}
 
+	public void init() { // do nothing
+
+	}
+
 	private void centerStage(Stage stage) {
 		// Get the primary screen
 		Screen screen = Screen.getPrimary();
@@ -147,19 +152,25 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				String imageLabel = "#image" + i;
 				String foregroundLabel = "#foreground" + i;
 
+				/*
+				 * ImageView foregroundImageView = (ImageView)
+				 * stage.getScene().lookup(foregroundLabel); try {
+				 * foregroundImageView.setImage(getParamaters().getForegroundImage());
+				 * //foregroungImageView.setVisible(true); ; } catch (Exception e) {
+				 * logger.warn("Foreground not found."); foregroundImageView.setVisible(false);
+				 * ; }
+				 */
+				// layer 0 : background
+				Color backgroundColor = Color.rgb((int) getParamaters().getBackgroundRed(),
+						(int) getParamaters().getBackgroundGreen(), (int) getParamaters().getBackgroundBlue());
+				Rectangle background = (Rectangle) stage.getScene().lookup("#background");
+				background.setFill(backgroundColor);
+
+				// layer 1 : VU meter image
 				ImageView imageView = (ImageView) stage.getScene().lookup(imageLabel);
 				imageView.setImage(getParamaters().getImage());
-				ImageView foregroungImageView = (ImageView) stage.getScene().lookup(foregroundLabel);
-				try {
-					foregroungImageView.setImage(getParamaters().getForegroundImage());
-					//foregroungImageView.setVisible(true);
-					;
-				} catch (Exception e) {
-					logger.warn("Foreground not found.");
-					foregroungImageView.setVisible(false);
-					;
-				}
-
+				imageView.setPreserveRatio(getParamaters().isPreserveAspectRatio());
+				// layer 2 : needle (2.1) & shadow (2.0)
 				Line needle = (Line) stage.getScene().lookup(needleLabel);
 				needle.setVisible(true);
 				needle.setSmooth(true);
@@ -176,17 +187,18 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					shadow.setHeight(5);
 					shadow.setWidth(getParamaters().getNeedleWidth());
 					shadow.setRadius(5);
-					shadow.setOffsetX(-6);
-					shadow.setOffsetY(6);
+					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX());
+					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY());
 
 					needle.setEffect(shadow);
 				}
 				needle.setLayoutX(imageView.getLayoutX());
 				needle.setLayoutY(imageView.getLayoutY());
-
-				//needle.setVisible(true);
-
 				logger.debug("Needle draw ok " + i);
+
+				// layer 3 : foreground
+				// nothing to change
+
 			} catch (Exception e) {
 				logger.error("Failed to initialize needle " + i, e);
 			}
@@ -199,21 +211,230 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		return pane;
 	}
 
-	public void init() { // do nothing
+	public void setListeners(Stage stage) {
+		stage.getScene().widthProperty().addListener((observable, oldvalue, newvalue) -> {
+			if (oldvalue != newvalue) { // avoid infinite loop
+				resizeItems();
+				resizeItems();
+			}
+		});
+		stage.getScene().heightProperty().addListener((observable, oldvalue, newvalue) -> {
+			if (oldvalue != newvalue) { // avoid infinite loop
+				resizeItems();
+				resizeItems();
+			}
+		});
 
+		stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent mouseEvent) {
+				handleMouseEvent(mouseEvent);
+			}
+		});
+
+		stage.setOnCloseRequest(event -> {
+			logger.info("Shutdown event. Exiting.");
+			System.exit(0);
+		});
+	}
+
+	public void resizeItems() {
+		resizeItemsHeight();
+		resizeItemsWidth();
+	}
+
+	public synchronized void resizeItemsHeight() {
+		int m = 2; // matrix mxn (future use)
+		int n = 1;
+
+		/*
+		 * try { activeStage.setHeight(activeStage.getHeight()); // register user's
+		 * setting } catch (Throwable t) {// will fail if not triggered by user : ignore
+		 * logger.debug("resizeItemsHeight", t); }
+		 */
+		double itemHeight = activeStage.getScene().getHeight() / n;
+
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				int index = j * m + i;
+				try {
+					String paneLabel = "#pane" + index;
+					logger.debug("Repositioning vertically " + paneLabel);
+
+					String imageLabel = "#image" + index;
+					logger.debug("Resizing height " + imageLabel);
+					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
+					image.setFitHeight(itemHeight);
+					double actualHeight = image.getBoundsInParent().getHeight();
+					image.setLayoutY((itemHeight - actualHeight) / 2); // center vertically
+
+					String foregroundImageLabel = "#foreground" + index;
+					ImageView foregroundImage = (ImageView) activeStage.getScene().lookup(foregroundImageLabel);
+					if (foregroundImage != null) {
+						foregroundImage.setLayoutY(image.getLayoutY());
+						foregroundImage.setFitHeight(image.getBoundsInParent().getHeight());
+						logger.debug("Repositioning foreground vertically " + foregroundImageLabel + "--> height="
+								+ image.getBoundsInParent().getHeight() + ",Y=" + image.getLayoutY());
+					}
+
+					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
+					pane.setLayoutY(j * itemHeight);
+
+					Rectangle background = (Rectangle) activeStage.getScene().lookup("#background");
+					background.setHeight(activeStage.getHeight());
+					// pane.setPrefHeight(itemHeight);
+
+					/*if (activeStage != undecoratedStage)
+						// undecoratedStage.getScene().getRoot().set(activeStage.getScene().getHeight());
+						((Pane) undecoratedStage.getScene().getRoot())
+								.setPrefHeight(activeStage.getScene().getHeight());
+					*/
+					logger.debug("New height: " + activeStage.getScene().getHeight());
+
+				} catch (Exception e) {
+					logger.error("Failed to resizeItemsHeight " + i, e);
+				}
+			}
+		}
+	}
+
+	public synchronized void resizeItemsWidth() {
+		int m = 2; // matrix mxn (future use)
+		int n = 1;
+
+		/*
+		 * try { activeStage.setWidth(activeStage.getWidth()); // register user's
+		 * settings } catch (Throwable t) { // will fail if not triggered by user :
+		 * ignore logger.debug("resizeItemsWidth", t); }
+		 */
+
+		double itemWidth = activeStage.getScene().getWidth() / m;
+
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				int index = j * m + i;
+				try {
+					String paneLabel = "#pane" + index;
+					logger.debug("Repositioning horizontally" + paneLabel);
+					String imageLabel = "#image" + index;
+					logger.debug("Resizing width " + imageLabel);
+					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
+					image.setFitWidth(itemWidth);
+					double actualWidth = image.getBoundsInParent().getWidth();
+					image.setLayoutX((itemWidth - actualWidth) / 2); // center horizontally
+
+					String foregroundImageLabel = "#foreground" + index;
+					ImageView foregroundImage = (ImageView) activeStage.getScene().lookup(foregroundImageLabel);
+					if (foregroundImage != null) {
+						foregroundImage.setLayoutX(image.getLayoutX());
+						foregroundImage.setFitWidth(actualWidth);
+						logger.debug("Repositioning foreground horizontally " + foregroundImageLabel + "--> width="
+								+ actualWidth + ",X=" + image.getLayoutX());
+					}
+					String needleLabel = "#needle" + index;
+					Line needle = (Line) activeStage.getScene().lookup(needleLabel);
+
+					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
+					pane.setLayoutX(i * itemWidth);
+					pane.setPrefWidth(itemWidth);
+
+					Rectangle background = (Rectangle) activeStage.getScene().lookup("#background");
+					background.setWidth(activeStage.getWidth());
+
+					/*if (activeStage != undecoratedStage)
+						//undecoratedStage.setWidth(activeStage.getScene().getWidth());
+						((Pane) undecoratedStage.getScene().getRoot())
+						.setPrefWidth(activeStage.getScene().getWidth());
+						*/
+					logger.debug("New width: " + activeStage.getScene().getWidth());
+
+					/*
+					 * pane.getChildren().clear(); if (foregroundImage != null)
+					 * pane.getChildren().addAll(image, needle, foregroundImage); else
+					 * pane.getChildren().addAll(image, needle);
+					 */
+				} catch (Exception e) {
+					logger.error("Failed to resizeItemsWidth " + i, e);
+				}
+			}
+		}
+	}
+
+	public void logPositions(String message) {
+		logPositions(decoratedStage, "  decorated " + message);
+		logPositions(undecoratedStage, "undecorated " + message);
+	}
+
+	public void logPositions(Stage stage, String stageString) {
+		logger.debug("Postion of stage " + stageString + ": height=" + stage.getHeight() + ",width=" + stage.getWidth()
+				+ ",X=" + stage.getX() + ",Y=" + stage.getY());
+	}
+
+	public void swapDecorations() {
+		// alternative cf.
+		// https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
+
+        //double decorationHeight = decoratedStage.getHeight() - decoratedStage.getScene().getHeight();
+
+		
+		topBarVisible = !topBarVisible;
+		if (topBarVisible) {
+			((Pane) decoratedStage.getScene().getRoot()).setPrefHeight(decoratedStage.getScene().getHeight());
+			((Pane) decoratedStage.getScene().getRoot()).setPrefWidth(decoratedStage.getScene().getWidth());
+			activeStage.hide();
+			activeStage = decoratedStage;
+		} else {
+			logPositions("before");
+			double decorationWidth = decoratedStage.getWidth() - decoratedStage.getScene().getWidth();
+			((Pane) undecoratedStage.getScene().getRoot()).setPrefHeight(decoratedStage.getHeight()-6); // 5-6 pixels missing???
+			((Pane) undecoratedStage.getScene().getRoot()).setPrefWidth(decoratedStage.getScene().getWidth());
+			undecoratedStage.setX(decoratedStage.getX()+decorationWidth/2) ;
+			undecoratedStage.setY(decoratedStage.getY());
+			
+			activeStage.hide();
+			activeStage = undecoratedStage;
+			logPositions("after ");
+		}
+
+		activeStage.show();
+		resizeItems();
+		resizeItems();
+	}
+
+	public synchronized void handleMouseEvent(MouseEvent event) {
+		logger.debug("mouse click detected! " + event.getSource());
+
+		switch (event.getButton()) {
+		case MouseButton.PRIMARY:
+			logger.debug(" PRIMARY mouse click detected! " + event.getSource());
+			swapDecorations();
+			logger.debug("mouse clicked completed " + event.getSource());
+
+			break;
+		case MouseButton.SECONDARY:
+			logger.debug("SECONDARY mouse click detected! " + event.getSource());
+			break;
+		case MouseButton.MIDDLE:
+			logger.debug("MIDDLE mouse click detected! " + event.getSource());
+			break;
+
+		case MouseButton.NONE:
+		default:
+			logger.error("Unexpected button type:" + event.getButton());
+		}
 	}
 
 	public void shutdown() {// do nothing
 		logger.debug("Shutdown complete");
 	}
 
+	// display and calculations
 	public synchronized void display(double[] amplitude, int channels) {
 
 		if (activeStage == null || activeStage.getScene() == null) {
 			logger.debug("not yet ready to display..., rootStage=" + activeStage + ", scene is not accessible.");
 			return;
 		}
-		// long startTime = System.currentTimeMillis();
 
 		double[] intertialAmplitude = makeInertial(amplitude);
 
@@ -248,8 +469,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setVisible(false);
 			}
 		}
-
-		// previousCallTimeMillis = startTime;
 	}
 
 	double[] makeInertial(double[] amplitude) {
@@ -278,8 +497,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double Y = getParamaters().getyC() + Math.sin(alpha) * getParamaters().getNeedleLength();
 
 		double[] segment = new double[] { getParamaters().getxC(), getParamaters().getyC(), X, Y };
-		double[] rectangle = new double[] { 0, 0, getParamaters().getReferenceWidth(),
-				getParamaters().getReferenceHeight() };
+		double[] rectangle = new double[] { 0, 0, getParamaters().getReferenceWidth() - 1,
+				getParamaters().getReferenceHeight() - 1 }; // -1: make sure there is not one dot outside borders
 
 		double[] intersection = calculateIntersection(segment, rectangle);
 		if (intersection != null) {
@@ -306,12 +525,29 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		if (coordinates == null)
 			return null;
 		double[] segment = new double[4];
+		double actualWidth = image.getBoundsInParent().getWidth();
+		double actualHeight = image.getBoundsInParent().getHeight();
+		double horizontalOffset = image.getLayoutX() + (image.getFitWidth() - actualWidth) / 2;
+		double verticalOffset = image.getLayoutY() + (image.getFitHeight() - actualHeight) / 2;
+
+		horizontalOffset = image.getBoundsInParent().getMinX();
+		verticalOffset = image.getBoundsInParent().getMinY();
 		// X's
-		segment[0] = (coordinates[0] * (double) image.getFitWidth() / (double) getParamaters().getReferenceWidth());
-		segment[2] = (coordinates[2] * (double) image.getFitWidth() / (double) getParamaters().getReferenceWidth());
+		segment[0] = horizontalOffset + (coordinates[0] * actualWidth / (double) getParamaters().getReferenceWidth());
+		segment[2] = horizontalOffset + (coordinates[2] * actualWidth / (double) getParamaters().getReferenceWidth());
 		// Ys
-		segment[1] = (coordinates[1] * (double) image.getFitHeight() / (double) getParamaters().getReferenceHeight());
-		segment[3] = (coordinates[3] * (double) image.getFitHeight() / (double) getParamaters().getReferenceHeight());
+		segment[1] = verticalOffset + (coordinates[1] * actualHeight / (double) getParamaters().getReferenceHeight()) - 1;
+		segment[3] = verticalOffset + (coordinates[3] * actualHeight / (double) getParamaters().getReferenceHeight()) - 1;
+
+		/*
+		 * // X's segment[0] = (coordinates[0] * (double) image.getFitWidth() / (double)
+		 * getParamaters().getReferenceWidth()); segment[2] = (coordinates[2] * (double)
+		 * image.getFitWidth() / (double) getParamaters().getReferenceWidth()); // Ys
+		 * segment[1] = (coordinates[1] * (double) image.getFitHeight() / (double)
+		 * getParamaters().getReferenceHeight()); segment[3] = (coordinates[3] *
+		 * (double) image.getFitHeight() / (double)
+		 * getParamaters().getReferenceHeight());
+		 */
 		/*
 		 * System.out.println("Resize ("+coordinates[0]+","+coordinates[1]+"),("+
 		 * coordinates[2]+","+coordinates[3]+") with FitWidth="+image.getFitWidth()+
@@ -323,7 +559,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	}
 
-	// Calculate the intersection point of two line segments
 	public static double[] calculateIntersection(double x1, double y1, double x2, double y2, double x3, double y3,
 			double x4, double y4) {
 		double denominator = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
@@ -376,165 +611,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		return null; // no intersection with image
 
-	}
-
-	public synchronized void setListeners(Stage stage) {
-		stage.widthProperty().addListener(observable -> {
-			resizeItemsWidth();
-		});
-		stage.heightProperty().addListener(observable -> {
-			resizeItemsHeight();
-		});
-
-		stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent mouseEvent) {
-				handleMouseEvent(mouseEvent);
-			}
-		});
-
-		stage.setOnCloseRequest(event -> {
-			logger.info("Shutdown event. Exiting.");
-			System.exit(0);
-		});
-	}
-
-	public void resizeItems() {
-		resizeItemsHeight();
-		resizeItemsWidth();
-	}
-
-	public synchronized void resizeItemsHeight() {
-		int m = 2; // matrix mxn (future use)
-		int n = 1;
-
-		double itemHeight = activeStage.getHeight() / n;
-
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				int index = j * m + i;
-				try {
-
-					String imageLabel = "#image" + index;
-					logger.debug("Resizing height " + imageLabel);
-					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
-					image.setFitHeight(itemHeight);
-
-					imageLabel = "#foreground" + index;
-					image = (ImageView) activeStage.getScene().lookup(imageLabel);
-					if (image != null)
-						image.setFitHeight(itemHeight);
-
-					String paneLabel = "#pane" + index;
-					logger.debug("Repositioning vertically " + paneLabel);
-					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
-					pane.setLayoutY(j * itemHeight);
-
-				} catch (Exception e) {
-					logger.error("Failed to resizeItemsHeight " + i, e);
-				}
-			}
-		}
-	}
-
-	public synchronized void resizeItemsWidth() {
-		int m = 2; // matrix mxn (future use)
-		int n = 1;
-
-		double itemWidth = activeStage.getWidth() / m;
-
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				int index = j * m + i;
-				try {
-
-					String imageLabel = "#image" + index;
-					logger.debug("Resizing width " + imageLabel);
-					ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
-					image.setFitWidth(itemWidth);
-
-					String foregroundImageLabel = "#foreground" + index;
-					ImageView foregroundImage = (ImageView) activeStage.getScene().lookup(foregroundImageLabel);
-					if (foregroundImage != null)
-						foregroundImage.setFitWidth(itemWidth);
-
-					String needleLabel = "#needle" + index;
-					Line needle = (Line) activeStage.getScene().lookup(needleLabel);
-
-					String paneLabel = "#pane" + index;
-					logger.debug("Repositioning horizontally" + paneLabel);
-					Pane pane = (Pane) activeStage.getScene().lookup(paneLabel);
-					pane.setLayoutX(i * itemWidth);
-					
-					pane.getChildren().clear();
-					if (foregroundImage != null)
-						pane.getChildren().addAll(image, needle, foregroundImage);
-					else
-						pane.getChildren().addAll(image, needle);
-
-				} catch (Exception e) {
-					logger.error("Failed to resizeItemsWidth " + i, e);
-				}
-			}
-		}
-	}
-
-	public void logPositions(String message) {
-		logPositions(decoratedStage, "  decorated " + message);
-		logPositions(undecoratedStage, "undecorated " + message);
-	}
-
-	public void logPositions(Stage stage, String stageString) {
-		logger.debug("Postion of stage " + stageString + ": height=" + stage.getHeight() + ",width=" + stage.getWidth()
-				+ ",X=" + stage.getX() + ",Y=" + stage.getY());
-	}
-
-	public synchronized void handleMouseEvent(MouseEvent event) {
-		logger.debug("mouse click detected! " + event.getSource());
-
-		switch (event.getButton()) {
-		case MouseButton.PRIMARY:
-			logger.debug(" PRIMARY mouse click detected! " + event.getSource());
-			// also cf.
-			// https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
-
-			activeStage.hide();
-			topBarVisible = !topBarVisible;
-			if (topBarVisible) {
-				logPositions("before");
-				decoratedStage.setHeight(undecoratedStage.getHeight());
-				decoratedStage.setWidth(undecoratedStage.getWidth());
-				decoratedStage.setX(undecoratedStage.getX());
-				decoratedStage.setY(undecoratedStage.getY());
-				logPositions("after ");
-
-				activeStage = decoratedStage;
-			} else {
-				logPositions("before");
-				undecoratedStage.setHeight(decoratedStage.getHeight());
-				undecoratedStage.setWidth(decoratedStage.getWidth());
-				undecoratedStage.setX(decoratedStage.getX());
-				undecoratedStage.setY(decoratedStage.getY());
-				activeStage = undecoratedStage;
-				logPositions("after ");
-			}
-
-			activeStage.show();
-			resizeItems();
-			logger.debug("mouse clicked completed " + event.getSource());
-
-			break;
-		case MouseButton.SECONDARY:
-			logger.debug("SECONDARY mouse click detected! " + event.getSource());
-			break;
-		case MouseButton.MIDDLE:
-			logger.debug("MIDDLE mouse click detected! " + event.getSource());
-			break;
-
-		case MouseButton.NONE:
-		default:
-			logger.error("Unexpected button type:" + event.getButton());
-		}
 	}
 
 	// following methods unused

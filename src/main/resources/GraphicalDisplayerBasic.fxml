@@ -5,18 +5,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-<Pane fx:id="rootPane" prefHeight="146.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane fx:id="pane0">
+      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" height="167.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="286.0" />
+      <Pane fx:id="pane0" layoutY="1.0">
          <children>
-            <ImageView fx:id="image0" fitHeight="148.0" fitWidth="243.0" pickOnBounds="true">
+            <ImageView fx:id="image0" fitHeight="148.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@default.JPG" />
                </image>
             </ImageView>
-            <Line fx:id="needle0" endX="132.0" endY="182.58578491210938" startX="17.0" startY="84.58578491210938" stroke="RED" strokeWidth="2.0" />
-            <ImageView fx:id="foreground0" fitHeight="138.0" fitWidth="237.0" layoutX="3.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <Line fx:id="needle0" endX="132.0" endY="182.58578491210938" startX="45.0" startY="48.0" stroke="RED" strokeWidth="2.0" />
+            <ImageView fx:id="foreground0" fitHeight="86.0" fitWidth="157.0" layoutY="19.0" pickOnBounds="true">
                <image>
                   <Image url="@foreground.gif" />
                </image>
@@ -28,15 +30,15 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </opaqueInsets>
          <children>
-            <ImageView fx:id="image1" fitHeight="148.0" fitWidth="251.0" pickOnBounds="true">
+            <ImageView fx:id="image1" fitHeight="148.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@mcintosh.green.JPG" />
                </image>
             </ImageView>
             <Line fx:id="needle1" endX="152.0" endY="187.0" layoutX="-8.0" layoutY="-14.0" startX="23.0" startY="92.5" stroke="#ff8000" strokeWidth="2.0" />
-            <ImageView fx:id="foreground1" fitHeight="138.0" fitWidth="237.0" layoutX="7.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="foreground1" fitHeight="86.0" fitWidth="185.0" layoutX="42.0" layoutY="54.0" pickOnBounds="true">
                <image>
-                  <Image url="@foreground.gif" />
+                  <Image url="@foreground.png" />
                </image>
             </ImageView>
          </children>
