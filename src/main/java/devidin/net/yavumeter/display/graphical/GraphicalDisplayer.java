@@ -45,6 +45,10 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	private static Stage undecoratedStage = null;
 	private static Stage activeStage = null; // one of the above
 	private static boolean topBarVisible = true; // decorated
+	private static double originalWidth;
+	private static double originalHeight;
+	private static double originalX;
+	private static double originalY;
 	// smoothing variables
 	private static double[] previousAmplitude = new double[] { 0, 0 };
 	private static double maxDownSpeed = 0.5; // TODO make configurable
@@ -212,6 +216,33 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	}
 
 	public void setListeners(Stage stage) {
+
+		stage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
+			logger.debug("maximizedProperty:" + newValue);
+			{
+				if (!oldValue) {
+					stage.setWidth(originalWidth);
+					stage.setHeight(originalHeight);
+					stage.setX(originalX);
+					stage.setY(originalY);
+					logger.debug("stage reset to original position");
+				} else {
+					if (!newValue) {
+						originalWidth = stage.getWidth();
+						originalHeight = stage.getHeight();
+						originalX = stage.getX();
+						originalY = stage.getY();
+						logger.debug("stage information saved to allow future reset to original position");
+					}
+				}
+			}
+		});
+		stage.resizableProperty().addListener((observable, oldValue, newValue) -> {
+			logger.debug("resizableProperty:" + newValue);
+		});
+		stage.iconifiedProperty().addListener((observable, oldValue, newValue) -> {
+			logger.debug("iconifiedProperty:" + newValue);
+		});
 		stage.getScene().widthProperty().addListener((observable, oldvalue, newvalue) -> {
 			if (oldvalue != newvalue) { // avoid infinite loop
 				resizeItems();
@@ -284,11 +315,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					background.setHeight(activeStage.getHeight());
 					// pane.setPrefHeight(itemHeight);
 
-					/*if (activeStage != undecoratedStage)
-						// undecoratedStage.getScene().getRoot().set(activeStage.getScene().getHeight());
-						((Pane) undecoratedStage.getScene().getRoot())
-								.setPrefHeight(activeStage.getScene().getHeight());
-					*/
+					/*
+					 * if (activeStage != undecoratedStage) //
+					 * undecoratedStage.getScene().getRoot().set(activeStage.getScene().getHeight())
+					 * ; ((Pane) undecoratedStage.getScene().getRoot())
+					 * .setPrefHeight(activeStage.getScene().getHeight());
+					 */
 					logger.debug("New height: " + activeStage.getScene().getHeight());
 
 				} catch (Exception e) {
@@ -341,11 +373,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					Rectangle background = (Rectangle) activeStage.getScene().lookup("#background");
 					background.setWidth(activeStage.getWidth());
 
-					/*if (activeStage != undecoratedStage)
-						//undecoratedStage.setWidth(activeStage.getScene().getWidth());
-						((Pane) undecoratedStage.getScene().getRoot())
-						.setPrefWidth(activeStage.getScene().getWidth());
-						*/
+					/*
+					 * if (activeStage != undecoratedStage)
+					 * //undecoratedStage.setWidth(activeStage.getScene().getWidth()); ((Pane)
+					 * undecoratedStage.getScene().getRoot())
+					 * .setPrefWidth(activeStage.getScene().getWidth());
+					 */
 					logger.debug("New width: " + activeStage.getScene().getWidth());
 
 					/*
@@ -374,9 +407,9 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		// alternative cf.
 		// https://stackoverflow.com/questions/40773411/what-prevents-changing-primarystage-initstyle-in-javafx
 
-        //double decorationHeight = decoratedStage.getHeight() - decoratedStage.getScene().getHeight();
+		// double decorationHeight = decoratedStage.getHeight() -
+		// decoratedStage.getScene().getHeight();
 
-		
 		topBarVisible = !topBarVisible;
 		if (topBarVisible) {
 			((Pane) decoratedStage.getScene().getRoot()).setPrefHeight(decoratedStage.getScene().getHeight());
@@ -386,11 +419,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		} else {
 			logPositions("before");
 			double decorationWidth = decoratedStage.getWidth() - decoratedStage.getScene().getWidth();
-			((Pane) undecoratedStage.getScene().getRoot()).setPrefHeight(decoratedStage.getHeight()-6); // 5-6 pixels missing???
+			((Pane) undecoratedStage.getScene().getRoot()).setPrefHeight(decoratedStage.getHeight() - 6); // 5-6 pixels
+																											// missing???
 			((Pane) undecoratedStage.getScene().getRoot()).setPrefWidth(decoratedStage.getScene().getWidth());
-			undecoratedStage.setX(decoratedStage.getX()+decorationWidth/2) ;
+			undecoratedStage.setX(decoratedStage.getX() + decorationWidth / 2);
 			undecoratedStage.setY(decoratedStage.getY());
-			
+
 			activeStage.hide();
 			activeStage = undecoratedStage;
 			logPositions("after ");
@@ -536,8 +570,10 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		segment[0] = horizontalOffset + (coordinates[0] * actualWidth / (double) getParamaters().getReferenceWidth());
 		segment[2] = horizontalOffset + (coordinates[2] * actualWidth / (double) getParamaters().getReferenceWidth());
 		// Ys
-		segment[1] = verticalOffset + (coordinates[1] * actualHeight / (double) getParamaters().getReferenceHeight()) - 1;
-		segment[3] = verticalOffset + (coordinates[3] * actualHeight / (double) getParamaters().getReferenceHeight()) - 1;
+		segment[1] = verticalOffset + (coordinates[1] * actualHeight / (double) getParamaters().getReferenceHeight())
+				- 1;
+		segment[3] = verticalOffset + (coordinates[3] * actualHeight / (double) getParamaters().getReferenceHeight())
+				- 1;
 
 		/*
 		 * // X's segment[0] = (coordinates[0] * (double) image.getFitWidth() / (double)
