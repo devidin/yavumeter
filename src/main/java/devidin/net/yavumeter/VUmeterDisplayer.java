@@ -62,14 +62,16 @@ public class VUmeterDisplayer implements Runnable {
 
 			info = new DataLine.Info(TargetDataLine.class, format);
 			if (!AudioSystem.isLineSupported(info)) {
-				System.out.println("Unsupported format: " + format);
+				logger.error("Unsupported format: " + format);
 			}
 			// Obtain and open the line.
 			try {
 				targetDataLine = (TargetDataLine) AudioSystem.getLine(info);
 				targetDataLine.open(format);
 			} catch (LineUnavailableException ex) {
+				logger.error("Line unavailable: " + line.toString());
 				System.out.println("Line unavailable: " + line.toString());
+				System.exit(1);
 			}
 			targetDataLine.start();
 
@@ -82,7 +84,7 @@ public class VUmeterDisplayer implements Runnable {
 			double[] amplitude2=new double[format.getChannels()]; // 1 per channel
 			String displayerClassName = getConfiguration().getDisplayerClass();
 
-			logger.debug("Displayer class:" + displayerClassName);
+			logger.info("Displayer class:" + displayerClassName);
 
 			displayer = (Displayer) Class.forName(displayerClassName).getDeclaredConstructor().newInstance();
 			displayer.init();
@@ -125,6 +127,9 @@ public class VUmeterDisplayer implements Runnable {
 					case VUmeterDisplayerConfiguration.LOG_VIEW:
 						amplitude2 = SoundCardHelper.logarithmicView(amplitude1, 128);
 						break;
+					case VUmeterDisplayerConfiguration.EXP_VIEW:
+						amplitude2 = SoundCardHelper.expView(amplitude1, 128);
+						break;
 					case VUmeterDisplayerConfiguration.SQUARE_VIEW:
 						amplitude2 = SoundCardHelper.squareView(amplitude1, 128);
 						break;
@@ -133,8 +138,8 @@ public class VUmeterDisplayer implements Runnable {
 						break;
 					default:
 						logger.error("Invalid view mode in configuration file: " + configuration.getLoudnessMode()
-								+ "(expected : LOG,LINEAR,SQUAREROOT,SQUARE)");
-						amplitude2 = SoundCardHelper.squareView(amplitude1, 128);
+								+ "(expected : SQUAREROOT,SQUARE,LINEAR, LOG (,EXP?))");
+						amplitude2 = SoundCardHelper.linearView(amplitude1, 128);
 						break;
 					}
 

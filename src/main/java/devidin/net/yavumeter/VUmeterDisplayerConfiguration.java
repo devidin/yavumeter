@@ -16,6 +16,7 @@ public class VUmeterDisplayerConfiguration extends Configuration {
     private String loudnessMode;
     
 	public static final String LOG_VIEW="LOG"; 
+	public static final String EXP_VIEW="EXP"; 
 	public static final String LINEAR_VIEW="LINEAR"; 
 	public static final String SQUARE_VIEW="SQUARE"; 
 	public static final String SQUAREROOT_VIEW="SQUAREROOT"; 
@@ -41,8 +42,8 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 		setBufferSize(64);
 		setLineID(0);
 		setMixerID(4);
-		setLoudnessMode(RMS_LOUDNESS);
-		setViewMode(LOG_VIEW);
+		setLoudnessMode(AVG_LOUDNESS);
+		setViewMode(LINEAR_VIEW);
 	}
 	
 	public static VUmeterDisplayerConfiguration loadConfiguration() {

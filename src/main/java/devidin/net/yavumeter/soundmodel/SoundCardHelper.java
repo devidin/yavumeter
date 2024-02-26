@@ -13,7 +13,7 @@ public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
 	private static final SoundCardHelperConfiguration configuration = SoundCardHelperConfiguration.LoadConfiguration();
 	private static double maxAmplitude=0;
-
+	private static int noiseLevel=1;
 	
 	public static Mixer.Info[] getMixersList() {
 		return AudioSystem.getMixerInfo();
@@ -75,45 +75,61 @@ public class SoundCardHelper {
 		return format;
 
 	}
-	
+/*	
 	private static void testAmplitude( double amplitude) {
 		if(amplitude>maxAmplitude) {
 			maxAmplitude=amplitude;
 			logger.debug("maxAmplitude="+maxAmplitude);
 		}
 	}
-
+*/
+	
+	public static double removeNoise(byte sample)
+	{
+/*		short sample = (short) (amplitude & 0xFF);
+		int sample2=sample;
+*/		
+		byte sample2;
+		if (sample<0) 
+			sample2 = (byte) -sample;
+		else sample2= sample;
+		
+		if (sample2<=noiseLevel) 
+			return 0;
+		else {
+			//return (double) sample2* ((double) 128/(128-noiseLevel));
+			return (double) (sample2-noiseLevel)* ((double) 128/(128-noiseLevel));
+		}
+	}
 	public static double[] calculateAmplitudeAVG(byte[] buffer, int bytesRead, int channels) {
-		final double integralFactor=Math.PI/2            *6;
+		final double integralFactor=Math.PI/2*6;
 
 		
 		double[] amplitudes = new double[channels];
 		for (int channel = 0; channel < channels; channel++) {
 			double totAmplitude = 0;
 			for (int i = channel; i < bytesRead; i += 2) {
-				double amplitude = (double) Math.abs(buffer[i] );//& 0xFF);
+				double amplitude = removeNoise(buffer[i]);
 				
-				testAmplitude(amplitude);
+//				testAmplitude(amplitude);
 				totAmplitude = totAmplitude + amplitude;
 			}
 			amplitudes[channel] = integralFactor*totAmplitude / bytesRead;
 		}
 		return amplitudes;
 	}
-
-	// same as above, but merge all channels as one
 	public static double calculateAmplitudeAVG(byte[] buffer, int bytesRead) {
 		return calculateAmplitudeAVG(buffer, bytesRead, 1) [0];
 	}
 	public static double[] calculateAmplitudeRMS(byte[] buffer, int bytesRead, int channels) {
-		final double integralFactor=3  ;
+		final double integralFactor=3;
 		
 		double[] amplitudes = new double[channels];
 		for (int channel = 0; channel < channels; channel++) {
 			double sumOfSquares = 0;
 			for (int i = channel; i < bytesRead; i += channels) {
-				double amplitude = (double) buffer[i];// left channel is the first byte (+0), right the second (+1)
-				testAmplitude(amplitude);
+				double amplitude = removeNoise(buffer[i]);// left channel is the first byte (+0), right the second (+1)
+//				testAmplitude(amplitude);
 				sumOfSquares = sumOfSquares + amplitude * amplitude;
 			}
 			amplitudes[channel] = Math.max(0,
@@ -121,12 +137,10 @@ public class SoundCardHelper {
 		}
 		return amplitudes;
 	}
-
-	// same as above, but merge all channels as one
 	private static double calculateAmplitudeRMS(byte[] buffer, int bytesRead) {
 		return calculateAmplitudeRMS(buffer, bytesRead, 1)[0];
 	}
-
+	//--------------------
 	public static double linearView(double amplitude, int max) {
 		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - linear
@@ -137,11 +151,15 @@ public class SoundCardHelper {
 		else
 			return amplitude;
 	}
-	
 	public static double logarithmicView(double amplitude, int max) {
 		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - logarithmic
 		return linearView( (Math.log((1 + amplitude)) * (double) max / Math.log((double) max)), max);
+	}
+	public static double expView(double amplitude, int max) {
+		// amplitude: -inf .. +inf - linear
+		// returns : 0..max - logarithmic
+		return expView( (Math.exp((amplitude)) * (double) max / Math.exp((double) max)), max);
 	}
 
 	public static double squareView(double amplitude, int max) {
@@ -156,19 +174,24 @@ public class SoundCardHelper {
 		return linearView( (Math.sqrt( amplitude) * (double) max / Math.sqrt((double) max)), max);
 	}
 	
-//-*-------------------
-	
+	//--------------------
 	public static double[] linearView(double amplitude[], int max) {
 		double[] result = new double[amplitude.length];
 		for (int i=0;i<amplitude.length;i++) 
 			result[i]=linearView(amplitude[i], max);
 		return result;
 	}
-	
 	public static double[] logarithmicView(double amplitude[], int max) {
 		double[] result = new double[amplitude.length];
 		for (int i=0;i<amplitude.length;i++) 
 			result[i]=logarithmicView(amplitude[i], max);
+		return result;
+	}
+
+	public static double[] expView(double amplitude[], int max) {
+		double[] result = new double[amplitude.length];
+		for (int i=0;i<amplitude.length;i++) 
+			result[i]=linearView(amplitude[i], max);
 		return result;
 	}
 
