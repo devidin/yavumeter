@@ -20,7 +20,7 @@ public class YAvumeterFX extends Application {
 	private static Stage stage=null;
 
 	public YAvumeterFX() {
-		// TODO Auto-generated constructor stub
+		// do nothing
 	}
 
 	public static void main(String[] args) {

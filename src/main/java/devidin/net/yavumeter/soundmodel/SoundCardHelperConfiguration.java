@@ -7,7 +7,8 @@ import devidin.net.yavumeter.configuration.Configuration;
 
 public class SoundCardHelperConfiguration extends Configuration {
 	private AudioFormat audioFormat;
-	private long channels;
+	private int noiseLevel=1;
+	//private long channels;
 
 	private static Logger logger = null;
 	private static SoundCardHelperConfiguration configuration = null;
@@ -17,6 +18,7 @@ public class SoundCardHelperConfiguration extends Configuration {
 		return configuration;
 	}
 
+	
 
 	public AudioFormat getAudioFormat() {
 		return audioFormat;
@@ -25,7 +27,7 @@ public class SoundCardHelperConfiguration extends Configuration {
 	public void setAudioFormat(AudioFormat value) {
 		this.audioFormat = value;
 	}
-
+/*
 	public long getChannels() {
 		return channels;
 	}
@@ -33,7 +35,7 @@ public class SoundCardHelperConfiguration extends Configuration {
 	public void setChannels(long value) {
 		this.channels = value;
 	}
-
+*/
 	public SoundCardHelperConfiguration() {
 
 	}
@@ -52,6 +54,18 @@ public class SoundCardHelperConfiguration extends Configuration {
 			return new SoundCardHelperConfiguration();
 		}
 
+	}
+
+
+
+	public int getNoiseLevel() {
+		return noiseLevel;
+	}
+
+
+
+	public void setNoiseLevel(int value) {
+		this.noiseLevel = value;
 	}
 
 

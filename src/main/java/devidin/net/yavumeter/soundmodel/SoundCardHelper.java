@@ -12,8 +12,7 @@ import org.slf4j.LoggerFactory;
 public class SoundCardHelper {
 	private static final Logger logger = LoggerFactory.getLogger(SoundCardHelper.class);
 	private static final SoundCardHelperConfiguration configuration = SoundCardHelperConfiguration.LoadConfiguration();
-	private static double maxAmplitude=0;
-	private static int noiseLevel=1;
+	//private static int noiseLevel=1;
 	
 	public static Mixer.Info[] getMixersList() {
 		return AudioSystem.getMixerInfo();
@@ -75,14 +74,6 @@ public class SoundCardHelper {
 		return format;
 
 	}
-/*	
-	private static void testAmplitude( double amplitude) {
-		if(amplitude>maxAmplitude) {
-			maxAmplitude=amplitude;
-			logger.debug("maxAmplitude="+maxAmplitude);
-		}
-	}
-*/
 	
 	public static double removeNoise(byte sample)
 	{
@@ -94,11 +85,11 @@ public class SoundCardHelper {
 			sample2 = (byte) -sample;
 		else sample2= sample;
 		
-		if (sample2<=noiseLevel) 
+		if (sample2<=configuration.getNoiseLevel()) 
 			return 0;
 		else {
 			//return (double) sample2* ((double) 128/(128-noiseLevel));
-			return (double) (sample2-noiseLevel)* ((double) 128/(128-noiseLevel));
+			return (double) (sample2-configuration.getNoiseLevel())* ((double) 128/(128-configuration.getNoiseLevel()));
 		}
 	}
 	public static double[] calculateAmplitudeAVG(byte[] buffer, int bytesRead, int channels) {
@@ -167,7 +158,6 @@ public class SoundCardHelper {
 		// returns : 0..max - square
 		return linearView((amplitude * amplitude / (double) max), max);
 	}
-
 	public static double squareRootView(double amplitude, int max) { // not applicable
 		// amplitude: -inf .. +inf - linear
 		// returns : 0..max - exponential

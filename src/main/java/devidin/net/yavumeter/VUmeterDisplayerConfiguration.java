@@ -10,6 +10,8 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 
     private String displayerClass;
     private long bufferSize;
+    private long intervalMs=15; //ms
+    
     private long mixerID;
     private long lineID;
     private String viewMode;
@@ -76,6 +78,12 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 
 	public void setLoudnessMode(String value) {
 		this.loudnessMode = value;
+	}
+	public long getIntervalMs() {
+		return intervalMs;
+	}
+	public void setIntervalMs(long value) {
+		this.intervalMs = value;
 	}
 }
 

@@ -62,12 +62,12 @@ public class ConsoleDisplayer implements Displayer {
 	}
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
+		// do nothing
 		
 	}
 	@Override
 	public void shutdown() {
-		// TODO Auto-generated method stub
+		// do nothing
 		
 	}
 

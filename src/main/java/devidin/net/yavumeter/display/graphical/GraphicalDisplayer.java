@@ -51,8 +51,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	private static double originalY;
 	// smoothing variables
 	private static double[] previousAmplitude = new double[] { 0, 0 };
-	private static double maxDownSpeed = 0.5; // TODO make configurable
-	private static double maxUpSpeed = 5; //
 
 	public static GraphicalDisplayerParameters getParamaters() {
 		if (parameters == null)
@@ -509,10 +507,10 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double[] intertialAmplitude = new double[amplitude.length];
 
 		for (int i = 0; i < intertialAmplitude.length; i++) {
-			if (amplitude[i] > previousAmplitude[i] + maxUpSpeed) {
-				intertialAmplitude[i] = previousAmplitude[i] + maxUpSpeed;
-			} else if (amplitude[i] < previousAmplitude[i] - maxDownSpeed) {
-				intertialAmplitude[i] = previousAmplitude[i] - maxDownSpeed;
+			if (amplitude[i] > previousAmplitude[i] + getParamaters().getMaxUpSpeed()) {
+				intertialAmplitude[i] = previousAmplitude[i] + getParamaters().getMaxUpSpeed();
+			} else if (amplitude[i] < previousAmplitude[i] - getParamaters().getMaxDownSpeed()) {
+				intertialAmplitude[i] = previousAmplitude[i] - getParamaters().getMaxDownSpeed();
 			} else {
 				intertialAmplitude[i] = amplitude[i];
 			}

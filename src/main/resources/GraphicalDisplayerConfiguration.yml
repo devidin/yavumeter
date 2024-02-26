@@ -2,6 +2,9 @@
 referenceWidth: 1235
 referenceHeight: 630
 #############################################
+maxDownSpeed: 0.5
+maxUpSpeed: 4.0
+#############################################
 background: "mcintosh"
 color: "blue"
 color: "white"
@@ -18,8 +21,8 @@ foregroundFileName: "foreground.png"
 preserveAspectRatio: true
 
 needleRed: 255
-needleGreen: 255
-needleBlue: 255
+needleGreen: 127
+needleBlue: 0
 needleWidth: 2
 needleShadow: true
 
@@ -101,8 +104,8 @@ yMax: 600
 # bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 xC: 618
 yC: 800
-xMin: 60
-yMin: 237
-xMax: 1188
-yMax: 237
+xMin: 75
+yMin: 260
+xMax: 1170
+yMax: 260
 # bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<

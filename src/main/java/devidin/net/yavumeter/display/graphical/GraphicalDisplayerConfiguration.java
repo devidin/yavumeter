@@ -42,6 +42,10 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	private String foregroundFileName;
 	private long needleLength=1; // avoid div / 0
 
+	private double maxDownSpeed = 0.5; 
+	private double maxUpSpeed = 5.0; 
+	
+	
 	public String toString() {
 
 		return "file:" + fileName + ", C(" + xC + "," + yC + ")" + ", min(" + xMin + "," + yMin + ")" + ", max(" + xMax
@@ -54,12 +58,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		return background;
 	}
 
-	public void setBackground(String value) { // TODO only one is needed
-		this.background = value;
-		setFileName();
-	}
-
-	public void setbackground(String value) {// TODO only one is needed
+	public void setBackground(String value) { 
 		this.background = value;
 		setFileName();
 	}
@@ -341,5 +340,21 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 
 	public void setPreserveAspectRatio(boolean preserveAspectRatio) {
 		this.preserveAspectRatio = preserveAspectRatio;
+	}
+
+	public double getMaxDownSpeed() {
+		return maxDownSpeed;
+	}
+
+	public void setMaxDownSpeed(double maxDownSpeed) {
+		this.maxDownSpeed = maxDownSpeed;
+	}
+
+	public double getMaxUpSpeed() {
+		return maxUpSpeed;
+	}
+
+	public void setMaxUpSpeed(double maxUpSpeed) {
+		this.maxUpSpeed = maxUpSpeed;
 	}
 }

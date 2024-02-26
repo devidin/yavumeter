@@ -43,6 +43,7 @@ public class VUmeterDisplayer implements Runnable {
 		Displayer displayer = null;
 
 		try {
+			
 			// Get the selected audio mixer
 			Mixer.Info[] mixersInfos = SoundCardHelper.getMixersList();
 			logger.info("Start monitoring mixer #" + mixerId);
@@ -52,25 +53,37 @@ public class VUmeterDisplayer implements Runnable {
 			// Get the selected line from the mixer
 			Line.Info[] lineInfos = mixer.getSourceLineInfo();
 			logger.info("Start monitoring line #" + lineId);
-			Line.Info lineInfo = lineInfos[lineId];
-			Line line = mixer.getLine(lineInfo);
+			Line.Info configuredlineInfo = lineInfos[lineId];
+			Line configuredLine = mixer.getLine(configuredlineInfo);
 			logger.info("Monitoring Line: " + lineInfos[lineId]);
-
+			//line.get TODO TargetDataLine <- mixer; line
+			
+			Line.Info selectedLineInfo;
+			
+			
+			//========== get default line
 			AudioFormat format = SoundCardHelper.getAudioFormat();
-			DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
+			DataLine.Info defaultLineInfo = new DataLine.Info(TargetDataLine.class, format);
+			//========== get default line
+
 			logger.info("Selected Audio Format: " + format);
 
-			info = new DataLine.Info(TargetDataLine.class, format);
-			if (!AudioSystem.isLineSupported(info)) {
+			// if mixer or line = -1
+			defaultLineInfo = new DataLine.Info(TargetDataLine.class, format);
+			if (!AudioSystem.isLineSupported(defaultLineInfo)) {
 				logger.error("Unsupported format: " + format);
 			}
+
+			
+			
 			// Obtain and open the line.
 			try {
-				targetDataLine = (TargetDataLine) AudioSystem.getLine(info);
+				
+				targetDataLine = (TargetDataLine) AudioSystem.getLine(defaultLineInfo);
 				targetDataLine.open(format);
 			} catch (LineUnavailableException ex) {
-				logger.error("Line unavailable: " + line.toString());
-				System.out.println("Line unavailable: " + line.toString());
+				logger.error("Line unavailable: ");// + line.toString());
+				System.out.println("Line unavailable: ");// + line.toString());
 				System.exit(1);
 			}
 			targetDataLine.start();
@@ -81,7 +94,7 @@ public class VUmeterDisplayer implements Runnable {
 			logger.info("Buffer size     : " + buffer.length);
 
 			double[] amplitude1; // 1 per channel
-			double[] amplitude2=new double[format.getChannels()]; // 1 per channel
+			double[] amplitude2 = new double[format.getChannels()]; // 1 per channel
 			String displayerClassName = getConfiguration().getDisplayerClass();
 
 			logger.info("Displayer class:" + displayerClassName);
@@ -98,7 +111,7 @@ public class VUmeterDisplayer implements Runnable {
 				}
 
 				if (ais.available() < buffer.length) {
-					Thread.sleep(15); // TODO make configurable
+					Thread.sleep(getConfiguration().getIntervalMs());
 					displayer.display(amplitude2, format.getChannels());
 
 				} else {
@@ -118,7 +131,7 @@ public class VUmeterDisplayer implements Runnable {
 						amplitude1 = SoundCardHelper.calculateAmplitudeRMS(buffer, b, format.getChannels());
 						break;
 					}
-					//logger.debug("1 -->"+amplitude1[0]+","+amplitude1[1]);
+					// logger.debug("1 -->"+amplitude1[0]+","+amplitude1[1]);
 
 					switch (configuration.getViewMode()) {
 					case VUmeterDisplayerConfiguration.SQUAREROOT_VIEW:
@@ -143,8 +156,8 @@ public class VUmeterDisplayer implements Runnable {
 						break;
 					}
 
-					//logger.debug("2 -->"+amplitude2[0]+","+amplitude2[1]);
-					
+					// logger.debug("2 -->"+amplitude2[0]+","+amplitude2[1]);
+
 					displayer.display(amplitude2, format.getChannels());
 				}
 			}
