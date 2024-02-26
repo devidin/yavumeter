@@ -3,12 +3,11 @@ displayerClass: "devidin.net.yavumeter.display.graphical.GraphicalDisplayer"
 bufferSize: 1600
 # wait time between calls
 intervalMs: 15
-mixerID: 6
-lineID: 0
 
+mixerName: "VoiceMeeter Output (VB-Audio VoiceMeeter VAIO)"
 
-mixerID: 6
-lineID: 0
+#mixerID: 8
+#lineID: 0
 
  # rms/avg
 loudnessMode: "RMS"

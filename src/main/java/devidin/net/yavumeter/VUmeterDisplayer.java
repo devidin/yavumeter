@@ -9,6 +9,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.TargetDataLine;
 
+import java.io.ObjectInputStream.GetField;
+
+import javax.sound.sampled.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,60 +37,63 @@ public class VUmeterDisplayer implements Runnable {
 	public void monitor() {
 		logger.debug("Monitoring from VUmeterDisplayer");
 
-		int mixerId = (int) getConfiguration().getMixerID();
-		int lineId = (int) getConfiguration().getLineID();
-
-		// TODO: if either of the above is -1, select default input
-
 		TargetDataLine targetDataLine = null;
 
 		Displayer displayer = null;
 
 		try {
-			
-			// Get the selected audio mixer
-			Mixer.Info[] mixersInfos = SoundCardHelper.getMixersList();
-			logger.info("Start monitoring mixer #" + mixerId);
-			Mixer mixer = AudioSystem.getMixer(mixersInfos[mixerId]);
-			logger.info("Monitoring mixer: (" + mixerId + ")" + mixersInfos[mixerId]);
 
-			// Get the selected line from the mixer
-			Line.Info[] lineInfos = mixer.getSourceLineInfo();
-			logger.info("Start monitoring line #" + lineId);
-			Line.Info configuredlineInfo = lineInfos[lineId];
-			Line configuredLine = mixer.getLine(configuredlineInfo);
-			logger.info("Monitoring Line: " + lineInfos[lineId]);
-			//line.get TODO TargetDataLine <- mixer; line
-			
 			Line.Info selectedLineInfo;
-			
-			
-			//========== get default line
 			AudioFormat format = SoundCardHelper.getAudioFormat();
-			DataLine.Info defaultLineInfo = new DataLine.Info(TargetDataLine.class, format);
-			//========== get default line
-
 			logger.info("Selected Audio Format: " + format);
-
-			// if mixer or line = -1
-			defaultLineInfo = new DataLine.Info(TargetDataLine.class, format);
+			
+			// ========== get default line
+			DataLine.Info defaultLineInfo = new DataLine.Info(TargetDataLine.class, format);
 			if (!AudioSystem.isLineSupported(defaultLineInfo)) {
 				logger.error("Unsupported format: " + format);
 			}
 
-			
-			
-			// Obtain and open the line.
-			try {
-				
-				targetDataLine = (TargetDataLine) AudioSystem.getLine(defaultLineInfo);
-				targetDataLine.open(format);
-			} catch (LineUnavailableException ex) {
-				logger.error("Line unavailable: ");// + line.toString());
-				System.out.println("Line unavailable: ");// + line.toString());
-				System.exit(1);
+			// ========== List accessible lines
+			Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
+			Mixer selectedMixer = null;
+
+			for (Mixer.Info mixerInfo : mixerInfos) {
+				selectedMixer = AudioSystem.getMixer(mixerInfo);
+				targetDataLine = SoundCardHelper.findTargetDataLine(mixerInfo.getName(), defaultLineInfo);
+				if (targetDataLine != null) {
+					logger.info("Possible mixer:" + mixerInfo.getName());
+				}
 			}
-			targetDataLine.start();
+			// ========== SPECIFIED default line
+			try {
+				targetDataLine = SoundCardHelper.findTargetDataLine(getConfiguration().getMixerName(), defaultLineInfo);
+				targetDataLine.open(format);
+				targetDataLine.start();
+				logger.info("Successfully open specified target mixer's line:"+getConfiguration().getMixerName());
+
+			} catch (Throwable t1) {
+				logger.error("Could not open specified target mixer's line '"+getConfiguration().getMixerName()+"'. Trying default.", t1);
+				
+				if (targetDataLine!=null) {
+					targetDataLine.stop();
+					targetDataLine.close();
+				}
+				
+				DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
+
+				try {
+					targetDataLine = (TargetDataLine) AudioSystem.getLine(info);
+					targetDataLine.open(format);
+					targetDataLine.start();
+				} catch (Throwable t2) {
+					logger.error("Could not open any target line. Abort", t2);
+					if (targetDataLine!=null) {
+						targetDataLine.stop();
+						targetDataLine.close();
+					}
+					System.exit(0);
+				}
+			}
 
 			logger.info("Target data Line: " + targetDataLine.getLineInfo());
 			byte[] buffer = new byte[(int) getConfiguration().getBufferSize()];

@@ -12,10 +12,9 @@ public class VUmeterDisplayerConfiguration extends Configuration {
     private long bufferSize;
     private long intervalMs=15; //ms
     
-    private long mixerID;
-    private long lineID;
     private String viewMode;
     private String loudnessMode;
+    private String mixerName;
     
 	public static final String LOG_VIEW="LOG"; 
 	public static final String EXP_VIEW="EXP"; 
@@ -32,18 +31,10 @@ public class VUmeterDisplayerConfiguration extends Configuration {
     public long getBufferSize() { return bufferSize; }
     public void setBufferSize(long value) { this.bufferSize = value; }
 
-    public long getMixerID() { return mixerID; }
-    public void setMixerID(long value) { this.mixerID = value; }
-
-    public long getLineID() { return lineID; }
-    public void setLineID(long value) { this.lineID = value; }
-    
 
 	public VUmeterDisplayerConfiguration() {
 		setDisplayerClass("devidin.net.yavumeter.display.ConsoleDisplayer");
 		setBufferSize(64);
-		setLineID(0);
-		setMixerID(4);
 		setLoudnessMode(AVG_LOUDNESS);
 		setViewMode(LINEAR_VIEW);
 	}
@@ -85,5 +76,12 @@ public class VUmeterDisplayerConfiguration extends Configuration {
 	public void setIntervalMs(long value) {
 		this.intervalMs = value;
 	}
+	public String getMixerName() {
+		return mixerName;
+	}
+	public void setMixerName(String mixerName) {
+		this.mixerName = mixerName;
+	}
+
 }
 
