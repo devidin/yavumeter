@@ -23,7 +23,7 @@ preserveAspectRatio: true
 needleRed: 255
 needleGreen: 127
 needleBlue: 0
-needleWidth: 4
+needleWidth: 5
 needleShadow: false
 
 backgroundRed: 0

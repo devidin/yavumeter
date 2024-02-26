@@ -38,6 +38,12 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	private static final String FXML_FILE = "/GraphicalDisplayerBasic.fxml";
 	private static GraphicalDisplayer application = new GraphicalDisplayer(); // just to access static methods
 
+	private static final byte NONE=127;
+	private static final byte BASE=0;
+	private static final byte TOP=1;
+	private static final byte LEFT=2;
+	private static final byte RIGHT=3;
+	
 	// monitoring thread
 	private static VUmeterDisplayer vumeterDisplayer = null;
 	private static Thread monitoringThread = null;
@@ -341,14 +347,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 					Rectangle background = (Rectangle) activeStage.getScene().lookup("#background");
 					background.setHeight(activeStage.getHeight());
-					// pane.setPrefHeight(itemHeight);
 
-					/*
-					 * if (activeStage != undecoratedStage) //
-					 * undecoratedStage.getScene().getRoot().set(activeStage.getScene().getHeight())
-					 * ; ((Pane) undecoratedStage.getScene().getRoot())
-					 * .setPrefHeight(activeStage.getScene().getHeight());
-					 */
 					logger.debug("New height: " + activeStage.getScene().getHeight());
 
 				} catch (Exception e) {
@@ -361,12 +360,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	public synchronized void resizeItemsWidth() {
 		int m = 2; // matrix mxn (future use)
 		int n = 1;
-
-		/*
-		 * try { activeStage.setWidth(activeStage.getWidth()); // register user's
-		 * settings } catch (Throwable t) { // will fail if not triggered by user :
-		 * ignore logger.debug("resizeItemsWidth", t); }
-		 */
 
 		double itemWidth = activeStage.getScene().getWidth() / m;
 
@@ -400,20 +393,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 					Rectangle background = (Rectangle) activeStage.getScene().lookup("#background");
 					background.setWidth(activeStage.getWidth());
-
-					/*
-					 * if (activeStage != undecoratedStage)
-					 * //undecoratedStage.setWidth(activeStage.getScene().getWidth()); ((Pane)
-					 * undecoratedStage.getScene().getRoot())
-					 * .setPrefWidth(activeStage.getScene().getWidth());
-					 */
 					logger.debug("New width: " + activeStage.getScene().getWidth());
-
-					/*
-					 * pane.getChildren().clear(); if (foregroundImage != null)
-					 * pane.getChildren().addAll(image, needle, foregroundImage); else
-					 * pane.getChildren().addAll(image, needle);
-					 */
 				} catch (Exception e) {
 					logger.error("Failed to resizeItemsWidth " + i, e);
 				}
@@ -562,14 +542,30 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		double[] rectangle = new double[] { 0, 0, getParamaters().getReferenceWidth() - 1,
 				getParamaters().getReferenceHeight() - 1 }; // -1: make sure there is not one dot outside borders
 
-		double[] intersection = calculateIntersection(segment, rectangle);
-		if (intersection != null) {
-			coordinates[0] = intersection[0];
-			coordinates[1] = intersection[1];
-		} else {
+		double[] intersection = new double[2];
+		switch (calculateIntersection(segment, rectangle, intersection)) {
+		case NONE:
 			coordinates[0] = getParamaters().getxC();
 			coordinates[1] = getParamaters().getyC();
+			break;
+		case BASE:
+			coordinates[0] = intersection[0];
+			coordinates[1] = intersection[1]-getParamaters().getNeedleWidth(); // erase extra dots from needle width below
+			break;
+		case TOP:
+			coordinates[0] = intersection[0];
+			coordinates[1] = intersection[1]+getParamaters().getNeedleWidth(); // erase extra dots above
+			break;
+		case LEFT:
+			coordinates[0] = intersection[0]-getParamaters().getNeedleWidth(); // erase extra dots on the left
+			coordinates[1] = intersection[1];
+			break;
+		case RIGHT:
+			coordinates[0] = intersection[0]+getParamaters().getNeedleWidth(); // erase extra dots on the right
+			coordinates[1] = intersection[1];
+			break;
 		}
+		
 		coordinates[2] = X;
 		coordinates[3] = Y;
 
@@ -598,38 +594,20 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		segment[0] = horizontalOffset + (coordinates[0] * actualWidth / (double) getParamaters().getReferenceWidth());
 		segment[2] = horizontalOffset + (coordinates[2] * actualWidth / (double) getParamaters().getReferenceWidth());
 		// Ys
-		segment[1] = verticalOffset + (coordinates[1] * actualHeight / (double) getParamaters().getReferenceHeight())
-				- 1;
-		segment[3] = verticalOffset + (coordinates[3] * actualHeight / (double) getParamaters().getReferenceHeight())
-				- 1;
+		segment[1] = verticalOffset + (coordinates[1] * actualHeight / (double) getParamaters().getReferenceHeight());
+		segment[3] = verticalOffset + (coordinates[3] * actualHeight / (double) getParamaters().getReferenceHeight());
 
-		/*
-		 * // X's segment[0] = (coordinates[0] * (double) image.getFitWidth() / (double)
-		 * getParamaters().getReferenceWidth()); segment[2] = (coordinates[2] * (double)
-		 * image.getFitWidth() / (double) getParamaters().getReferenceWidth()); // Ys
-		 * segment[1] = (coordinates[1] * (double) image.getFitHeight() / (double)
-		 * getParamaters().getReferenceHeight()); segment[3] = (coordinates[3] *
-		 * (double) image.getFitHeight() / (double)
-		 * getParamaters().getReferenceHeight());
-		 */
-		/*
-		 * System.out.println("Resize ("+coordinates[0]+","+coordinates[1]+"),("+
-		 * coordinates[2]+","+coordinates[3]+") with FitWidth="+image.getFitWidth()+
-		 * ",ReferenceWidth="+getParamaters().getReferenceWidth()
-		 * +",FitHeight="+image.getFitHeight()+",ReferenceHeight="+getParamaters().
-		 * getReferenceHeight());
-		 */
 		return segment;
 
 	}
 
-	public static double[] calculateIntersection(double x1, double y1, double x2, double y2, double x3, double y3,
-			double x4, double y4) {
+	public static boolean calculateIntersection(double x1, double y1, double x2, double y2, double x3, double y3,
+			double x4, double y4, double intersection[]) {
 		double denominator = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
 
 		// Check if the lines are parallel (denominator is zero)
 		if (denominator == 0) {
-			return null; // No intersection
+			return false; // No intersection
 		}
 
 		double t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denominator;
@@ -637,43 +615,40 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 		// Check if the intersection point is within the line segments
 		if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
-			double[] intersection = new double[2];
-
 			intersection[0] = x1 + t * (x2 - x1);
 			intersection[1] = y1 + t * (y2 - y1);
 
-			return intersection;
+			return true;
 		} else {
-			return null; // Intersection is outside the line segments
+			return false; // Intersection is outside the line segments
 		}
 	}
 
-	public static double[] calculateIntersection(double[] segment, double[] rectangle) {
-		double[] result;
-
+	public static byte calculateIntersection(double[] segment, double[] rectangle, double[] intersection) {
+		boolean intersect;
 		double rLeft = rectangle[0]; // upper left corner
 		double rTop = rectangle[1];
 
 		double rRight = rectangle[2]; // lower right corner
 		double rBottom = rectangle[3];
 
-		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rBottom, rRight, rBottom); // base
-		if (result != null)
-			return result;
+		intersect = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rBottom, rRight, rBottom, intersection); // base
+		if (intersect)
+			return BASE;
 
-		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rRight, rTop); // top
-		if (result != null)
-			return result;
+		intersect = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rRight, rTop, intersection); // top
+		if (intersect)
+			return TOP;
 
-		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rLeft, rBottom); // left
-		if (result != null)
-			return result;
+		intersect = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rLeft, rTop, rLeft, rBottom, intersection); // left
+		if (intersect)
+			return LEFT;
 
-		result = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rRight, rTop, rRight, rBottom); // right
-		if (result != null)
-			return result;
+		intersect = calculateIntersection(segment[0], segment[1], segment[2], segment[3], rRight, rTop, rRight, rBottom, intersection); // right
+		if (intersect)
+			return RIGHT;
 
-		return null; // no intersection with image
+		return NONE; // no intersection with image
 
 	}
 
