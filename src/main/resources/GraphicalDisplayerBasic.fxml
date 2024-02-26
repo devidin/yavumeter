@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -17,7 +18,11 @@
                   <Image url="@default.JPG" />
                </image>
             </ImageView>
-            <Line fx:id="needle0" endX="132.0" endY="182.58578491210938" startX="45.0" startY="48.0" stroke="RED" strokeWidth="2.0" />
+            <Line fx:id="needle0" endX="152.0" endY="187.0" startX="23.0" startY="92.5" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0" />
+               </effect>
+            </Line>
             <ImageView fx:id="foreground0" fitHeight="86.0" fitWidth="157.0" layoutY="19.0" pickOnBounds="true">
                <image>
                   <Image url="@foreground.gif" />
@@ -25,7 +30,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="pane1" layoutX="259.0" layoutY="-2.0">
+      <Pane fx:id="pane1" layoutX="278.0" layoutY="-6.0" prefHeight="186.0" prefWidth="251.0">
          <opaqueInsets>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </opaqueInsets>
@@ -35,7 +40,11 @@
                   <Image url="@mcintosh.green.JPG" />
                </image>
             </ImageView>
-            <Line fx:id="needle1" endX="152.0" endY="187.0" layoutX="-8.0" layoutY="-14.0" startX="23.0" startY="92.5" stroke="#ff8000" strokeWidth="2.0" />
+            <Line fx:id="needle1" endX="7.0" endY="186.0" startX="7.0" startY="11.0" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0" />
+               </effect>
+            </Line>
             <ImageView fx:id="foreground1" fitHeight="86.0" fitWidth="185.0" layoutX="42.0" layoutY="54.0" pickOnBounds="true">
                <image>
                   <Image url="@foreground.png" />

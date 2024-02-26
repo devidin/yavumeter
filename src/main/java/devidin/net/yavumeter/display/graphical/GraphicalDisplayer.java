@@ -16,6 +16,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -183,14 +184,16 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setStrokeLineCap(StrokeLineCap.ROUND);
 
 				if (getParamaters().isNeedleShadow()) {
+					double surfaceRatio=parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
+
 					DropShadow shadow = new DropShadow();
 					shadow.setBlurType(BlurType.GAUSSIAN);
 					shadow.setColor(Color.rgb(64, 64, 64));
 					shadow.setHeight(5);
-					shadow.setWidth(getParamaters().getNeedleWidth());
+					shadow.setWidth(5);
 					shadow.setRadius(5);
-					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX());
-					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY());
+					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX()*surfaceRatio);
+					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY()*surfaceRatio);
 
 					needle.setEffect(shadow);
 				}
@@ -215,26 +218,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 
 	public void setListeners(Stage stage) {
 
-		stage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
-			logger.debug("maximizedProperty:" + newValue);
-			{
-				if (!oldValue) {
-					stage.setWidth(originalWidth);
-					stage.setHeight(originalHeight);
-					stage.setX(originalX);
-					stage.setY(originalY);
-					logger.debug("stage reset to original position");
-				} else {
-					if (!newValue) {
-						originalWidth = stage.getWidth();
-						originalHeight = stage.getHeight();
-						originalX = stage.getX();
-						originalY = stage.getY();
-						logger.debug("stage information saved to allow future reset to original position");
-					}
-				}
-			}
-		});
 		stage.resizableProperty().addListener((observable, oldValue, newValue) -> {
 			logger.debug("resizableProperty:" + newValue);
 		});
@@ -243,15 +226,17 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		});
 		stage.getScene().widthProperty().addListener((observable, oldvalue, newvalue) -> {
 			if (oldvalue != newvalue) { // avoid infinite loop
-				resizeItems();
-				resizeItems();
-			}
+				resizeItemsWidth();
+				resizeItemsHeight();
+				resizeItemsWidth(); // side effects if keep ratio
+				resizeNeedles();			}
 		});
 		stage.getScene().heightProperty().addListener((observable, oldvalue, newvalue) -> {
 			if (oldvalue != newvalue) { // avoid infinite loop
-				resizeItems();
-				resizeItems();
-			}
+				resizeItemsHeight();
+				resizeItemsWidth();
+				resizeItemsHeight();  // side effects if keep ratio
+				resizeNeedles();			}
 		});
 
 		stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -270,6 +255,28 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	public void resizeItems() {
 		resizeItemsHeight();
 		resizeItemsWidth();
+		resizeItemsHeight();
+		resizeNeedles();
+	}
+
+	public synchronized void resizeNeedles() {
+
+		for (int needleId = 0; needleId < 2; needleId++) {
+			String needleLabel = "#needle"+needleId;
+			Line needle = (Line) activeStage.getScene().lookup(needleLabel);
+			double surfaceRatio=parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
+			double displayNeedleWidth = parameters.getNeedleWidth() * surfaceRatio;
+			needle.setStrokeWidth(displayNeedleWidth);
+			Effect effect = needle.getEffect();
+			if (effect!=null) {
+				DropShadow shadow = (DropShadow) effect;
+				
+				Platform.runLater(() -> {
+					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX()*surfaceRatio);
+					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY()*surfaceRatio);
+				});
+			}
+		}
 	}
 
 	public synchronized void resizeItemsHeight() {

@@ -146,6 +146,13 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		}
 		
 	}
+	
+	public double getSurfaceRatio(double actualHeight,double actualWidth) {
+		double refHeight = getReferenceHeight();
+		double refWidth = getReferenceWidth();
+		return Math.sqrt(actualHeight * actualHeight + actualWidth * actualWidth)
+				/ Math.sqrt(refHeight * refHeight + refWidth * refWidth);
+	}
 /*
 	public void setForegroundImage() {
 		if (foregroundImage!=null) return;

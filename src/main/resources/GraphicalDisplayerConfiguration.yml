@@ -23,16 +23,16 @@ preserveAspectRatio: true
 needleRed: 255
 needleGreen: 127
 needleBlue: 0
-needleWidth: 2
-needleShadow: true
+needleWidth: 10
+needleShadow: false
 
 backgroundRed: 0
 backgroundGreen: 0
 backgroundBlue: 0
 
 needleShadow: true
-needleShadowOffsetX: 6
-needleShadowOffsetY: -6
+needleShadowOffsetX: 20
+needleShadowOffsetY: -20
 
 #############################################
 # test cases
@@ -103,7 +103,7 @@ yMax: 600
 #############################################
 # bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 xC: 618
-yC: 800
+yC: 900
 xMin: 75
 yMin: 260
 xMax: 1170
