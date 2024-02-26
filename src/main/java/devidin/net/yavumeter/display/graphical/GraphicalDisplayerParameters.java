@@ -1,6 +1,5 @@
 package devidin.net.yavumeter.display.graphical;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
@@ -13,14 +12,12 @@ import devidin.net.yavumeter.configuration.Configuration;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
-//import javafx.scene.image.Image;
 public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguration {
 	private double minAngle;
 	private double maxAngle;
 	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
-//	private BufferedImage bufferedImage = null;
 	private Image image = null;
-//	private Image foregroundImage = null;
+	private Image foregroundImage = null;
 	
 	public static GraphicalDisplayerParameters LoadConfiguration() {
 		GraphicalDisplayerParameters parameters = null;
@@ -106,14 +103,6 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		return result;
 	}
 
-	private void swapAngles() {
-		double save = maxAngle;
-		maxAngle = minAngle;
-		minAngle = save;
-
-		logger.info("Min/max angles swapped.");
-	}
-
 	void setCalculatedParameters() {
 		setMinAngle();
 		setMaxAngle();
@@ -153,13 +142,13 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		return Math.sqrt(actualHeight * actualHeight + actualWidth * actualWidth)
 				/ Math.sqrt(refHeight * refHeight + refWidth * refWidth);
 	}
-/*
+
 	public void setForegroundImage() {
 		if (foregroundImage!=null) return;
 		URL resourceUrl = getClass().getClassLoader().getResource(getForegroundFileName());
 		logger.info("Image ressource file URL:" + resourceUrl);
 		try {
-			image=SwingFXUtils.toFXImage(ImageIO.read(resourceUrl), null);
+			foregroundImage=SwingFXUtils.toFXImage(ImageIO.read(resourceUrl), null);
 		} catch (IOException e) {
 			logger.error("Failed to load foreground image "+getForegroundFileName(), e);
 		}
@@ -169,5 +158,4 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		setForegroundImage();
 		return foregroundImage;
 	}
-*/
 }

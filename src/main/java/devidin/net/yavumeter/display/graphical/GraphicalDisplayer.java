@@ -147,6 +147,29 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		return newStage;
 	}
 
+	public void zorderItems() {
+		/*
+		String backgroundLabel = "#background";
+		Rectangle background = (Rectangle) activeStage.getScene().lookup(backgroundLabel);
+		background.toBack();
+		
+		for (int i = 0; i < 2; i++) {
+			String needleLabel = "#needle" + i;
+			String imageLabel = "#image" + i;
+			String foregroundLabel = "#foreground" + i;
+
+			ImageView image = (ImageView) activeStage.getScene().lookup(imageLabel);
+			Line needle = (Line) activeStage.getScene().lookup(needleLabel);
+			ImageView foreground = (ImageView) activeStage.getScene().lookup(foregroundLabel);
+
+			image.toFront();
+			needle.toFront();
+			foreground.toFront();
+
+		}
+*/
+	}
+
 	public void initializeItems(Stage stage) {
 		for (int i = 0; i < 2; i++) {
 			try {
@@ -155,14 +178,17 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				String imageLabel = "#image" + i;
 				String foregroundLabel = "#foreground" + i;
 
-				/*
-				 * ImageView foregroundImageView = (ImageView)
-				 * stage.getScene().lookup(foregroundLabel); try {
-				 * foregroundImageView.setImage(getParamaters().getForegroundImage());
-				 * //foregroungImageView.setVisible(true); ; } catch (Exception e) {
-				 * logger.warn("Foreground not found."); foregroundImageView.setVisible(false);
-				 * ; }
-				 */
+				ImageView foregroundImageView = (ImageView) stage.getScene().lookup(foregroundLabel);
+				try {
+					foregroundImageView.setImage(getParamaters().getForegroundImage());
+					foregroundImageView.setVisible(true);
+
+				} catch (Exception e) {
+					logger.warn("Foreground not found.");
+					foregroundImageView.setVisible(false);
+				}
+				;
+
 				// layer 0 : background
 				Color backgroundColor = Color.rgb((int) getParamaters().getBackgroundRed(),
 						(int) getParamaters().getBackgroundGreen(), (int) getParamaters().getBackgroundBlue());
@@ -184,7 +210,7 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setStrokeLineCap(StrokeLineCap.ROUND);
 
 				if (getParamaters().isNeedleShadow()) {
-					double surfaceRatio=parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
+					double surfaceRatio = parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
 
 					DropShadow shadow = new DropShadow();
 					shadow.setBlurType(BlurType.GAUSSIAN);
@@ -192,8 +218,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 					shadow.setHeight(5);
 					shadow.setWidth(5);
 					shadow.setRadius(5);
-					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX()*surfaceRatio);
-					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY()*surfaceRatio);
+					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX() * surfaceRatio);
+					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY() * surfaceRatio);
 
 					needle.setEffect(shadow);
 				}
@@ -229,14 +255,16 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				resizeItemsWidth();
 				resizeItemsHeight();
 				resizeItemsWidth(); // side effects if keep ratio
-				resizeNeedles();			}
+				resizeNeedles();
+			}
 		});
 		stage.getScene().heightProperty().addListener((observable, oldvalue, newvalue) -> {
 			if (oldvalue != newvalue) { // avoid infinite loop
 				resizeItemsHeight();
 				resizeItemsWidth();
-				resizeItemsHeight();  // side effects if keep ratio
-				resizeNeedles();			}
+				resizeItemsHeight(); // side effects if keep ratio
+				resizeNeedles();
+			}
 		});
 
 		stage.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -257,23 +285,24 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		resizeItemsWidth();
 		resizeItemsHeight();
 		resizeNeedles();
+		zorderItems();
 	}
 
 	public synchronized void resizeNeedles() {
 
 		for (int needleId = 0; needleId < 2; needleId++) {
-			String needleLabel = "#needle"+needleId;
+			String needleLabel = "#needle" + needleId;
 			Line needle = (Line) activeStage.getScene().lookup(needleLabel);
-			double surfaceRatio=parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
+			double surfaceRatio = parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
 			double displayNeedleWidth = parameters.getNeedleWidth() * surfaceRatio;
 			needle.setStrokeWidth(displayNeedleWidth);
 			Effect effect = needle.getEffect();
-			if (effect!=null) {
+			if (effect != null) {
 				DropShadow shadow = (DropShadow) effect;
-				
+
 				Platform.runLater(() -> {
-					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX()*surfaceRatio);
-					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY()*surfaceRatio);
+					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX() * surfaceRatio);
+					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY() * surfaceRatio);
 				});
 			}
 		}
@@ -282,12 +311,6 @@ public class GraphicalDisplayer extends Application implements Displayer {
 	public synchronized void resizeItemsHeight() {
 		int m = 2; // matrix mxn (future use)
 		int n = 1;
-
-		/*
-		 * try { activeStage.setHeight(activeStage.getHeight()); // register user's
-		 * setting } catch (Throwable t) {// will fail if not triggered by user : ignore
-		 * logger.debug("resizeItemsHeight", t); }
-		 */
 		double itemHeight = activeStage.getScene().getHeight() / n;
 
 		for (int i = 0; i < m; i++) {

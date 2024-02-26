@@ -23,7 +23,7 @@ preserveAspectRatio: true
 needleRed: 255
 needleGreen: 127
 needleBlue: 0
-needleWidth: 10
+needleWidth: 4
 needleShadow: false
 
 backgroundRed: 0
@@ -32,7 +32,7 @@ backgroundBlue: 0
 
 needleShadow: true
 needleShadowOffsetX: 20
-needleShadowOffsetY: -20
+needleShadowOffsetY: -5
 
 #############################################
 # test cases
