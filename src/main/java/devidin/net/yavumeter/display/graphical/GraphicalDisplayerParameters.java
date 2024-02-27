@@ -18,6 +18,7 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
 	private Image image = null;
 	private Image foregroundImage = null;
+	private Image logoImage = null;
 	
 	public static GraphicalDisplayerParameters LoadConfiguration() {
 		GraphicalDisplayerParameters parameters = null;
@@ -158,4 +159,19 @@ public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguratio
 		setForegroundImage();
 		return foregroundImage;
 	}
+
+	public Image getLogoImage() {
+		setLogoImage();
+		return logoImage;
+	}
+
+	public void setLogoImage() {
+		if (logoImage!=null) return;
+		URL resourceUrl = getClass().getClassLoader().getResource(getLogoFileName());
+		logger.info("Image ressource file URL:" + resourceUrl);
+		try {
+			logoImage=SwingFXUtils.toFXImage(ImageIO.read(resourceUrl), null);
+		} catch (IOException e) {
+			logger.error("Failed to load logo image "+getLogoFileName(), e);
+		}	}
 }

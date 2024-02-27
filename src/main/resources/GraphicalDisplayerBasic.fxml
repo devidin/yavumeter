@@ -18,7 +18,7 @@
                   <Image url="@default.JPG" />
                </image>
             </ImageView>
-            <Line fx:id="needle0" endX="152.0" endY="187.0" startX="23.0" startY="92.5" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
+            <Line fx:id="needle0" endX="152.0" endY="187.0" startX="29.0" startY="78.0" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
                <effect>
                   <DropShadow offsetX="5.0" offsetY="5.0" />
                </effect>
@@ -40,9 +40,9 @@
                   <Image url="@mcintosh.green.JPG" />
                </image>
             </ImageView>
-            <Line fx:id="needle1" endX="7.0" endY="186.0" startX="7.0" startY="11.0" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
+            <Line fx:id="needle1" endX="7.0" endY="186.0" layoutX="85.0" layoutY="-5.0" startX="-58.0" startY="34.0" stroke="#ff8000" strokeLineCap="ROUND" strokeWidth="10.0">
                <effect>
-                  <DropShadow offsetX="5.0" offsetY="5.0" />
+                  <DropShadow offsetX="5.0" offsetY="5.0" radius="4.75" width="0.0" />
                </effect>
             </Line>
             <ImageView fx:id="foreground1" fitHeight="86.0" fitWidth="185.0" layoutX="42.0" layoutY="54.0" pickOnBounds="true">

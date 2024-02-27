@@ -4,7 +4,7 @@ bufferSize: 1600
 # wait time between calls
 intervalMs: 15
 
-mixerName: "VoiceMeeter Output (VB-Audio VoiceMeeter VAIO)"
+mixerName: "VoiceMeeter Output (VB-Audio Vo"
 
 #mixerID: 8
 #lineID: 0
@@ -12,5 +12,5 @@ mixerName: "VoiceMeeter Output (VB-Audio VoiceMeeter VAIO)"
  # rms/avg
 loudnessMode: "RMS"
 
- # SQUAREROOT,SQUARE,LINEAR, LOG (,EXP?)
+ # SQUAREROOT,SQUARE,LINEAR, LOG (,EXP - not recommended)
 viewMode: "LOG"

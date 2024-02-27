@@ -40,6 +40,8 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 	// following parameters are not configurable (calculated with setters)
 	private String fileName;
 	private String foregroundFileName;
+	private String logoFileName;
+
 	private long needleLength=1; // avoid div / 0
 
 	private double maxDownSpeed = 0.5; 
@@ -230,7 +232,7 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		setBackgroundRed(128);
 		
 		setNeedleShadowOffsetX(-6);
-		setNeedleShadowOffsetY(-6);
+		setNeedleShadowOffsetY(6);
 
 	}
 
@@ -322,39 +324,48 @@ public class GraphicalDisplayerConfiguration extends Configuration {
 		return needleShadowOffsetX;
 	}
 
-	public void setNeedleShadowOffsetX(long needleShadowOffsetX) {
-		this.needleShadowOffsetX = needleShadowOffsetX;
+	public void setNeedleShadowOffsetX(long value) {
+		this.needleShadowOffsetX = value;
 	}
 
 	public long getNeedleShadowOffsetY() {
 		return needleShadowOffsetY;
 	}
 
-	public void setNeedleShadowOffsetY(long needleShadowOffsetY) {
-		this.needleShadowOffsetY = needleShadowOffsetY;
+	public void setNeedleShadowOffsetY(long value) {
+		this.needleShadowOffsetY = value;
 	}
 
 	public boolean isPreserveAspectRatio() {
 		return preserveAspectRatio;
 	}
 
-	public void setPreserveAspectRatio(boolean preserveAspectRatio) {
-		this.preserveAspectRatio = preserveAspectRatio;
+	public void setPreserveAspectRatio(boolean value) {
+		this.preserveAspectRatio = value;
 	}
 
 	public double getMaxDownSpeed() {
 		return maxDownSpeed;
 	}
 
-	public void setMaxDownSpeed(double maxDownSpeed) {
-		this.maxDownSpeed = maxDownSpeed;
+	public void setMaxDownSpeed(double value) {
+		this.maxDownSpeed = value;
 	}
 
 	public double getMaxUpSpeed() {
 		return maxUpSpeed;
 	}
 
-	public void setMaxUpSpeed(double maxUpSpeed) {
-		this.maxUpSpeed = maxUpSpeed;
+	public void setMaxUpSpeed(double value) {
+		this.maxUpSpeed = value;
+	}
+
+	public String getLogoFileName() {
+		if (logoFileName!=null) return logoFileName;
+		return fileName; // if not overrided by a logo configuration 
+	}
+
+	public void setLogoFileName(String value) {
+		this.logoFileName = value;
 	}
 }
