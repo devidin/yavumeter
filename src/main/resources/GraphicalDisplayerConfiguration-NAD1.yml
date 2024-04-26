@@ -1,0 +1,111 @@
+# GraphicalDisplayerParameters.yml
+referenceWidth: 1235
+referenceHeight: 630
+#############################################
+maxDownSpeed: 0.5
+maxUpSpeed: 4.0
+#############################################
+background: "mcintosh"
+color: "blue"
+color: "white"
+color: "yellow"
+color: "green"
+
+background: "nad"
+color: "white"
+color: "blue"
+
+fileType: "jpg"
+foregroundFileName: "foreground.png"
+
+preserveAspectRatio: true
+
+needleRed: 255
+needleGreen: 255
+needleBlue: 255
+needleWidth: 5
+needleShadow: false
+
+backgroundRed: 0
+backgroundGreen: 0
+backgroundBlue: 0
+
+needleShadow: true
+needleShadowOffsetX: 20
+needleShadowOffsetY: -5
+
+#############################################
+# test cases
+#############################################
+# top center ok
+xC: 618
+yC: -300
+xMin: 60
+yMin: 400
+xMax: 1188
+yMax: 400
+
+# left center ok
+xC: -100
+yC: 315
+xMin: 1100
+yMin: 600
+xMax: 1100
+yMax: 0
+# right center ok
+xC: 1435
+yC: 315
+xMin: 100
+yMin: 600
+xMax: 100
+yMax: 100
+# left horizontal ok
+xC: -100000
+yC: 315
+xMin: 1100
+yMin: 0
+xMax: 1100
+yMax: 600
+
+# right horizontal ok
+xC: 1000000
+yC: 315
+xMin: 100
+yMin: 600
+xMax: 100
+yMax: 100
+# right horizontal ok
+xC: 1000000
+yC: 315
+xMin: 100
+yMin: 600
+xMax: 100
+yMax: 100
+
+
+# bottom Veritcal ok
+xC: 618
+yC: +100000
+xMin: 60
+yMin: 100
+xMax: 1188
+yMax: 100
+
+# top vertical ok
+xC: 618
+yC: -1000000
+xMin: 60
+yMin: 600
+xMax: 1188
+yMax: 600
+#############################################
+# test cases end
+#############################################
+# bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+xC: 618
+yC: 900
+xMin: 75
+yMin: 260
+xMax: 1170
+yMax: 260
+# bottom center ok <<<<<<<<<<<<<<<<<<<<<<<<<<<<
