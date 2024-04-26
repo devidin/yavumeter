@@ -15,7 +15,7 @@ import javafx.scene.image.Image;
 public class GraphicalDisplayerParameters extends GraphicalDisplayerConfiguration {
 	private double minAngle;
 	private double maxAngle;
-	private static Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
+	private static final Logger logger = LoggerFactory.getLogger(GraphicalDisplayerParameters.class);;
 	private Image image = null;
 	private Image foregroundImage = null;
 	

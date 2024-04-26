@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import devidin.net.yavumeter.display.Displayer;
-import javafx.stage.Stage;
 
 public class ConsoleDisplayer implements Displayer {
 	private static ConsoleDisplayerConfiguration configuration = null;
