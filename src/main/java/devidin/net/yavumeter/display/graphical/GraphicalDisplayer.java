@@ -184,6 +184,8 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				String imageLabel = "#image" + i;
 				String foregroundLabel = "#foreground" + i;
 
+				stage.getIcons().add(getParamaters().getLogoImage());
+				
 				ImageView foregroundImageView = (ImageView) stage.getScene().lookup(foregroundLabel);
 				try {
 					foregroundImageView.setImage(getParamaters().getForegroundImage());
@@ -216,14 +218,14 @@ public class GraphicalDisplayer extends Application implements Displayer {
 				needle.setStrokeLineCap(StrokeLineCap.ROUND);
 
 				if (getParamaters().isNeedleShadow()) {
-					double surfaceRatio = parameters.getSurfaceRatio(activeStage.getHeight(), activeStage.getWidth());
+					double surfaceRatio = parameters.getSurfaceRatio(stage.getHeight(), stage.getWidth());
 
 					DropShadow shadow = new DropShadow();
 					shadow.setBlurType(BlurType.GAUSSIAN);
 					shadow.setColor(Color.rgb(64, 64, 64));
-					shadow.setHeight(5);
-					shadow.setWidth(5);
-					shadow.setRadius(5);
+					shadow.setHeight(10* surfaceRatio);
+					shadow.setWidth(10* surfaceRatio);
+					shadow.setRadius(10* surfaceRatio);
 					shadow.setOffsetX(getParamaters().getNeedleShadowOffsetX() * surfaceRatio);
 					shadow.setOffsetY(getParamaters().getNeedleShadowOffsetY() * surfaceRatio);
 
@@ -447,20 +449,20 @@ public class GraphicalDisplayer extends Application implements Displayer {
 		logger.debug("mouse click detected! " + event.getSource());
 
 		switch (event.getButton()) {
-		case MouseButton.PRIMARY:
+		case PRIMARY:
 			logger.debug(" PRIMARY mouse click detected! " + event.getSource());
 			swapDecorations();
 			logger.debug("mouse clicked completed " + event.getSource());
 
 			break;
-		case MouseButton.SECONDARY:
+		case SECONDARY:
 			logger.debug("SECONDARY mouse click detected! " + event.getSource());
 			break;
-		case MouseButton.MIDDLE:
+		case MIDDLE:
 			logger.debug("MIDDLE mouse click detected! " + event.getSource());
 			break;
 
-		case MouseButton.NONE:
+		case NONE:
 		default:
 			logger.error("Unexpected button type:" + event.getButton());
 		}
